@@ -37,6 +37,10 @@ import {
   ChevronRight,
   Loader2
 } from "lucide-react"
+import { useZodValidation } from "@/hooks/useZodValidation"
+import { FormError } from "@/components/ui/form-error"
+import { step2Schema, step3Schema } from "@/lib/validations/onboarding"
+import { cn } from "@/lib/utils"
 
 const learningPreferences = [
   { id: "video", label: "Video lezioni", icon: Video },
@@ -82,6 +86,13 @@ export default function OnboardingPage() {
 
   const progress = (step / totalSteps) * 100
 
+  // Validation setup (only for steps 2 & 3)
+  const stepSchemas = [null, null, step2Schema, step3Schema, null, null]
+  const currentSchema = stepSchemas[step - 1]
+  const validation = currentSchema
+    ? useZodValidation(currentSchema)
+    : { errors: {}, validate: () => true, getError: () => undefined, clearErrors: () => {}, hasErrors: false }
+
   const toggleLearningPref = (pref: string) => {
     const current = formData.learningPrefs
     if (current.includes(pref)) {
@@ -105,7 +116,11 @@ export default function OnboardingPage() {
   }
 
   const handleNext = async () => {
+    // Validate only steps 2 and 3
+    if (currentSchema && !validation.validate(formData)) return
+
     if (step < totalSteps) {
+      validation.clearErrors() // Clear errors when moving to next step
       setStep(step + 1)
     } else {
       // Fix H3: Complete onboarding with error handling
@@ -247,6 +262,7 @@ export default function OnboardingPage() {
                         )
                       })}
                     </div>
+                    <FormError message={validation.getError("learningPrefs")} />
                   </div>
 
                   <div className="space-y-3">
@@ -273,13 +289,20 @@ export default function OnboardingPage() {
                         </label>
                       ))}
                     </div>
+                    <FormError message={validation.getError("accessibility")} />
 
                     {formData.accessibility === "other" && (
-                      <Input
-                        placeholder="Specifica..."
-                        value={formData.otherAccessibility}
-                        onChange={(e) => setFormData({ ...formData, otherAccessibility: e.target.value })}
-                      />
+                      <>
+                        <Input
+                          id="otherAccessibility"
+                          placeholder="Specifica..."
+                          value={formData.otherAccessibility}
+                          onChange={(e) => setFormData({ ...formData, otherAccessibility: e.target.value })}
+                          className={validation.getError("otherAccessibility") ? "border-destructive" : ""}
+                          aria-invalid={!!validation.getError("otherAccessibility")}
+                        />
+                        <FormError message={validation.getError("otherAccessibility")} />
+                      </>
                     )}
                   </div>
                 </div>
@@ -291,7 +314,7 @@ export default function OnboardingPage() {
                   <div className="space-y-2">
                     <Label htmlFor="goal">Cosa vuoi fare dopo il master?</Label>
                     <Select value={formData.goal} onValueChange={(val) => setFormData({ ...formData, goal: val })}>
-                      <SelectTrigger>
+                      <SelectTrigger className={validation.getError("goal") ? "border-destructive" : ""}>
                         <SelectValue placeholder="Seleziona..." />
                       </SelectTrigger>
                       <SelectContent>
@@ -302,6 +325,7 @@ export default function OnboardingPage() {
                         <SelectItem value="freelance">Freelance Designer</SelectItem>
                       </SelectContent>
                     </Select>
+                    <FormError message={validation.getError("goal")} />
                   </div>
 
                   <div className="space-y-3">
@@ -333,6 +357,7 @@ export default function OnboardingPage() {
                         ))}
                       </div>
                     )}
+                    <FormError message={validation.getError("dreamCompanies")} />
                     <p className="text-xs text-muted-foreground">
                       Premi Invio per aggiungere un'azienda
                     </p>
