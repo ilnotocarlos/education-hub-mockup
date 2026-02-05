@@ -1,0 +1,6 @@
+export { DashboardHeader } from "./DashboardHeader"
+export { DashboardStats } from "./DashboardStats"
+export { PreworkSection } from "./PreworkSection"
+export { LessonsSection } from "./LessonsSection"
+export { SkillsProgress } from "./SkillsProgress"
+export { CommunitySidebar } from "./CommunitySidebar"
