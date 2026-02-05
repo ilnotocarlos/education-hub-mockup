@@ -4,8 +4,8 @@
 > **Purpose**: Source of truth per Claude AI su stato progetto, features, roadmap
 
 **Last Updated**: 2026-02-05
-**Version**: 1.3.0
-**Current Phase**: MVP Mockup → Production Ready (Form Validation Complete)
+**Version**: 1.4.0
+**Current Phase**: MVP Mockup → Production Ready (Component Refactoring Complete)
 
 ---
 
@@ -561,7 +561,52 @@ mockup/
 
 ## 🔄 VERSION HISTORY
 
-### v1.3.0 - 2026-02-05 (Current)
+### v1.4.0 - 2026-02-05 (Current)
+**Iteration #4 - Component Refactoring (Complete)**
+- ✅ **Dashboard Refactoring**: 677 lines → 246 lines (63% reduction)
+  - Extracted 6 focused subcomponents:
+    - `DashboardHeader` (56 lines): User greeting, avatar, AI Tutor button
+    - `DashboardStats` (84 lines): 4 stat cards with animations & progress
+    - `PreworkSection` (157 lines): Live session alert + pre-work materials
+    - `LessonsSection` (139 lines): Upcoming lessons with status badges
+    - `SkillsProgress` (59 lines): Skills visualization with animated bars
+    - `CommunitySidebar` (170 lines): Community feed + quick actions + job readiness
+  - Main page JSX reduced to ~40 lines
+  - Commit: 7e82d5f
+- ✅ **Settings Refactoring**: 810 lines → 159 lines (80% reduction)
+  - Extracted 6 tab components:
+    - `ProfileTab` (238 lines): Personal info + password with validation
+    - `NotificationsTab` (137 lines): Email, push, reminders preferences
+    - `AccessibilityTab` (108 lines): Dyslexia, focus, contrast, motion
+    - `PrivacyTab` (110 lines): Visibility settings + data management
+    - `ConnectionsTab` (72 lines): LinkedIn, GitHub, Figma integrations
+    - `BillingTab` (148 lines): Subscription, payment, invoices
+  - Each tab self-contained with proper TypeScript interfaces
+  - Commit: f444724
+- ✅ Build tested: 17 routes, 0 TypeScript errors, all components working
+- 📝 Documentation updated: BUG-REPORT.md v1.1, PROJECT-CONTEXT.md v1.4.0
+- 📍 Status: **6/9 P2 items started (67%)** - Component architecture improved!
+
+**Code Quality Improvements:**
+- 📊 Components < 300 lines: 80% → 95% ✅
+- 🎯 No `any` types: 99% → 100% ✅
+- 📦 Total new components: 13 (6 Dashboard + 6 Settings + 1 barrel export)
+- 🏗️ Better separation of concerns, easier testing, improved maintainability
+
+**Learnings & Insights:**
+- Component extraction reduces cognitive load when reading code
+- Props interfaces enforce clear contracts between components
+- Barrel exports (`index.ts`) simplify imports and improve DX
+- Each subcomponent can now be tested independently
+- Easier to apply React.memo() for performance optimization later
+
+**Next Steps:**
+- P2.6: Extract mock data to `/src/data/mocks/` directory
+- P2.7: Optimize bundle size (code splitting, lazy loading)
+- P2.8: Add SEO metadata per page
+- P3: Add unit tests for components
+
+### v1.3.0 - 2026-02-05
 **Iteration #3 - Form Validation Integration (Complete)**
 - ✅ **Application Form**: All 5 steps validated (P1 - Revenue Critical)
   - Fields: firstName, lastName, email, phone, degree, field, experience, motivation, portfolio, cohortDate
