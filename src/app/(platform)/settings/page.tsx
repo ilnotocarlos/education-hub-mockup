@@ -31,6 +31,10 @@ import {
   AlertTriangle,
   Settings as SettingsIcon
 } from "lucide-react"
+import { useZodValidation } from "@/hooks/useZodValidation"
+import { FormError } from "@/components/ui/form-error"
+import { profileSchema, passwordChangeSchema } from "@/lib/validations/settings"
+import { cn } from "@/lib/utils"
 
 export default function SettingsPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -54,6 +58,38 @@ export default function SettingsPage() {
     showCertificates: true,
     allowMessages: true
   })
+
+  // Profile data and validation
+  const [profileData, setProfileData] = useState({
+    firstName: "Filippo",
+    lastName: "Rossi",
+    email: "filippo.rossi@email.com",
+    bio: "UX/UI Designer in formazione. Appassionato di design systems e accessibilità."
+  })
+  const profileValidation = useZodValidation(profileSchema)
+
+  // Password data and validation
+  const [passwordData, setPasswordData] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: ""
+  })
+  const passwordValidation = useZodValidation(passwordChangeSchema)
+
+  // Save handlers
+  const handleProfileSave = () => {
+    if (!profileValidation.validate(profileData)) return
+    console.log("Profile saved:", profileData)
+    // TODO: API call to save profile
+  }
+
+  const handlePasswordSave = () => {
+    if (!passwordValidation.validate(passwordData)) return
+    console.log("Password changed")
+    setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" })
+    passwordValidation.clearErrors()
+    // TODO: API call to change password
+  }
 
   return (
     <div className="min-h-screen grain-texture">
@@ -134,27 +170,55 @@ export default function SettingsPage() {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">Nome</Label>
-                      <Input id="firstName" defaultValue="Filippo" />
+                      <Input
+                        id="firstName"
+                        value={profileData.firstName}
+                        onChange={(e) => setProfileData({...profileData, firstName: e.target.value})}
+                        className={profileValidation.getError("firstName") ? "border-destructive" : ""}
+                        aria-invalid={!!profileValidation.getError("firstName")}
+                      />
+                      <FormError message={profileValidation.getError("firstName")} />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lastName">Cognome</Label>
-                      <Input id="lastName" defaultValue="Rossi" />
+                      <Input
+                        id="lastName"
+                        value={profileData.lastName}
+                        onChange={(e) => setProfileData({...profileData, lastName: e.target.value})}
+                        className={profileValidation.getError("lastName") ? "border-destructive" : ""}
+                        aria-invalid={!!profileValidation.getError("lastName")}
+                      />
+                      <FormError message={profileValidation.getError("lastName")} />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" defaultValue="filippo.rossi@email.com" />
+                    <Input
+                      id="email"
+                      type="email"
+                      value={profileData.email}
+                      onChange={(e) => setProfileData({...profileData, email: e.target.value})}
+                      className={profileValidation.getError("email") ? "border-destructive" : ""}
+                      aria-invalid={!!profileValidation.getError("email")}
+                    />
+                    <FormError message={profileValidation.getError("email")} />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="bio">Bio</Label>
                     <textarea
                       id="bio"
-                      className="w-full min-h-24 p-3 rounded-lg border-2 border-border bg-background resize-none focus:outline-none focus:border-[hsl(var(--indigo)_/_0.3)]"
+                      className={cn(
+                        "w-full min-h-24 p-3 rounded-lg border-2 border-border bg-background resize-none focus:outline-none focus:border-[hsl(var(--indigo)_/_0.3)]",
+                        profileValidation.getError("bio") && "border-destructive"
+                      )}
                       placeholder="Raccontaci qualcosa di te..."
-                      defaultValue="UX/UI Designer in formazione. Appassionato di design systems e accessibilità."
+                      value={profileData.bio}
+                      onChange={(e) => setProfileData({...profileData, bio: e.target.value})}
+                      aria-invalid={!!profileValidation.getError("bio")}
                     />
+                    <FormError message={profileValidation.getError("bio")} />
                   </div>
 
                   <Separator />
@@ -169,6 +233,10 @@ export default function SettingsPage() {
                           id="currentPassword"
                           type={showPassword ? "text" : "password"}
                           placeholder="••••••••"
+                          value={passwordData.currentPassword}
+                          onChange={(e) => setPasswordData({...passwordData, currentPassword: e.target.value})}
+                          className={passwordValidation.getError("currentPassword") ? "border-destructive" : ""}
+                          aria-invalid={!!passwordValidation.getError("currentPassword")}
                         />
                         <Button
                           variant="ghost"
@@ -183,6 +251,7 @@ export default function SettingsPage() {
                           )}
                         </Button>
                       </div>
+                      <FormError message={passwordValidation.getError("currentPassword")} />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
@@ -192,7 +261,12 @@ export default function SettingsPage() {
                           id="newPassword"
                           type="password"
                           placeholder="••••••••"
+                          value={passwordData.newPassword}
+                          onChange={(e) => setPasswordData({...passwordData, newPassword: e.target.value})}
+                          className={passwordValidation.getError("newPassword") ? "border-destructive" : ""}
+                          aria-invalid={!!passwordValidation.getError("newPassword")}
                         />
+                        <FormError message={passwordValidation.getError("newPassword")} />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="confirmPassword">Conferma Password</Label>
@@ -200,14 +274,43 @@ export default function SettingsPage() {
                           id="confirmPassword"
                           type="password"
                           placeholder="••••••••"
+                          value={passwordData.confirmPassword}
+                          onChange={(e) => setPasswordData({...passwordData, confirmPassword: e.target.value})}
+                          className={passwordValidation.getError("confirmPassword") ? "border-destructive" : ""}
+                          aria-invalid={!!passwordValidation.getError("confirmPassword")}
                         />
+                        <FormError message={passwordValidation.getError("confirmPassword")} />
                       </div>
                     </div>
                   </div>
 
                   <div className="flex justify-end gap-3">
-                    <Button variant="outline">Annulla</Button>
-                    <Button className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)]">
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        setProfileData({
+                          firstName: "Filippo",
+                          lastName: "Rossi",
+                          email: "filippo.rossi@email.com",
+                          bio: "UX/UI Designer in formazione. Appassionato di design systems e accessibilità."
+                        })
+                        profileValidation.clearErrors()
+                        setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" })
+                        passwordValidation.clearErrors()
+                      }}
+                    >
+                      Annulla
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        handleProfileSave()
+                        if (passwordData.currentPassword || passwordData.newPassword) {
+                          handlePasswordSave()
+                        }
+                      }}
+                      disabled={profileValidation.hasErrors || passwordValidation.hasErrors}
+                      className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)]"
+                    >
                       Salva Modifiche
                     </Button>
                   </div>
