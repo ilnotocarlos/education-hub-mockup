@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { Navigation } from "@/components/shared/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -106,9 +107,9 @@ export default function LessonPage() {
         >
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" asChild>
-              <a href="/(platform)/dashboard">
+              <Link href="/dashboard">
                 <ChevronLeft className="w-5 h-5" />
-              </a>
+              </Link>
             </Button>
             <div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">

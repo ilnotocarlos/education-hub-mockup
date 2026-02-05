@@ -146,7 +146,7 @@ export default function HomePage() {
                 asChild
                 className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] hover:shadow-2xl hover:scale-105 transition-all text-lg px-8 py-6 group"
               >
-                <Link href="/(marketing)/discover">
+                <Link href="/discover">
                   Scopri il Tuo Percorso
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -158,7 +158,7 @@ export default function HomePage() {
                 asChild
                 className="border-2 text-lg px-8 py-6 hover:bg-muted/50"
               >
-                <Link href="/(platform)/dashboard">
+                <Link href="/dashboard">
                   Vedi Dashboard Demo
                 </Link>
               </Button>
@@ -306,7 +306,7 @@ export default function HomePage() {
               asChild
               className="bg-gradient-to-r from-[hsl(var(--amber))] to-[hsl(var(--amber)_/_0.8)] text-white hover:shadow-2xl hover:scale-105 transition-all text-lg px-8 py-6 group"
             >
-              <Link href="/(marketing)/discover">
+              <Link href="/discover">
                 Inizia Assessment Gratuito
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -318,7 +318,7 @@ export default function HomePage() {
               asChild
               className="border-2 text-lg px-8 py-6"
             >
-              <Link href="/(platform)/dashboard">
+              <Link href="/dashboard">
                 Esplora la Piattaforma
               </Link>
             </Button>

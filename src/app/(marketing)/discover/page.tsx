@@ -529,13 +529,13 @@ function ResultsPage({ answers }: { answers: Record<number, Answer> }) {
                   asChild
                   className="flex-1 bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--amber))] hover:shadow-2xl transition-all"
                 >
-                  <Link href="/(platform)/dashboard">
+                  <Link href="/courses/ux-ui-design-master">
                     Scopri il Corso
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="flex-1">
-                  Vedi Altri Percorsi
+                <Button size="lg" variant="outline" className="flex-1" asChild>
+                  <Link href="/discover">Vedi Altri Percorsi</Link>
                 </Button>
               </div>
             </CardContent>
