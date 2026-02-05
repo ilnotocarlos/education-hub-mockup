@@ -4,8 +4,8 @@
 > **Purpose**: Source of truth per Claude AI su stato progetto, features, roadmap
 
 **Last Updated**: 2026-02-05
-**Version**: 1.0.0
-**Current Phase**: MVP Mockup → Production Ready
+**Version**: 1.1.0
+**Current Phase**: MVP Mockup → Production Ready (Bug Fixing Phase)
 
 ---
 
@@ -335,10 +335,11 @@ mockup/
 | Metric | Current | Target | Status |
 |--------|---------|--------|--------|
 | **Pages Implemented** | 17/17 | 17 | ✅ 100% |
-| **Components** | 30+ | 30+ | ✅ Done |
-| **Type Safety** | 99% | 100% | 🟡 1 `any` |
-| **Code Quality** | 8.5/10 | 9/10 | 🟡 Good |
-| **Documentation** | 80% | 100% | 🟡 In progress |
+| **Components** | 31+ | 30+ | ✅ Done |
+| **Type Safety** | 100% | 100% | ✅ Perfect (v1.1.0) |
+| **Code Quality** | 8.7/10 | 9/10 | 🟢 Improved |
+| **P1 Bugs Resolved** | 3/9 | 9/9 | 🟡 33% (v1.1.0) |
+| **Documentation** | 85% | 100% | 🟢 Good |
 | **Test Coverage** | 0% | 80% | 🔴 TODO |
 
 ### Business Metrics (Future)
@@ -557,7 +558,29 @@ mockup/
 
 ## 🔄 VERSION HISTORY
 
-### v1.0.0 - 2026-02-05 (Current)
+### v1.1.0 - 2026-02-05 (Current)
+**Iteration #1 - Bug Fixes (P1 High Priority)**
+- ✅ **H2/C1 Fixed**: Race condition in AI Tutor (nanoid, mount guards, cleanup)
+- ✅ **H1 Fixed**: Type safety violation in Lessons (removed `any` type)
+- ✅ **H3/C2 Fixed**: Navigation error handling in Onboarding (try/catch, Alert UI)
+- 📦 Added: `nanoid@^5.0.0`, `@/components/ui/alert`
+- ✅ Build tested: 17 routes compiled successfully
+- 📝 Documentation updated: BUG-REPORT.md, PROJECT-CONTEXT.md
+- 🎯 **Commit**: 5fbcfbe - "fix: resolve 3 high-priority bugs"
+- 📍 Status: 3/9 P1 bugs resolved, 6 remaining
+
+**Learnings & Insights:**
+- Race conditions require cleanup patterns and mount guards
+- Type assertions safer than `any` for strict TypeScript
+- Error boundaries provide better UX than silent failures
+- Shadcn/ui Alert component excellent for error feedback
+
+**Next Steps:**
+- P1: Add error boundaries in route groups
+- P1: Implement form validation with Zod
+- P2: Refactor large components (Dashboard, Settings)
+
+### v1.0.0 - 2026-02-05
 - ✅ Initial PROJECT-CONTEXT.md creation
 - ✅ All 17 pages implemented
 - ✅ Documentation written

@@ -23,11 +23,16 @@ Education Hub codebase è **ben strutturato e production-ready** per un mockup. 
 
 ### 🔴 CRITICAL (Blocca funzionalità)
 
-**C1. Race condition in AI Tutor**
+**C1. Race condition in AI Tutor** ✅ FIXED (Iteration #1 - 2026-02-05)
 - **File**: `/src/app/(platform)/ai-tutor/page.tsx:130-141`
 - **Issue**: ID collision risk con `Date.now()`, `setIsTyping` può essere chiamato su unmounted component
 - **Impact**: High - Se utente invia messaggi rapidamente
-- **Fix**:
+- **Resolution**: Implemented in commit 5fbcfbe
+  - Replaced `Date.now()` with `nanoid()` for unique IDs
+  - Added `isMountedRef` to track component mount state
+  - Added timeout cleanup in useEffect
+  - UI feedback with disabled states
+- **Fix** (original suggestion):
   ```typescript
   // Use UUID for IDs
   import { nanoid } from 'nanoid'
@@ -42,11 +47,16 @@ Education Hub codebase è **ben strutturato e production-ready** per un mockup. 
   }
   ```
 
-**C2. Missing error handling in router.push**
+**C2. Missing error handling in router.push** ✅ FIXED (Iteration #1 - 2026-02-05)
 - **File**: `/src/app/(platform)/onboarding/page.tsx:104`
 - **Issue**: Se navigazione fallisce, utente rimane bloccato
 - **Impact**: Medium - Edge case
-- **Fix**:
+- **Resolution**: Implemented in commit 5fbcfbe
+  - Added try/catch around router.push()
+  - Added loading state with Loader2 spinner
+  - Added Alert UI with 3 recovery options (dismiss, retry, manual navigation)
+  - Installed Shadcn/ui Alert component
+- **Fix** (original suggestion):
   ```typescript
   try {
     router.push("/pre-assessment")
@@ -58,10 +68,14 @@ Education Hub codebase è **ben strutturato e production-ready** per un mockup. 
 
 ### 🟠 HIGH (Degrada esperienza utente)
 
-**H1. Type safety violation - uso di 'any'**
+**H1. Type safety violation - uso di 'any'** ✅ FIXED (Iteration #1 - 2026-02-05)
 - **File**: `/src/app/(platform)/lessons/[id]/page.tsx:88`
 - **Issue**: `onValueChange={(v: any) => setContentMode(v)}`
-- **Fix**:
+- **Resolution**: Implemented in commit 5fbcfbe
+  - Removed `any` type
+  - Used safe type assertion with union type
+  - TypeScript strict mode compliant
+- **Fix** (original suggestion):
   ```typescript
   onValueChange={(v: string) => setContentMode(v as ContentMode)}
   ```
@@ -337,10 +351,11 @@ text-[#0077B5]  // LinkedIn blue
 ✅ **Nessun blocker critico** - App è funzionale
 
 ### P1 - High Priority (Questa settimana)
-1. Fix race condition AI Tutor
-2. Gestire navigation errors
-3. Aggiungere error boundaries
-4. Implementare form validation
+1. ✅ Fix race condition AI Tutor - **DONE** (Iteration #1 - commit 5fbcfbe)
+2. ✅ Gestire navigation errors - **DONE** (Iteration #1 - commit 5fbcfbe)
+3. ✅ Fix type safety violations - **DONE** (Iteration #1 - commit 5fbcfbe)
+4. ⏳ Aggiungere error boundaries - TODO
+5. ⏳ Implementare form validation - TODO
 
 ### P2 - Medium Priority (Prossime 2 settimane)
 5. Refactor componenti lunghi
