@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import {
   Select,
   SelectContent,
@@ -31,7 +32,10 @@ import {
   Check,
   ArrowRight,
   Sparkles,
-  Brain
+  Brain,
+  AlertCircle,
+  ChevronRight,
+  Loader2
 } from "lucide-react"
 
 const learningPreferences = [
@@ -72,6 +76,10 @@ export default function OnboardingPage() {
     figmaConnected: false
   })
 
+  // Fix H3: Navigation error handling states
+  const [isNavigating, setIsNavigating] = useState(false)
+  const [navError, setNavError] = useState<string | null>(null)
+
   const progress = (step / totalSteps) * 100
 
   const toggleLearningPref = (pref: string) => {
@@ -96,12 +104,24 @@ export default function OnboardingPage() {
     })
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (step < totalSteps) {
       setStep(step + 1)
     } else {
-      // Complete onboarding, redirect to pre-assessment
-      router.push("/pre-assessment")
+      // Fix H3: Complete onboarding with error handling
+      setIsNavigating(true)
+      setNavError(null)
+
+      try {
+        router.push("/pre-assessment")
+        // Wait a bit to ensure navigation started
+        await new Promise(resolve => setTimeout(resolve, 500))
+      } catch (error) {
+        console.error('Navigation failed:', error)
+        setNavError("Non siamo riusciti a proseguire al prossimo step. Potrebbe essere un problema temporaneo.")
+      } finally {
+        setIsNavigating(false)
+      }
     }
   }
 
@@ -425,6 +445,41 @@ export default function OnboardingPage() {
                 </div>
               )}
 
+              {/* Fix H3: Navigation Error Alert */}
+              {navError && (
+                <Alert variant="destructive" className="mt-4">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertTitle>Impossibile Continuare</AlertTitle>
+                  <AlertDescription>
+                    {navError}
+                  </AlertDescription>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setNavError(null)}
+                    >
+                      Chiudi
+                    </Button>
+                    <Button
+                      size="sm"
+                      onClick={handleNext}
+                      disabled={isNavigating}
+                    >
+                      Riprova
+                    </Button>
+                    <Button
+                      variant="link"
+                      size="sm"
+                      onClick={() => window.location.href = "/pre-assessment"}
+                    >
+                      Navigazione Manuale
+                      <ChevronRight className="w-3 h-3 ml-1" />
+                    </Button>
+                  </div>
+                </Alert>
+              )}
+
               {/* Navigation */}
               <div className="flex items-center justify-between pt-6 border-t">
                 {step > 1 ? (
@@ -437,10 +492,20 @@ export default function OnboardingPage() {
 
                 <Button
                   onClick={handleNext}
+                  disabled={isNavigating}
                   className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)]"
                 >
-                  {step === totalSteps ? "Completa Setup" : "Continua"}
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  {isNavigating ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                      Continuando...
+                    </>
+                  ) : (
+                    <>
+                      {step === totalSteps ? "Completa Setup" : "Continua"}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </>
+                  )}
                 </Button>
               </div>
             </CardContent>

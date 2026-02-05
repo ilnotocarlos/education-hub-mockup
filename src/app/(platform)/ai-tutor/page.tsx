@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
+import { nanoid } from "nanoid"
 import { motion, AnimatePresence } from "framer-motion"
 import { Navigation } from "@/components/shared/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -105,6 +106,10 @@ export default function AITutorPage() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
+  // Fix H2: Track mounted state and timeout for race condition prevention
+  const isMountedRef = useRef(true)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
@@ -113,11 +118,22 @@ export default function AITutorPage() {
     scrollToBottom()
   }, [messages])
 
+  // Fix H2: Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      isMountedRef.current = false
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
   const handleSend = () => {
-    if (!inputValue.trim()) return
+    // Fix H2: Block if already typing or empty input
+    if (!inputValue.trim() || isTyping) return
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: nanoid(), // Fix H2: Use nanoid for unique IDs
       role: "user",
       content: inputValue,
       timestamp: new Date()
@@ -128,9 +144,12 @@ export default function AITutorPage() {
 
     // Simulate AI response
     setIsTyping(true)
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
+      // Fix H2: Guard against unmounted component
+      if (!isMountedRef.current) return
+
       const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: nanoid(), // Fix H2: Use nanoid for unique IDs
         role: "assistant",
         content: mockResponses[Math.floor(Math.random() * mockResponses.length)],
         timestamp: new Date()
@@ -367,20 +386,34 @@ export default function AITutorPage() {
                           handleSend()
                         }
                       }}
-                      placeholder="Fai una domanda... (Shift+Enter per andare a capo)"
-                      className="min-h-[60px] max-h-[200px] resize-none"
+                      disabled={isTyping}
+                      placeholder={isTyping
+                        ? "AI sta rispondendo..."
+                        : "Fai una domanda... (Shift+Enter per andare a capo)"
+                      }
+                      className="min-h-[60px] max-h-[200px] resize-none disabled:opacity-60 disabled:cursor-not-allowed"
                     />
                     <Button
                       onClick={handleSend}
                       disabled={!inputValue.trim() || isTyping}
                       className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] h-[60px] px-6"
                     >
-                      <Send className="w-5 h-5" />
+                      {isTyping ? (
+                        <div className="animate-spin">⏳</div>
+                      ) : (
+                        <Send className="w-5 h-5" />
+                      )}
                     </Button>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    💡 L'AI Tutor conosce il tuo percorso e può aiutarti su lezioni, progetti e carriera
-                  </p>
+                  {isTyping ? (
+                    <p className="text-xs text-[hsl(var(--amber))] mt-2 flex items-center gap-1">
+                      ⏳ AI sta elaborando la risposta... Il tuo prossimo messaggio sarà inviato dopo.
+                    </p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground mt-2">
+                      💡 L'AI Tutor conosce il tuo percorso e può aiutarti su lezioni, progetti e carriera
+                    </p>
+                  )}
                 </div>
               </CardContent>
             </Card>

@@ -85,7 +85,7 @@ export default function LessonPage() {
                 Come vuoi fruire questa lezione? Scegli il formato che preferisci.
               </p>
 
-              <Tabs value={contentMode} onValueChange={(v: any) => setContentMode(v)}>
+              <Tabs value={contentMode} onValueChange={(v) => setContentMode(v as "video-text" | "text" | "audio" | "video")}>
                 <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full">
                   <TabsTrigger value="video-text" className="text-xs md:text-sm">
                     <Video className="w-4 h-4 mr-1 md:mr-2" />
