@@ -30,6 +30,16 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react"
+import { useZodValidation } from "@/hooks/useZodValidation"
+import { FormError } from "@/components/ui/form-error"
+import {
+  applicationStep1Schema,
+  applicationStep2Schema,
+  applicationStep3Schema,
+  applicationStep4Schema,
+  applicationStep5Schema
+} from "@/lib/validations/application"
+import { cn } from "@/lib/utils"
 
 const experienceLevels = [
   { value: "none", label: "Nessuna esperienza lavorativa" },
@@ -71,18 +81,33 @@ export default function ApplicationPage() {
   const totalSteps = 5
   const progress = (step / totalSteps) * 100
 
+  // Validation setup
+  const stepSchemas = [
+    applicationStep1Schema,
+    applicationStep2Schema,
+    applicationStep3Schema,
+    applicationStep4Schema,
+    applicationStep5Schema
+  ]
+  const { errors, validate, getError, clearErrors } = useZodValidation(stepSchemas[step - 1])
+
+  const updateField = (field: string, value: string) => {
+    setFormData({ ...formData, [field]: value })
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validate current step before proceeding
+    if (!validate(formData)) return
+
     if (step < totalSteps) {
+      clearErrors() // Clear errors when moving to next step
       setStep(step + 1)
     } else {
       // Final submission
       setSubmitted(true)
     }
-  }
-
-  const updateField = (field: string, value: string) => {
-    setFormData({ ...formData, [field]: value })
   }
 
   if (submitted) {
@@ -238,8 +263,10 @@ export default function ApplicationPage() {
                             value={formData.firstName}
                             onChange={(e) => updateField("firstName", e.target.value)}
                             placeholder="Mario"
-                            required
+                            className={getError("firstName") ? "border-destructive" : ""}
+                            aria-invalid={!!getError("firstName")}
                           />
+                          <FormError message={getError("firstName")} />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="lastName">Cognome</Label>
@@ -248,8 +275,10 @@ export default function ApplicationPage() {
                             value={formData.lastName}
                             onChange={(e) => updateField("lastName", e.target.value)}
                             placeholder="Rossi"
-                            required
+                            className={getError("lastName") ? "border-destructive" : ""}
+                            aria-invalid={!!getError("lastName")}
                           />
+                          <FormError message={getError("lastName")} />
                         </div>
                       </div>
 
@@ -263,10 +292,11 @@ export default function ApplicationPage() {
                             value={formData.email}
                             onChange={(e) => updateField("email", e.target.value)}
                             placeholder="mario.rossi@email.com"
-                            className="pl-10"
-                            required
+                            className={cn("pl-10", getError("email") && "border-destructive")}
+                            aria-invalid={!!getError("email")}
                           />
                         </div>
+                        <FormError message={getError("email")} />
                       </div>
 
                       <div className="space-y-2">
@@ -279,10 +309,11 @@ export default function ApplicationPage() {
                             value={formData.phone}
                             onChange={(e) => updateField("phone", e.target.value)}
                             placeholder="+39 333 1234567"
-                            className="pl-10"
-                            required
+                            className={cn("pl-10", getError("phone") && "border-destructive")}
+                            aria-invalid={!!getError("phone")}
                           />
                         </div>
+                        <FormError message={getError("phone")} />
                       </div>
                     </>
                   )}
@@ -293,7 +324,7 @@ export default function ApplicationPage() {
                       <div className="space-y-2">
                         <Label htmlFor="degree">Ultimo titolo di studio</Label>
                         <Select value={formData.degree} onValueChange={(val) => updateField("degree", val)}>
-                          <SelectTrigger>
+                          <SelectTrigger className={getError("degree") ? "border-destructive" : ""}>
                             <SelectValue placeholder="Seleziona..." />
                           </SelectTrigger>
                           <SelectContent>
@@ -303,6 +334,7 @@ export default function ApplicationPage() {
                             <SelectItem value="master">Master</SelectItem>
                           </SelectContent>
                         </Select>
+                        <FormError message={getError("degree")} />
                       </div>
 
                       <div className="space-y-2">
@@ -312,8 +344,10 @@ export default function ApplicationPage() {
                           value={formData.field}
                           onChange={(e) => updateField("field", e.target.value)}
                           placeholder="Es: Marketing e Comunicazione"
-                          required
+                          className={getError("field") ? "border-destructive" : ""}
+                          aria-invalid={!!getError("field")}
                         />
+                        <FormError message={getError("field")} />
                       </div>
                     </>
                   )}
@@ -339,12 +373,12 @@ export default function ApplicationPage() {
                               checked={formData.experience === level.value}
                               onChange={(e) => updateField("experience", e.target.value)}
                               className="w-4 h-4"
-                              required
                             />
                             <span>{level.label}</span>
                           </label>
                         ))}
                       </div>
+                      <FormError message={getError("experience")} />
                     </div>
                   )}
 
@@ -360,13 +394,17 @@ export default function ApplicationPage() {
                           value={formData.motivation}
                           onChange={(e) => updateField("motivation", e.target.value)}
                           placeholder="Racconta la tua motivazione, cosa ti spinge a voler diventare UX/UI Designer..."
-                          className="min-h-40 resize-none"
+                          className={cn(
+                            "min-h-40 resize-none",
+                            getError("motivation") && "border-destructive"
+                          )}
                           maxLength={500}
-                          required
+                          aria-invalid={!!getError("motivation")}
                         />
                         <p className="text-xs text-muted-foreground text-right">
                           {formData.motivation.length}/500 caratteri
                         </p>
+                        <FormError message={getError("motivation")} />
                       </div>
 
                       <div className="space-y-2">
@@ -376,7 +414,10 @@ export default function ApplicationPage() {
                           value={formData.portfolio}
                           onChange={(e) => updateField("portfolio", e.target.value)}
                           placeholder="Link Behance, Dribbble, sito personale..."
+                          className={getError("portfolio") ? "border-destructive" : ""}
+                          aria-invalid={!!getError("portfolio")}
                         />
+                        <FormError message={getError("portfolio")} />
                         <p className="text-xs text-muted-foreground">
                           Se hai già progetti di design, condividili con noi
                         </p>
@@ -406,7 +447,6 @@ export default function ApplicationPage() {
                                 checked={formData.cohortDate === cohort.value}
                                 onChange={(e) => updateField("cohortDate", e.target.value)}
                                 className="w-4 h-4"
-                                required
                               />
                               <span className="font-semibold">{cohort.label}</span>
                             </div>
@@ -419,6 +459,7 @@ export default function ApplicationPage() {
                           </label>
                         ))}
                       </div>
+                      <FormError message={getError("cohortDate")} />
                     </div>
                   )}
 
