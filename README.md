@@ -1,17 +1,71 @@
-# 🎓 Education Hub - Mockup Platform
+# 🎓 Education Hub - Mockup Piattaforma Educativa
 
-Mockup interattivo della piattaforma Education Hub implementato con Next.js 14, React, TypeScript, Tailwind CSS e Shadcn/ui.
+> Piattaforma educativa innovativa con AI personalizzata, certificazioni blockchain e design system Neo-Academic Luxury.
 
-## 🚀 Quick Start
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ilnotocarlos/education-hub-mockup)
+
+## 🚀 Demo Live
+
+**Repository GitHub**: [ilnotocarlos/education-hub-mockup](https://github.com/ilnotocarlos/education-hub-mockup)
+
+**Deployed su Vercel**: [In arrivo dopo il deploy]
+
+## 📋 Overview
+
+Education Hub è un mockup completo di piattaforma educativa che combina:
+- ✅ **AI Tutor 24/7** personalizzato con Claude AI
+- ✅ **Certificazioni Blockchain** verificabili su Polygon
+- ✅ **Content Mashup** (video + audio + testo sincronizzati)
+- ✅ **Accessibility Modes** (Standard, Focus ADHD, Dyslexia)
+- ✅ **Flipped Classroom** con pre-work materials
+- ✅ **Job Placement** tracking e support
+
+## 🚀 Deploy su Vercel
+
+### Option 1: Deploy Automatico (Consigliato)
+
+1. Clicca sul pulsante "Deploy with Vercel" sopra
+2. Connetti il tuo account GitHub
+3. Seleziona il repository `education-hub-mockup`
+4. Clicca "Deploy"
+5. Attendi il completamento (~ 2-3 minuti)
+
+### Option 2: Deploy Manuale via CLI
 
 ```bash
-# Installa dipendenze (già fatto)
+# Installa Vercel CLI
+npm i -g vercel
+
+# Login a Vercel
+vercel login
+
+# Deploy il progetto
+vercel
+
+# Deploy in produzione
+vercel --prod
+```
+
+## 💻 Sviluppo Locale
+
+### Prerequisiti
+- Node.js 18+
+- npm o yarn
+
+### Setup
+
+```bash
+# Clone il repository
+git clone https://github.com/ilnotocarlos/education-hub-mockup.git
+cd education-hub-mockup
+
+# Installa dipendenze
 npm install
 
 # Avvia il server di sviluppo
 npm run dev
 
-# Apri il browser su http://localhost:3000
+# Apri il browser su http://localhost:3333
 ```
 
 ## 📁 Struttura Progetto
@@ -92,12 +146,19 @@ mockup/
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 
-## 🎯 Come Navigare il Mockup
+## 📱 Pagine Implementate (8 Totali)
 
-1. **Homepage** (`/`) - Panoramica generale e links
-2. **Assessment Tarocchi** (`/(marketing)/discover`) - Scopri percorso ideale
-3. **Dashboard** (`/(platform)/dashboard`) - Centro comando studente
-4. **Lezione** (`/(platform)/lessons/1`) - Content mashup accessibile
+### Marketing (Public Routes)
+1. **Homepage** (`/`) - Hero, features, stats, CTAs
+2. **Landing "Tarocchi"** (`/discover`) - Assessment personalizzato in 6 step
+3. **Product Page** (`/courses/ux-ui-design-master`) - Dettagli corso completi
+4. **Application Form** (`/apply`) - Candidatura multi-step con success screen
+
+### Platform (Authenticated Routes)
+5. **Dashboard** (`/dashboard`) - Pre-work, skills tracking, job readiness, community
+6. **Lesson View** (`/lessons/1`) - Content mashup con 3 accessibility modes
+7. **Onboarding** (`/onboarding`) - Setup profilo in 5 step
+8. **Pre-Assessment** (`/pre-assessment`) - Quiz iniziale con personalizzazione percorso
 
 ## 🌟 Highlights Implementazione
 
