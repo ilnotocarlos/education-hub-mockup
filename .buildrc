@@ -1,0 +1,3 @@
+#!/bin/bash
+# Script per buildare solo l'app web
+pnpm --filter @edu-hub/web run build

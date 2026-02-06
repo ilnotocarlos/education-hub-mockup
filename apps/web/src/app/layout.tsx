@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant, Inter } from "next/font/google";
 import { MotionProvider } from "@/components/providers/motion-provider";
+import { DevNav } from "@/components/dev/dev-nav";
 import "./globals.css";
 
 const cormorant = Cormorant({
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${cormorant.variable} ${inter.variable} font-body antialiased`}
       >
         <MotionProvider>
+          <DevNav />
           {children}
         </MotionProvider>
       </body>

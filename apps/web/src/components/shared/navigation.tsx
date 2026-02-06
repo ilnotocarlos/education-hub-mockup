@@ -128,13 +128,17 @@ export function Navigation() {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <User className="w-4 h-4 mr-2" />
-                    Profilo
+                  <DropdownMenuItem asChild>
+                    <Link href="/profile">
+                      <User className="w-4 h-4 mr-2" />
+                      Profilo
+                    </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Settings className="w-4 h-4 mr-2" />
-                    Impostazioni
+                  <DropdownMenuItem asChild>
+                    <Link href="/settings">
+                      <Settings className="w-4 h-4 mr-2" />
+                      Impostazioni
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem className="text-destructive">
@@ -165,7 +169,7 @@ export function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-[45] md:hidden"
             style={{ top: "80px" }}
           >
             <div className="glass-effect h-full p-6">
@@ -206,17 +210,23 @@ export function Navigation() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Button variant="ghost" className="justify-start">
-                    <User className="w-4 h-4 mr-2" />
-                    Profilo
+                  <Button variant="ghost" className="justify-start" asChild>
+                    <Link href="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+                      <User className="w-4 h-4 mr-2" />
+                      Profilo
+                    </Link>
                   </Button>
-                  <Button variant="ghost" className="justify-start">
-                    <Settings className="w-4 h-4 mr-2" />
-                    Impostazioni
+                  <Button variant="ghost" className="justify-start" asChild>
+                    <Link href="/settings" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Settings className="w-4 h-4 mr-2" />
+                      Impostazioni
+                    </Link>
                   </Button>
-                  <Button variant="ghost" className="justify-start text-destructive">
-                    <LogOut className="w-4 h-4 mr-2" />
-                    Esci
+                  <Button variant="ghost" className="justify-start text-destructive" asChild>
+                    <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Esci
+                    </Link>
                   </Button>
                 </div>
               </div>
