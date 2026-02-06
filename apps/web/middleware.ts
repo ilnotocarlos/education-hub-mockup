@@ -1,33 +1,17 @@
-import { auth } from "@/auth"
 import { NextResponse } from "next/server"
+import type { NextRequest } from "next/server"
 
-export default auth((req) => {
-  const { pathname } = req.nextUrl
-  const isLoggedIn = !!req.auth
-
-  // Protected routes that require authentication
-  const isProtectedRoute = pathname.startsWith("/(platform)")
-
-  // Public routes that should redirect to dashboard if logged in
-  const isAuthRoute =
-    pathname === "/login" ||
-    pathname === "/signup" ||
-    pathname === "/forgot-password"
-
-  // Redirect to login if trying to access protected route without auth
-  if (isProtectedRoute && !isLoggedIn) {
-    const loginUrl = new URL("/login", req.url)
-    loginUrl.searchParams.set("callbackUrl", pathname)
-    return NextResponse.redirect(loginUrl)
-  }
-
-  // Redirect to dashboard if trying to access auth pages while logged in
-  if (isAuthRoute && isLoggedIn) {
-    return NextResponse.redirect(new URL("/(platform)/dashboard", req.url))
-  }
-
+/**
+ * Middleware temporaneo per mockup
+ * TODO Sprint 4: Ripristinare auth middleware quando NextAuth.js sarà configurato
+ *
+ * Per ora bypassa tutto per permettere navigazione libera durante sviluppo mockup.
+ * Questo riduce il bundle size del middleware (era 1.02MB > limite 1MB Vercel Free).
+ */
+export function middleware(request: NextRequest) {
+  // Durante fase mockup: permetti accesso a tutte le route
   return NextResponse.next()
-})
+}
 
 // Configure which routes use this middleware
 export const config = {
