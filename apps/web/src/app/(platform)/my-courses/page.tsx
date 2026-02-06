@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Navigation } from "@/components/shared/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -311,8 +310,6 @@ export default function MyCoursesPage() {
 
   return (
     <div className="min-h-screen grain-texture">
-      <Navigation />
-
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

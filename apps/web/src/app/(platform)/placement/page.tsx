@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Navigation } from "@/components/shared/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -211,8 +210,6 @@ export default function PlacementPage() {
 
   return (
     <div className="min-h-screen grain-texture">
-      <Navigation />
-
       <div className="editorial-grid py-8 space-y-8">
         {/* Header */}
         <motion.div

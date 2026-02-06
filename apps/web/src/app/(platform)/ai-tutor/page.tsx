@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react"
 import { nanoid } from "nanoid"
 import { motion, AnimatePresence } from "framer-motion"
-import { Navigation } from "@/components/shared/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -170,8 +169,6 @@ export default function AITutorPage() {
 
   return (
     <div className="min-h-screen grain-texture">
-      <Navigation />
-
       <div className="editorial-grid py-6">
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Left Sidebar - Context & Suggested Prompts */}

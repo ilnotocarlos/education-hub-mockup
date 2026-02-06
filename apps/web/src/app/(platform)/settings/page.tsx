@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Navigation } from "@/components/shared/navigation"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
   ProfileTab,
@@ -69,8 +68,6 @@ export default function SettingsPage() {
 
   return (
     <div className="min-h-screen grain-texture">
-      <Navigation />
-
       <div className="editorial-grid py-8 space-y-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

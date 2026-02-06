@@ -1,6 +1,5 @@
 "use client"
 
-import { Navigation } from "@/components/shared/navigation"
 import { DashboardHeader } from "@/components/platform/dashboard/DashboardHeader"
 import { DashboardStats } from "@/components/platform/dashboard/DashboardStats"
 import { PreworkSection } from "@/components/platform/dashboard/PreworkSection"
@@ -206,8 +205,6 @@ const quickActions = [
 export default function DashboardPage() {
   return (
     <div className="min-h-screen grain-texture">
-      <Navigation />
-
       <div className="editorial-grid py-8 space-y-8">
         <DashboardHeader
           userName="Filippo"
