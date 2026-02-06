@@ -12,7 +12,8 @@ async function main() {
     create: {
       email: "filippo.rossi@example.com",
       name: "Filippo Rossi",
-      avatar: "/avatars/filippo.svg",
+      password: "$2a$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u", // "password123" hashed with bcrypt
+      image: "/avatars/filippo.svg",
       role: "student",
       bio: "UX/UI Designer in formazione. Appassionato di design systems e accessibilità.",
       location: "Milano, Italia",
