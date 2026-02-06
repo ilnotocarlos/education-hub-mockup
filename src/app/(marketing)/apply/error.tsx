@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { reportError } from '@/lib/errorReporting'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AlertTriangle, Save, RefreshCw, MessageSquare, Home } from 'lucide-react'
@@ -14,8 +15,7 @@ export default function ApplicationError({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log to console (future: Sentry)
-    console.error('Application Form Error:', error)
+    reportError('Application Form Error', error)
 
     // Attempt to save form data to localStorage (recovery mechanism)
     try {
@@ -25,7 +25,7 @@ export default function ApplicationError({
         localStorage.setItem('applicationFormBackupTimestamp', new Date().toISOString())
       }
     } catch (e) {
-      console.error('Failed to backup form data:', e)
+      reportError('Failed to backup form data', e)
     }
   }, [error])
 

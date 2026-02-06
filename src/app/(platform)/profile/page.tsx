@@ -39,7 +39,7 @@ import {
 const userProfile = {
   name: "Filippo Rossi",
   email: "filippo.rossi@example.com",
-  avatar: "/avatars/filippo.jpg",
+  avatar: "/avatars/filippo.svg",
   role: "UX/UI Designer in Training",
   location: "Milano, Italia",
   joinedDate: "Gennaio 2026",

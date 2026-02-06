@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { reportError } from '@/lib/errorReporting'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AlertTriangle, Home, RefreshCw, MessageSquare } from 'lucide-react'
@@ -13,8 +14,7 @@ export default function MarketingError({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log to console (future: Sentry)
-    console.error('Marketing Error:', error)
+    reportError('Marketing Error', error)
   }, [error])
 
   return (

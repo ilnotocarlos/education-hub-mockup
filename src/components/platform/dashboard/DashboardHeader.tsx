@@ -48,7 +48,7 @@ export function DashboardHeader({
           AI Tutor
         </Button>
         <Avatar className="h-14 w-14 border-2 border-[hsl(var(--indigo)_/_0.3)]">
-          <AvatarImage src="/avatars/filippo.jpg" alt={userName} />
+          <AvatarImage src="/avatars/filippo.svg" alt={userName} />
           <AvatarFallback className="bg-gradient-to-br from-[hsl(var(--indigo))] to-[hsl(var(--amber))] text-white font-semibold text-lg">
             {userInitials}
           </AvatarFallback>

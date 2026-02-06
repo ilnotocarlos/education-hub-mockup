@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
+import { reportError } from "@/lib/errorReporting"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -132,7 +133,7 @@ export default function OnboardingPage() {
         // Wait a bit to ensure navigation started
         await new Promise(resolve => setTimeout(resolve, 500))
       } catch (error) {
-        console.error('Navigation failed:', error)
+        reportError('Onboarding Navigation', error)
         setNavError("Non siamo riusciti a proseguire al prossimo step. Potrebbe essere un problema temporaneo.")
       } finally {
         setIsNavigating(false)

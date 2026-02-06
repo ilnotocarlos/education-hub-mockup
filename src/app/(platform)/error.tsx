@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { reportError } from '@/lib/errorReporting'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AlertTriangle, LayoutDashboard, RefreshCw, MessageSquare, ArrowLeft } from 'lucide-react'
@@ -13,8 +14,7 @@ export default function PlatformError({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log to console (future: Sentry)
-    console.error('Platform Error:', error)
+    reportError('Platform Error', error)
   }, [error])
 
   return (
