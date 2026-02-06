@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd ../.. && pnpm turbo run build --filter=@edu-hub/web",
+  "devCommand": "next dev -p 3333",
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "framework": "nextjs",
+  "regions": ["fra1"],
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
+}

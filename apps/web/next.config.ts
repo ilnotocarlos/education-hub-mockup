@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Output standalone per deploy ottimizzato su Vercel
   output: "standalone",
+  transpilePackages: ["@edu-hub/types"],
 };
 
 export default nextConfig;
