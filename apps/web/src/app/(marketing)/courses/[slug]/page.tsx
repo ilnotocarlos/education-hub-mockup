@@ -105,8 +105,9 @@ const MOCK_CURRICULUM = {
   ]
 }
 
-export default function CourseDetailPage({ params }: { params: { slug: string } }) {
-  const course = MOCK_COURSES.find((c) => c.slug === params.slug)
+export default function CourseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = React.use(params)
+  const course = MOCK_COURSES.find((c) => c.slug === slug)
 
   if (!course) {
     notFound()

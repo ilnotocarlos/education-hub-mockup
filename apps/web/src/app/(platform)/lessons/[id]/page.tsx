@@ -35,7 +35,7 @@ export default function LessonPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Top Navigation */}
-      <div className="bg-white border-b sticky top-0 z-10 shadow-sm">
+      <div className="bg-white border-b sticky top-24 z-10 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between flex-wrap gap-4">
           <Button variant="ghost" size="sm">
             <ArrowLeft className="w-4 h-4 mr-2" />

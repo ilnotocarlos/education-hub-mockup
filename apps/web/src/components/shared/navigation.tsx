@@ -170,7 +170,7 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-[45] md:hidden"
-            style={{ top: "80px" }}
+            style={{ top: "96px" }}
           >
             <div className="glass-effect h-full p-6">
               <div className="flex flex-col gap-2">
@@ -236,7 +236,7 @@ export function Navigation() {
       </AnimatePresence>
 
       {/* Spacer for fixed nav */}
-      <div className="h-20" />
+      <div className="h-24" />
     </>
   )
 }
