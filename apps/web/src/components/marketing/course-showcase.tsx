@@ -113,7 +113,7 @@ export function CourseShowcase() {
                       className="group-hover:bg-[hsl(var(--indigo))] group-hover:text-white transition-colors"
                       asChild
                     >
-                      <Link href={`/(marketing)/courses/${course.slug}`}>
+                      <Link href={`/courses/${course.slug}`}>
                         Scopri
                         <ArrowRight className="ml-1 w-4 h-4" />
                       </Link>
@@ -134,7 +134,7 @@ export function CourseShowcase() {
           className="text-center"
         >
           <Button variant="outline" size="lg" asChild>
-            <Link href="/(marketing)/courses">
+            <Link href="/courses">
               Vedi Tutti i Corsi
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>

@@ -135,7 +135,7 @@ export function AreasSection() {
                       className="w-full group-hover:bg-[hsl(var(--indigo))] group-hover:text-white transition-colors"
                       asChild
                     >
-                      <Link href={`/(marketing)/courses?area=${area.id}`}>
+                      <Link href={`/courses?area=${area.id}`}>
                         Esplora {area.title}
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Link>
