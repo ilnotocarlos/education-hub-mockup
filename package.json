@@ -13,8 +13,5 @@
     "turbo": "^2.5.0",
     "prettier": "^3.5.0"
   },
-  "packageManager": "pnpm@10.4.1",
-  "pnpm": {
-    "onlyBuiltDependencies": ["sharp", "unrs-resolver"]
-  }
+  "packageManager": "pnpm@10.4.1"
 }

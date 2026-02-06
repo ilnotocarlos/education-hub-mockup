@@ -10,6 +10,11 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@edu-hub/types": "workspace:*",
+    "@tanstack/react-query": "^5.75.0",
+    "@trpc/client": "^11.1.0",
+    "@trpc/react-query": "^11.1.0",
+    "@trpc/server": "^11.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.33.0",
@@ -19,10 +24,12 @@
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "superjson": "^2.2.2",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@edu-hub/api": "workspace:*",
     "@edu-hub/config": "workspace:*",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
