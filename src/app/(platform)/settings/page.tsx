@@ -59,12 +59,10 @@ export default function SettingsPage() {
   })
 
   const handleProfileSave = () => {
-    console.log("Profile saved:", profileData)
     // TODO: API call to save profile
   }
 
   const handlePasswordSave = () => {
-    console.log("Password changed")
     setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" })
     // TODO: API call to change password
   }

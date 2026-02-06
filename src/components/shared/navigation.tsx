@@ -113,7 +113,7 @@ export function Navigation() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon" className="rounded-full">
                     <Avatar className="h-9 w-9 border-2 border-[hsl(var(--indigo)_/_0.2)]">
-                      <AvatarImage src="/avatars/user.jpg" />
+                      <AvatarImage src="/avatars/user.svg" />
                       <AvatarFallback className="bg-gradient-to-br from-[hsl(var(--indigo))] to-[hsl(var(--amber))] text-white font-semibold">
                         FR
                       </AvatarFallback>
