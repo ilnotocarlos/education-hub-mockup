@@ -3,45 +3,19 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/shared/navigation"
+import { CourseShowcase } from "@/components/marketing/course-showcase"
+import { MethodSection } from "@/components/marketing/method-section"
+import { AreasSection } from "@/components/marketing/areas-section"
 import {
   ArrowRight,
   BookOpen,
-  Brain,
-  Award,
   Users,
-  Zap,
   Sparkles,
   TrendingUp,
-  Globe,
   Shield
 } from "lucide-react"
-
-const features = [
-  {
-    icon: Brain,
-    title: "AI Tutor Personalizzato",
-    description: "Apprendimento adattivo 24/7 con Claude AI che risponde alle tue domande e personalizza il percorso in real-time",
-    color: "from-indigo-500 to-purple-600",
-    stats: "10k+ interazioni/giorno"
-  },
-  {
-    icon: Award,
-    title: "Certificati Blockchain",
-    description: "Credenziali verificabili su Polygon con NFT permanenti. Portfolio immutabile che ti segue per tutta la carriera",
-    color: "from-amber-500 to-orange-600",
-    stats: "100% verificabili"
-  },
-  {
-    icon: Globe,
-    title: "Content Mashup",
-    description: "Video, testo, audio sincronizzati. Modalità accessibilità per dislessia e ADHD. Apprendi come preferisci",
-    color: "from-emerald-500 to-teal-600",
-    stats: "4 modalità fruizione"
-  }
-]
 
 const stats = [
   { value: "87%", label: "Placement Rate", sublabel: "entro 90 giorni" },
@@ -186,60 +160,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section - Cards with Depth */}
-      <section className="editorial-grid py-24 relative">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="mb-4">Innovazione in Ogni Dettaglio</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Tecnologie all'avanguardia al servizio del tuo apprendimento
-            </p>
-          </motion.div>
+      {/* Course Showcase Section */}
+      <CourseShowcase />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon
-              return (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="group relative overflow-hidden border-2 hover:border-[hsl(var(--indigo)_/_0.3)] transition-all duration-500 hover:shadow-2xl h-full">
-                    {/* Gradient Background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-
-                    <div className="relative p-8 h-full flex flex-col">
-                      {/* Icon */}
-                      <div className="mb-6 relative">
-                        <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-2xl opacity-20 blur-xl`} />
-                        <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500`}>
-                          <Icon className="w-8 h-8 text-white" />
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <h3 className="text-2xl font-display font-semibold mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
-                        {feature.description}
-                      </p>
-
-                      {/* Stats */}
-                      <div className="flex items-center gap-2 text-sm font-semibold text-[hsl(var(--indigo))]">
-                        <Zap className="w-4 h-4" />
-                        {feature.stats}
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              )
-            })}
-          </div>
-        </motion.div>
-      </section>
+      {/* Method Section - Flipped Classroom */}
+      <MethodSection />
 
       {/* Stats Section - Editorial Layout */}
       <section className="bg-gradient-to-br from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.9)] text-white py-24 relative overflow-hidden">
@@ -275,6 +200,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Areas Section - Design, Tech, Business */}
+      <AreasSection />
 
       {/* CTA Section */}
       <section className="editorial-grid py-32">
