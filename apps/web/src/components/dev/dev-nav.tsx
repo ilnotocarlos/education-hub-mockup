@@ -97,11 +97,11 @@ export function DevNav() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900/95 to-pink-900/95 backdrop-blur-xl shadow-2xl border-b-4 border-purple-500"
+            className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900/95 to-pink-900/95 backdrop-blur-xl shadow-2xl border-b-4 border-purple-500 max-h-[70vh] overflow-y-auto"
           >
-            <div className="container mx-auto px-4 py-3">
+            <div className="container mx-auto px-4 py-2">
               {/* Header */}
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
                   <div className="bg-purple-500 p-2 rounded-lg">
                     <Code className="w-5 h-5 text-white" />
@@ -124,17 +124,17 @@ export function DevNav() {
               </div>
 
               {/* Routes Grid */}
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-3 gap-3">
                 {Object.entries(routes).map(([key, section]) => {
                   const Icon = section.icon
                   const isExpanded = expandedSection === key
 
                   return (
-                    <div key={key} className="bg-white/10 rounded-lg p-4 backdrop-blur">
+                    <div key={key} className="bg-white/10 rounded-lg p-3 backdrop-blur">
                       {/* Section Header */}
                       <button
                         onClick={() => setExpandedSection(isExpanded ? null : key)}
-                        className="w-full flex items-center justify-between mb-3 text-white hover:text-purple-200 transition-colors"
+                        className="w-full flex items-center justify-between mb-2 text-white hover:text-purple-200 transition-colors"
                       >
                         <div className="flex items-center gap-2">
                           <Icon className="w-4 h-4" />
@@ -153,7 +153,7 @@ export function DevNav() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="space-y-1 overflow-hidden"
+                            className="space-y-0.5 overflow-hidden"
                           >
                             {section.routes.map((route) => {
                               const isActive = pathname === route.path
@@ -163,7 +163,7 @@ export function DevNav() {
                                   key={route.path}
                                   href={route.path}
                                   onClick={() => setIsOpen(false)}
-                                  className={`block px-3 py-2 rounded text-sm transition-all ${
+                                  className={`block px-2 py-1.5 rounded text-sm transition-all ${
                                     isActive
                                       ? "bg-white text-purple-900 font-semibold"
                                       : "text-white hover:bg-white/20"
@@ -182,7 +182,7 @@ export function DevNav() {
               </div>
 
               {/* Quick Stats */}
-              <div className="mt-4 flex items-center justify-between text-xs text-purple-200">
+              <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-xs text-purple-200">
                 <div className="flex gap-4">
                   <span>ENV: {process.env.NODE_ENV}</span>
                   <span>•</span>
