@@ -18,5 +18,11 @@
     "test": {
       "dependsOn": ["^build"]
     }
-  }
+  },
+  "globalEnv": [
+    "DATABASE_URL",
+    "NEXTAUTH_URL",
+    "NEXTAUTH_SECRET",
+    "MAIN_APP_URL"
+  ]
 }

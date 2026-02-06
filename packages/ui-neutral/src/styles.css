@@ -1,0 +1,180 @@
+/**
+ * Education Hub - Neutral Design System
+ * B&W palette inspired by Vercel Dashboard
+ * For internal apps: Planning, Teach, Insights, Faculty
+ */
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ========================================
+       NEUTRAL PALETTE (HSL)
+       Base grayscale from white to black
+       ======================================== */
+    --neutral-50: 0 0% 98%;
+    --neutral-100: 0 0% 96%;
+    --neutral-200: 0 0% 90%;
+    --neutral-300: 0 0% 83%;
+    --neutral-400: 0 0% 64%;
+    --neutral-500: 0 0% 45%;
+    --neutral-600: 0 0% 32%;
+    --neutral-700: 0 0% 25%;
+    --neutral-800: 0 0% 15%;
+    --neutral-900: 0 0% 9%;
+    --neutral-950: 0 0% 4%;
+
+    /* ========================================
+       STATE COLORS (HSL)
+       Blue for primary actions, semantic colors
+       ======================================== */
+    --blue-50: 214 100% 97%;
+    --blue-100: 214 95% 93%;
+    --blue-200: 213 97% 87%;
+    --blue-300: 212 96% 78%;
+    --blue-400: 213 94% 68%;
+    --blue-500: 217 91% 60%; /* Primary */
+    --blue-600: 221 83% 53%;
+    --blue-700: 224 76% 48%;
+    --blue-800: 226 71% 40%;
+    --blue-900: 224 64% 33%;
+
+    --green-50: 138 76% 97%;
+    --green-100: 141 84% 93%;
+    --green-500: 142 76% 36%; /* Success */
+    --green-600: 142 72% 29%;
+
+    --red-50: 0 86% 97%;
+    --red-100: 0 93% 94%;
+    --red-500: 0 84% 60%; /* Error */
+    --red-600: 0 72% 51%;
+
+    --yellow-50: 55 92% 95%;
+    --yellow-100: 55 97% 88%;
+    --yellow-500: 48 96% 53%; /* Warning */
+    --yellow-600: 43 96% 56%;
+
+    /* ========================================
+       SEMANTIC TOKENS (mapped to neutral/state)
+       ======================================== */
+    --background: var(--neutral-50);
+    --foreground: var(--neutral-950);
+
+    --card: 0 0% 100%; /* Pure white for cards */
+    --card-foreground: var(--neutral-950);
+
+    --muted: var(--neutral-100);
+    --muted-foreground: var(--neutral-500);
+
+    --accent: var(--neutral-100);
+    --accent-foreground: var(--neutral-900);
+
+    --border: var(--neutral-200);
+    --input: var(--neutral-300);
+    --ring: var(--blue-500);
+
+    --primary: var(--blue-600);
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: var(--neutral-100);
+    --secondary-foreground: var(--neutral-900);
+
+    --success: var(--green-500);
+    --success-foreground: 0 0% 100%;
+
+    --destructive: var(--red-500);
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: var(--yellow-500);
+    --warning-foreground: var(--neutral-900);
+
+    /* ========================================
+       RADIUS & SHADOWS
+       ======================================== */
+    --radius: 0.5rem; /* 8px - Vercel style */
+
+    /* Shadows (subtle, Vercel-inspired) */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  /* Dark mode overrides (optional, for future) */
+  .dark {
+    --background: var(--neutral-950);
+    --foreground: var(--neutral-50);
+    --card: var(--neutral-900);
+    --muted: var(--neutral-800);
+    --accent: var(--neutral-800);
+    --border: var(--neutral-800);
+    --input: var(--neutral-700);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* ========================================
+     CUSTOM UTILITIES
+     ======================================== */
+
+  /* Glassmorphism effect (subtle) */
+  .glass-effect {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Transition utilities */
+  .transition-base {
+    transition-property: color, background-color, border-color, opacity, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  /* Focus ring (consistent with Vercel) */
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Scrollbar styling (minimal, Vercel-style) */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--neutral-300)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--neutral-300));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--neutral-400));
+  }
+}
