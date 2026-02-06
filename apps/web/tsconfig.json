@@ -3,6 +3,7 @@
   "compilerOptions": {
     "declaration": false,
     "declarationMap": false,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"]
     }
@@ -13,7 +14,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "auth.ts",
+    "middleware.ts"
   ],
   "exclude": ["node_modules"]
 }
