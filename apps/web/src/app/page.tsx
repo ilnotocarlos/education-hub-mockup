@@ -1,9 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { Navigation } from "@/components/shared/navigation"
 import { CourseShowcase } from "@/components/marketing/course-showcase"
 import { MethodSection } from "@/components/marketing/method-section"
@@ -47,16 +48,26 @@ const fadeInUp = {
 }
 
 export default function HomePage() {
+  const { scrollY } = useScroll()
+  const y1 = useTransform(scrollY, [0, 500], [0, 150])
+  const y2 = useTransform(scrollY, [0, 500], [0, -100])
+
   return (
     <div className="min-h-screen grain-texture">
       <Navigation />
 
       {/* Hero Section - Editorial Style */}
       <section className="relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[hsl(var(--indigo))] to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[hsl(var(--amber))] to-transparent rounded-full blur-3xl" />
+        {/* Decorative Elements with Parallax */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <motion.div
+            style={{ y: y1 }}
+            className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[hsl(var(--indigo))] to-transparent rounded-full blur-3xl"
+          />
+          <motion.div
+            style={{ y: y2 }}
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[hsl(var(--amber))] to-transparent rounded-full blur-3xl"
+          />
         </div>
 
         <div className="editorial-grid py-24 md:py-32 relative">
@@ -130,7 +141,7 @@ export default function HomePage() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="border-2 text-lg px-8 py-6 hover:bg-muted/50"
+                className="border-2 text-lg px-8 py-6 hover:bg-muted/50 hover:border-[hsl(var(--indigo))] hover:scale-105 transition-all"
               >
                 <Link href="/dashboard">
                   Vedi Dashboard Demo
@@ -184,10 +195,11 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                className="text-center cursor-default"
               >
                 <div className="font-display text-5xl md:text-6xl font-bold mb-2">
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} />
                 </div>
                 <div className="text-lg font-semibold mb-1 text-white/90">
                   {stat.label}
