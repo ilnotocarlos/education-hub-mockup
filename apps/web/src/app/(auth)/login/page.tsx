@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { signIn } from "next-auth/react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
@@ -8,13 +8,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-// Disable static rendering for this page (uses useSearchParams)
-export const dynamic = 'force-dynamic'
-
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get("callbackUrl") || "/(platform)/dashboard"
+  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard"
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -186,5 +183,21 @@ export default function LoginPage() {
         </Link>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="space-y-6 animate-pulse">
+      <div className="h-8 bg-gray-200 rounded w-1/2 mx-auto" />
+      <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto" />
+      <div className="space-y-4">
+        <div className="h-10 bg-gray-200 rounded" />
+        <div className="h-10 bg-gray-200 rounded" />
+        <div className="h-10 bg-gray-200 rounded" />
+      </div>
+    </div>}>
+      <LoginForm />
+    </Suspense>
   )
 }
