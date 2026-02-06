@@ -42,7 +42,7 @@ export async function POST(request: Request) {
         name,
         email,
         password: hashedPassword,
-        role: "student",
+        role: "STUDENT",
       },
       select: {
         id: true,
