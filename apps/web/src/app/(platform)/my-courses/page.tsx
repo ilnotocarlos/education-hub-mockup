@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { usePageTransition } from "@/hooks/use-page-transition"
 import {
   BookOpen,
   Clock,
@@ -22,15 +23,6 @@ import {
   ExternalLink,
   Sparkles
 } from "lucide-react"
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 }
-  }
-}
 
 const courses = [
   {
@@ -121,7 +113,7 @@ const stats = [
   }
 ]
 
-function CourseCard({ course }: { course: typeof courses[0] }) {
+function CourseCard({ course, fadeInUp }: { course: typeof courses[0]; fadeInUp: any }) {
   const statusConfig = {
     active: {
       label: "In Corso",
@@ -298,6 +290,7 @@ function CourseCard({ course }: { course: typeof courses[0] }) {
 }
 
 export default function MyCoursesPage() {
+  const { variants } = usePageTransition()
   const [activeTab, setActiveTab] = useState("all")
 
   const filteredCourses = courses.filter((course) => {
@@ -404,7 +397,7 @@ export default function MyCoursesPage() {
                 ) : (
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredCourses.map((course) => (
-                      <CourseCard key={course.id} course={course} />
+                      <CourseCard key={course.id} course={course} fadeInUp={variants.fadeInUp} />
                     ))}
                   </div>
                 )}

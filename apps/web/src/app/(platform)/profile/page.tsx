@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { usePageTransition } from "@/hooks/use-page-transition"
 import {
   Settings,
   Award,
@@ -174,24 +175,9 @@ const certificates = [
   }
 ]
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-}
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const }
-  }
-}
-
 export default function ProfilePage() {
+  const { variants, createStaggerContainer } = usePageTransition()
+  const staggerContainer = createStaggerContainer(0.1)
   const [activeTab, setActiveTab] = useState("overview")
 
   return (
@@ -317,7 +303,7 @@ export default function ProfilePage() {
           ].map((stat, index) => {
             const Icon = stat.icon
             return (
-              <motion.div key={stat.label} variants={fadeInUp}>
+              <motion.div key={stat.label} variants={variants.fadeInUp}>
                 <Card className="border-2 hover:border-[hsl(var(--indigo)_/_0.3)] transition-all">
                   <CardContent className="p-4 text-center">
                     <div className={`inline-flex p-2 rounded-lg bg-[hsl(var(--${stat.color})_/_0.1)] mb-2`}>
@@ -366,7 +352,7 @@ export default function ProfilePage() {
               className="grid md:grid-cols-2 gap-6"
             >
               {portfolioProjects.map((project) => (
-                <motion.div key={project.id} variants={fadeInUp}>
+                <motion.div key={project.id} variants={variants.fadeInUp}>
                   <Card className="border-2 hover:border-[hsl(var(--indigo)_/_0.3)] hover:shadow-xl transition-all group h-full">
                     {/* Project Thumbnail */}
                     <div className="relative h-48 bg-gradient-to-br from-[hsl(var(--indigo)_/_0.1)] to-[hsl(var(--amber)_/_0.1)] overflow-hidden">

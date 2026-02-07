@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { usePageTransition } from "@/hooks/use-page-transition"
 import {
   Briefcase,
   TrendingUp,
@@ -180,24 +181,9 @@ const interviewPrep = [
   }
 ]
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-}
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const }
-  }
-}
-
 export default function PlacementPage() {
+  const { variants, createStaggerContainer } = usePageTransition()
+  const staggerContainer = createStaggerContainer(0.1)
   const [savedJobs, setSavedJobs] = useState<string[]>(["2"])
 
   const toggleSave = (jobId: string) => {
@@ -356,7 +342,7 @@ export default function PlacementPage() {
               </div>
 
               {recommendedJobs.map((job) => (
-                <motion.div key={job.id} variants={fadeInUp}>
+                <motion.div key={job.id} variants={variants.fadeInUp}>
                   <Card className="border-2 hover:border-[hsl(var(--indigo)_/_0.3)] hover:shadow-lg transition-all">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-6">
@@ -464,7 +450,7 @@ export default function PlacementPage() {
               </h2>
 
               {applications.map((app) => (
-                <motion.div key={app.id} variants={fadeInUp}>
+                <motion.div key={app.id} variants={variants.fadeInUp}>
                   <Card className="border-2">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-4">
@@ -553,7 +539,7 @@ export default function PlacementPage() {
 
               <div className="grid md:grid-cols-2 gap-4">
                 {interviewPrep.map((item) => (
-                  <motion.div key={item.id} variants={fadeInUp}>
+                  <motion.div key={item.id} variants={variants.fadeInUp}>
                     <Card className={`border-2 ${item.completed ? "opacity-75" : "hover:border-[hsl(var(--indigo)_/_0.3)]"}`}>
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
