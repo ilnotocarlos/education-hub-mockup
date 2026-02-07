@@ -187,7 +187,7 @@ export function usePageTransition() {
         [axis]: axis === "scale" ? 1 : 0,
         transition: { duration, ease: DEFAULT_EASE }
       }
-    }
+    } as Variants
   }
 
   /**
@@ -235,7 +235,7 @@ export function usePageTransition() {
         [axis]: 0,
         transition: { duration: DEFAULT_DURATION, ease: DEFAULT_EASE }
       }
-    }
+    } as Variants
   }
 
   return {

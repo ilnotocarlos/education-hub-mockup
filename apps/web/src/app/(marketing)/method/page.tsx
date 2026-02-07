@@ -156,7 +156,7 @@ export default function MethodPage() {
           <motion.div
             initial="hidden"
             animate="show"
-            variants={variants.variants.fadeInUpLargeLarge}
+            variants={variants.fadeInUpLarge}
             className="max-w-4xl mx-auto text-center"
           >
             <Badge className="mb-6 px-4 py-1.5 bg-[hsl(var(--indigo)_/_0.1)] border-[hsl(var(--indigo)_/_0.2)] text-[hsl(var(--indigo))]">

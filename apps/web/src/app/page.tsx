@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { Navigation } from "@/components/shared/navigation"
+import { Footer } from "@/components/shared/footer"
+import { CTASection } from "@/components/shared/cta-section"
 import { CourseShowcase } from "@/components/marketing/course-showcase"
 import { MethodSection } from "@/components/marketing/method-section"
 import { AreasSection } from "@/components/marketing/areas-section"
+import { usePageTransition } from "@/hooks/use-page-transition"
 import {
   ArrowRight,
-  BookOpen,
   Users,
   Sparkles,
   TrendingUp,
@@ -25,29 +27,9 @@ const stats = [
   { value: "4.8/5", label: "Student Rating", sublabel: "su 500+ reviews" }
 ]
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-}
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut" as const
-    }
-  }
-}
-
 export default function HomePage() {
+  const { variants, createStaggerContainer } = usePageTransition()
+  const staggerContainer = createStaggerContainer(0.1)
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 500], [0, 150])
   const y2 = useTransform(scrollY, [0, 500], [0, -100])
@@ -78,7 +60,7 @@ export default function HomePage() {
             className="max-w-5xl mx-auto"
           >
             {/* Badge */}
-            <motion.div variants={fadeInUp} className="flex justify-center mb-8">
+            <motion.div variants={variants.fadeInUp} className="flex justify-center mb-8">
               <Badge className="px-6 py-2 bg-[hsl(var(--indigo)_/_0.1)] border-[hsl(var(--indigo)_/_0.2)] text-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo)_/_0.15)]">
                 <Sparkles className="w-3 h-3 mr-2" />
                 Powered by AI & Blockchain
@@ -87,7 +69,7 @@ export default function HomePage() {
 
             {/* Headline */}
             <motion.h1
-              variants={fadeInUp}
+              variants={variants.fadeInUp}
               className="text-center text-balance mb-8"
             >
               L'Educazione
@@ -112,7 +94,7 @@ export default function HomePage() {
 
             {/* Subheadline */}
             <motion.p
-              variants={fadeInUp}
+              variants={variants.fadeInUp}
               className="text-center text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12"
             >
               Trasforma il tuo potenziale in carriera con percorsi formativi che uniscono
@@ -123,7 +105,7 @@ export default function HomePage() {
 
             {/* CTAs */}
             <motion.div
-              variants={fadeInUp}
+              variants={variants.fadeInUp}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <Button
@@ -151,7 +133,7 @@ export default function HomePage() {
 
             {/* Trust Indicators */}
             <motion.div
-              variants={fadeInUp}
+              variants={variants.fadeInUp}
               className="flex flex-wrap items-center justify-center gap-8 mt-16 text-sm text-muted-foreground"
             >
               <div className="flex items-center gap-2">
@@ -217,78 +199,55 @@ export default function HomePage() {
       <AreasSection />
 
       {/* CTA Section */}
-      <section className="editorial-grid py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <Badge className="mb-8 px-6 py-2 bg-[hsl(var(--amber)_/_0.1)] border-[hsl(var(--amber)_/_0.2)] text-[hsl(var(--amber))] hover:bg-[hsl(var(--amber)_/_0.15)]">
-            Inizia Gratis
-          </Badge>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-32 text-center"
+      >
+        <Badge className="mb-8 px-6 py-2 bg-[hsl(var(--amber)_/_0.1)] border-[hsl(var(--amber)_/_0.2)] text-[hsl(var(--amber))] hover:bg-[hsl(var(--amber)_/_0.15)]">
+          Inizia Gratis
+        </Badge>
+        <CTASection
+          title={
+            <>
+              Pronto a Trasformare
+              <br />
+              il Tuo Futuro?
+            </>
+          }
+          description="Unisciti a migliaia di professionisti che hanno già fatto il salto. Assessment gratuito in 5 minuti."
+          variant="transparent"
+          buttonLayout="horizontal"
+          actions={
+            <>
+              <Button
+                size="lg"
+                asChild
+                className="bg-gradient-to-r from-[hsl(var(--amber))] to-[hsl(var(--amber)_/_0.8)] text-white hover:shadow-2xl hover:scale-105 transition-all text-lg px-8 py-6 group"
+              >
+                <Link href="/discover">
+                  Inizia Assessment Gratuito
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 text-lg px-8 py-6"
+                asChild
+              >
+                <Link href="/dashboard">
+                  Esplora la Piattaforma
+                </Link>
+              </Button>
+            </>
+          }
+        />
+      </motion.div>
 
-          <h2 className="mb-6">
-            Pronto a Trasformare
-            <br />
-            il Tuo Futuro?
-          </h2>
-
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Unisciti a migliaia di professionisti che hanno già fatto il salto.
-            Assessment gratuito in 5 minuti.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              asChild
-              className="bg-gradient-to-r from-[hsl(var(--amber))] to-[hsl(var(--amber)_/_0.8)] text-white hover:shadow-2xl hover:scale-105 transition-all text-lg px-8 py-6 group"
-            >
-              <Link href="/discover">
-                Inizia Assessment Gratuito
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="border-2 text-lg px-8 py-6"
-            >
-              <Link href="/dashboard">
-                Esplora la Piattaforma
-              </Link>
-            </Button>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t bg-muted/30 py-12">
-        <div className="editorial-grid">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-br from-[hsl(var(--indigo))] to-[hsl(var(--amber))] p-2 rounded-xl">
-                <BookOpen className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <span className="font-display text-xl font-bold">Education Hub</span>
-                <p className="text-xs text-muted-foreground">Il Futuro dell'Apprendimento</p>
-              </div>
-            </div>
-
-            <p className="text-sm text-muted-foreground text-center md:text-right">
-              © 2026 Education Hub. Powered by AI & Blockchain
-              <br className="md:hidden" />
-              <span className="hidden md:inline"> · </span>
-              Next.js 14 · React · TypeScript · Shadcn/ui
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

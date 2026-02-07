@@ -19,15 +19,8 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { MOCK_COURSES } from "@/lib/data/courses-mock"
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
-}
+import { usePageTransition } from "@/hooks/use-page-transition"
+import { CTASection } from "@/components/shared/cta-section"
 
 // Mock curriculum data (in a real app, this would come from API)
 const MOCK_CURRICULUM = {
@@ -107,6 +100,7 @@ const MOCK_CURRICULUM = {
 
 export default function CourseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = React.use(params)
+  const { variants } = usePageTransition()
   const course = MOCK_COURSES.find((c) => c.slug === slug)
 
   if (!course) {
@@ -135,7 +129,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ slug: s
             <motion.div
               initial="hidden"
               animate="show"
-              variants={fadeInUp}
+              variants={variants.fadeInUp}
             >
               <div className="flex items-center gap-2 mb-4">
                 <Badge variant="secondary">{course.category}</Badge>
@@ -239,7 +233,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ slug: s
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUp}
             className="text-center mb-12"
           >
             <Badge className="mb-4 px-4 py-1.5 bg-[hsl(var(--indigo)_/_0.1)] border-[hsl(var(--indigo)_/_0.2)] text-[hsl(var(--indigo))]">
@@ -294,7 +288,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ slug: s
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              variants={fadeInUp}
+              variants={variants.fadeInUp}
             >
               <Card className="p-8 border-2">
                 <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
@@ -334,7 +328,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ slug: s
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUp}
             className="text-center mb-12"
           >
             <h2 className="mb-4">I Tuoi Risultati</h2>
@@ -388,26 +382,26 @@ export default function CourseDetailPage({ params }: { params: Promise<{ slug: s
       </section>
 
       {/* Final CTA */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="mb-6">Pronto a Iniziare?</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Posti limitati per garantire qualità e attenzione personalizzata
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={variants.fadeInUp}
+        className="py-16"
+      >
+        <CTASection
+          title="Pronto a Iniziare?"
+          description="Posti limitati per garantire qualità e attenzione personalizzata"
+          variant="transparent"
+          buttonLayout="horizontal"
+          actions={
+            <>
               <Button
                 size="lg"
                 asChild
                 className="bg-gradient-to-r from-[hsl(var(--amber))] to-[hsl(var(--amber)_/_0.8)] text-white hover:shadow-xl text-lg px-8 py-6"
               >
-                <Link href="/(marketing)/apply">
+                <Link href="/apply">
                   Candidati Ora
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
@@ -415,17 +409,17 @@ export default function CourseDetailPage({ params }: { params: Promise<{ slug: s
               <Button
                 size="lg"
                 variant="outline"
-                asChild
                 className="text-lg px-8 py-6"
+                asChild
               >
                 <Link href="/discover">
                   Fai l'Assessment Gratuito
                 </Link>
               </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            </>
+          }
+        />
+      </motion.div>
     </div>
   )
 }
