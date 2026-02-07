@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { usePageTransition } from "@/hooks/use-page-transition"
 import {
   Award,
   Download,
@@ -97,24 +98,9 @@ const walletInfo = {
   totalValue: "0.45 MATIC (~€0.38)"
 }
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-}
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const }
-  }
-}
-
 export default function CertificatesPage() {
+  const { variants, createStaggerContainer } = usePageTransition()
+  const staggerContainer = createStaggerContainer(0.1)
   const [copiedAddress, setCopiedAddress] = useState(false)
 
   const copyAddress = () => {
@@ -226,7 +212,7 @@ export default function CertificatesPage() {
               className="grid md:grid-cols-2 gap-6"
             >
               {certificates.map((cert) => (
-                <motion.div key={cert.id} variants={fadeInUp}>
+                <motion.div key={cert.id} variants={variants.fadeInUp}>
                   <Card className={`border-2 hover:shadow-xl transition-all h-full ${
                     cert.status === "minted"
                       ? "hover:border-[hsl(var(--indigo)_/_0.3)]"
@@ -344,7 +330,7 @@ export default function CertificatesPage() {
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
             >
               {badges.map((badge) => (
-                <motion.div key={badge.id} variants={fadeInUp}>
+                <motion.div key={badge.id} variants={variants.fadeInUp}>
                   <Card className={`border-2 text-center transition-all ${
                     badge.earned
                       ? "hover:border-[hsl(var(--amber)_/_0.3)] hover:shadow-lg cursor-pointer"

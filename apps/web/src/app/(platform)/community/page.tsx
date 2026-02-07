@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
+import { usePageTransition } from "@/hooks/use-page-transition"
 import {
   Users,
   MessageSquare,
@@ -156,24 +157,9 @@ const topContributors = [
   { name: "Marco Bianchi", avatar: "MB", posts: 54, likes: 312 }
 ]
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-}
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const }
-  }
-}
-
 export default function CommunityPage() {
+  const { variants, createStaggerContainer } = usePageTransition()
+  const staggerContainer = createStaggerContainer(0.1)
   const [activeCategory, setActiveCategory] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
   const [likedPosts, setLikedPosts] = useState<string[]>([])
@@ -272,7 +258,7 @@ export default function CommunityPage() {
               className="space-y-4"
             >
               {filteredDiscussions.map((discussion) => (
-                <motion.div key={discussion.id} variants={fadeInUp}>
+                <motion.div key={discussion.id} variants={variants.fadeInUp}>
                   <Card className={`border-2 hover:border-[hsl(var(--indigo)_/_0.3)] hover:shadow-lg transition-all ${
                     discussion.isPinned ? "border-[hsl(var(--amber)_/_0.3)] bg-[hsl(var(--amber)_/_0.02)]" : ""
                   }`}>
