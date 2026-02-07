@@ -13,6 +13,7 @@
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.1",
     "@edu-hub/types": "workspace:*",
+    "@edu-hub/ui": "workspace:^",
     "@prisma/client": "^6.5.0",
     "@tanstack/react-query": "^5.75.0",
     "@trpc/client": "^11.1.0",
