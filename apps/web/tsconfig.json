@@ -4,6 +4,7 @@
     "declaration": false,
     "declarationMap": false,
     "skipLibCheck": true,
+    "types": ["vitest/globals"],
     "paths": {
       "@/*": ["./src/*"]
     }
