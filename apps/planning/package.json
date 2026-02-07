@@ -10,19 +10,20 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "^16.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next-auth": "^5.0.0-beta.25",
-    "@edu-hub/ui-neutral": "workspace:*",
     "@edu-hub/types": "workspace:*",
-    "lucide-react": "^0.469.0"
+    "@edu-hub/ui-neutral": "workspace:*",
+    "lucide-react": "^0.469.0",
+    "next": "^16.1.6",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@edu-hub/config": "workspace:*",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "tailwindcss": "^4.1.18",
     "typescript": "^5"
   }
 }
