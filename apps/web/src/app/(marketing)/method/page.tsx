@@ -20,15 +20,11 @@ import {
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
-}
+import { usePageTransition } from "@/hooks/use-page-transition"
+import { ProcessStep, ProcessStepGrid } from "@/components/shared/process-step"
+import { FeatureCard, FeatureGrid } from "@/components/shared/feature-card"
+import { StatCard } from "@/components/shared/stat-card"
+import { CTASection } from "@/components/shared/cta-section"
 
 const steps = [
   {
@@ -150,6 +146,8 @@ const results = [
 ]
 
 export default function MethodPage() {
+  const { variants } = usePageTransition()
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -158,7 +156,7 @@ export default function MethodPage() {
           <motion.div
             initial="hidden"
             animate="show"
-            variants={fadeInUp}
+            variants={variants.variants.fadeInUpLargeLarge}
             className="max-w-4xl mx-auto text-center"
           >
             <Badge className="mb-6 px-4 py-1.5 bg-[hsl(var(--indigo)_/_0.1)] border-[hsl(var(--indigo)_/_0.2)] text-[hsl(var(--indigo))]">
@@ -184,7 +182,7 @@ export default function MethodPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <h2 className="mb-4">Come Funziona</h2>
@@ -193,40 +191,25 @@ export default function MethodPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {steps.map((step, index) => {
-              const Icon = step.icon
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15, duration: 0.6 }}
-                >
-                  <Card className="relative p-8 h-full border-2 hover:border-[hsl(var(--indigo)_/_0.3)] transition-all hover:shadow-lg group">
-                    <div className="absolute top-6 right-6 font-display text-6xl font-bold text-muted-foreground/10 group-hover:text-[hsl(var(--indigo)_/_0.1)] transition-colors">
-                      {step.number}
-                    </div>
-
-                    <div className="mb-6 relative">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} rounded-2xl opacity-20 blur-xl`} />
-                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                    </div>
-
-                    <h3 className="font-display text-2xl font-semibold mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                  </Card>
-                </motion.div>
-              )
-            })}
-          </div>
+          <ProcessStepGrid cols={3} className="mb-16">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+              >
+                <ProcessStep
+                  number={step.number}
+                  icon={step.icon}
+                  title={step.title}
+                  description={step.description}
+                  iconGradient={step.color}
+                />
+              </motion.div>
+            ))}
+          </ProcessStepGrid>
         </div>
       </section>
 
@@ -237,7 +220,7 @@ export default function MethodPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <h2 className="mb-4">Il Flipped Classroom nel Dettaglio</h2>
@@ -301,7 +284,7 @@ export default function MethodPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <Badge className="mb-4 px-4 py-1.5 bg-[hsl(var(--amber)_/_0.1)] border-[hsl(var(--amber)_/_0.2)] text-[hsl(var(--amber))]">
@@ -313,28 +296,29 @@ export default function MethodPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
-            {aiFeatures.map((feature, index) => {
-              const Icon = feature.icon
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card className="p-6 text-center h-full hover:border-[hsl(var(--amber)_/_0.3)] transition-colors">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(var(--amber)_/_0.2)] to-[hsl(var(--amber)_/_0.1)] flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-[hsl(var(--amber))]" />
-                    </div>
-                    <h3 className="font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground">{feature.description}</p>
-                  </Card>
-                </motion.div>
-              )
-            })}
-          </div>
+          <FeatureGrid cols={4} className="max-w-6xl mx-auto mb-12">
+            {aiFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <FeatureCard
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                  iconGradient="from-[hsl(var(--amber)_/_0.2)] to-[hsl(var(--amber)_/_0.1)]"
+                  iconSize="sm"
+                  align="center"
+                  titleClassName="font-semibold text-base"
+                  descriptionClassName="text-sm"
+                  className="hover:border-[hsl(var(--amber)_/_0.3)]"
+                />
+              </motion.div>
+            ))}
+          </FeatureGrid>
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -372,7 +356,7 @@ export default function MethodPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <h2 className="mb-4">Perché Funziona Meglio</h2>
@@ -429,7 +413,7 @@ export default function MethodPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <h2 className="mb-4">I Risultati Parlano Chiaro</h2>
@@ -446,14 +430,14 @@ export default function MethodPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center"
               >
-                <div className="font-display text-6xl font-bold mb-2">
-                  {result.metric}
-                </div>
-                <div className="text-white/80">
-                  {result.description}
-                </div>
+                <StatCard
+                  value={result.metric}
+                  label={result.description}
+                  size="xl"
+                  valueColor="white"
+                  labelClassName="text-white/80"
+                />
               </motion.div>
             ))}
           </div>
@@ -461,44 +445,47 @@ export default function MethodPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={variants.fadeInUpLarge}
+        className="py-24"
+      >
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="mb-6">Pronto a Sperimentare il Metodo?</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Fai l'assessment gratuito e scopri il percorso personalizzato per te
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                asChild
-                className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] hover:shadow-xl text-lg px-8 py-6"
-              >
-                <Link href="/discover">
-                  Inizia Assessment Gratuito
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="text-lg px-8 py-6"
-              >
-                <Link href="/courses">
-                  Esplora i Corsi
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
+          <CTASection
+            title="Pronto a Sperimentare il Metodo?"
+            description="Fai l'assessment gratuito e scopri il percorso personalizzato per te"
+            variant="transparent"
+            buttonLayout="stacked"
+            asCard={false}
+            actions={
+              <>
+                <Button
+                  size="lg"
+                  asChild
+                  className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] hover:shadow-xl text-lg px-8 py-6"
+                >
+                  <Link href="/discover">
+                    Inizia Assessment Gratuito
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="text-lg px-8 py-6"
+                >
+                  <Link href="/courses">
+                    Esplora i Corsi
+                  </Link>
+                </Button>
+              </>
+            }
+          />
         </div>
-      </section>
+      </motion.section>
     </div>
   )
 }
