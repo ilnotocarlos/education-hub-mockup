@@ -16,15 +16,10 @@ import {
 } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
-}
+import { usePageTransition } from "@/hooks/use-page-transition"
+import { StatCard, StatCardGrid } from "@/components/shared/stat-card"
+import { FeatureCard, FeatureGrid } from "@/components/shared/feature-card"
+import { TimelineItem, Timeline } from "@/components/shared/timeline-item"
 
 const stats = [
   { value: "2020", label: "Anno di Fondazione" },
@@ -137,6 +132,8 @@ const partners = [
 ]
 
 export default function AboutPage() {
+  const { variants } = usePageTransition()
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -145,7 +142,7 @@ export default function AboutPage() {
           <motion.div
             initial="hidden"
             animate="show"
-            variants={fadeInUp}
+            variants={variants.variants.fadeInUpLargeLarge}
             className="max-w-4xl mx-auto text-center"
           >
             <Badge className="mb-6 px-4 py-1.5 bg-[hsl(var(--indigo)_/_0.1)] border-[hsl(var(--indigo)_/_0.2)] text-[hsl(var(--indigo))]">
@@ -169,7 +166,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="py-16 border-y bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <StatCardGrid cols={4} className="max-w-5xl mx-auto">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -177,17 +174,15 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center"
               >
-                <div className="font-display text-5xl font-bold text-[hsl(var(--indigo))] mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
+                <StatCard
+                  value={stat.value}
+                  label={stat.label}
+                  size="lg"
+                />
               </motion.div>
             ))}
-          </div>
+          </StatCardGrid>
         </div>
       </section>
 
@@ -199,7 +194,7 @@ export default function AboutPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              variants={fadeInUp}
+              variants={variants.fadeInUpLarge}
             >
               <h2 className="text-center mb-12">La Nostra Mission</h2>
               <Card className="p-8 border-2 border-[hsl(var(--indigo)_/_0.2)]">
@@ -227,7 +222,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <h2 className="mb-4">I Nostri Valori</h2>
@@ -236,34 +231,24 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {values.map((value, index) => {
-              const Icon = value.icon
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card className="p-8 h-full hover:border-[hsl(var(--indigo)_/_0.3)] transition-colors">
-                    <div className="mb-4">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} flex items-center justify-center`}>
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
-                    </div>
-                    <h3 className="font-display text-2xl font-semibold mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
-                  </Card>
-                </motion.div>
-              )
-            })}
-          </div>
+          <FeatureGrid cols={2} className="max-w-5xl mx-auto">
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <FeatureCard
+                  icon={value.icon}
+                  title={value.title}
+                  description={value.description}
+                  iconGradient={value.color}
+                />
+              </motion.div>
+            ))}
+          </FeatureGrid>
         </div>
       </section>
 
@@ -274,7 +259,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <h2 className="mb-4">La Nostra Storia</h2>
@@ -283,45 +268,25 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            {timeline.map((item, index) => {
-              const Icon = item.icon
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative pl-8 pb-12 border-l-2 border-[hsl(var(--indigo)_/_0.2)] last:pb-0"
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-br from-[hsl(var(--indigo))] to-[hsl(var(--amber))] flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-white" />
-                  </div>
-
-                  <Card className="p-6 hover:border-[hsl(var(--indigo)_/_0.3)] transition-colors">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-gradient-to-br from-[hsl(var(--indigo)_/_0.1)] to-[hsl(var(--amber)_/_0.1)] p-3 rounded-lg">
-                        <Icon className="w-6 h-6 text-[hsl(var(--indigo))]" />
-                      </div>
-                      <div className="flex-grow">
-                        <div className="font-display text-2xl font-bold text-[hsl(var(--indigo))] mb-2">
-                          {item.year}
-                        </div>
-                        <h3 className="font-semibold text-lg mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              )
-            })}
-          </div>
+          <Timeline>
+            {timeline.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <TimelineItem
+                  year={item.year}
+                  title={item.title}
+                  description={item.description}
+                  icon={item.icon}
+                  isLast={index === timeline.length - 1}
+                />
+              </motion.div>
+            ))}
+          </Timeline>
         </div>
       </section>
 
@@ -332,7 +297,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-16"
           >
             <h2 className="mb-4">Il Team</h2>
@@ -377,7 +342,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="text-center mb-12"
           >
             <h2 className="mb-4">I Nostri Partner</h2>

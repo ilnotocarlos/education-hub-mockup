@@ -4,28 +4,22 @@ import * as React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Search, SlidersHorizontal, ArrowRight, Clock, Users, Star } from "lucide-react"
-import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { MOCK_COURSES } from "@/lib/data/courses-mock"
+import { CourseCard, createCourseStats } from "@/components/shared/course-card"
+import { CTASection } from "@/components/shared/cta-section"
+import { usePageTransition } from "@/hooks/use-page-transition"
 
 type AreaFilter = "all" | "Design" | "Tech" | "Business"
 type LevelFilter = "all" | "Beginner" | "Intermediate" | "Advanced"
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
-}
 
 export default function CoursesPage() {
   const [searchQuery, setSearchQuery] = React.useState("")
   const [areaFilter, setAreaFilter] = React.useState<AreaFilter>("all")
   const [levelFilter, setLevelFilter] = React.useState<LevelFilter>("all")
+  const { variants } = usePageTransition()
 
   // Filter courses based on search and filters
   const filteredCourses = React.useMemo(() => {
@@ -47,7 +41,7 @@ export default function CoursesPage() {
           <motion.div
             initial="hidden"
             animate="show"
-            variants={fadeInUp}
+            variants={variants.fadeInUpLarge}
             className="max-w-3xl mx-auto text-center"
           >
             <Badge className="mb-4 px-4 py-1.5 bg-[hsl(var(--indigo)_/_0.1)] border-[hsl(var(--indigo)_/_0.2)] text-[hsl(var(--indigo))]">
@@ -134,74 +128,19 @@ export default function CoursesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
-                <Card className="group overflow-hidden border-2 hover:border-[hsl(var(--indigo)_/_0.3)] hover:shadow-xl transition-all h-full flex flex-col">
-                  {/* Image Placeholder */}
-                  <div className="relative h-48 bg-gradient-to-br from-[hsl(var(--indigo))] to-[hsl(var(--amber))] overflow-hidden">
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-display text-4xl font-bold text-white opacity-50">
-                        {course.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 flex flex-col flex-grow">
-                    {/* Category & Level */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <Badge variant="secondary" className="text-xs">
-                        {course.category}
-                      </Badge>
-                      <Badge variant="outline" className="text-xs">
-                        {course.level}
-                      </Badge>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="font-display text-2xl font-semibold mb-2 group-hover:text-[hsl(var(--indigo))] transition-colors">
-                      {course.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-sm text-muted-foreground mb-4 flex-grow line-clamp-3">
-                      {course.description}
-                    </p>
-
-                    {/* Stats */}
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{course.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Users className="w-4 h-4" />
-                        <span>{course.students}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                        <span>{course.rating}</span>
-                      </div>
-                    </div>
-
-                    {/* Price & CTA */}
-                    <div className="flex items-center justify-between pt-4 border-t">
-                      <div>
-                        <div className="text-xs text-muted-foreground">A partire da</div>
-                        <div className="font-bold text-xl">€{course.price.toLocaleString()}</div>
-                      </div>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="group-hover:bg-[hsl(var(--indigo))] group-hover:text-white transition-colors"
-                        asChild
-                      >
-                        <Link href={`/courses/${course.slug}`}>
-                          Scopri
-                          <ArrowRight className="ml-1 w-4 h-4" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
+                <CourseCard
+                  title={course.title}
+                  description={course.description}
+                  href={`/courses/${course.slug}`}
+                  category={course.category}
+                  level={course.level}
+                  price={course.price}
+                  stats={[
+                    createCourseStats.duration(course.duration),
+                    createCourseStats.students(course.students),
+                    createCourseStats.rating(course.rating)
+                  ]}
+                />
               </motion.div>
             ))}
           </div>
@@ -229,26 +168,25 @@ export default function CoursesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-16 text-center"
+          className="mt-16"
         >
-          <Card className="p-8 bg-gradient-to-br from-[hsl(var(--indigo)_/_0.05)] to-[hsl(var(--amber)_/_0.05)] border-[hsl(var(--indigo)_/_0.2)]">
-            <h3 className="font-display text-2xl font-semibold mb-4">
-              Non Sai Quale Corso Scegliere?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-6">
-              Fai il nostro assessment gratuito e ti consiglieremo il percorso più adatto a te
-            </p>
-            <Button
-              size="lg"
-              asChild
-              className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)]"
-            >
-              <Link href="/discover">
-                Inizia Assessment Gratuito
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
-          </Card>
+          <CTASection
+            title="Non Sai Quale Corso Scegliere?"
+            description="Fai il nostro assessment gratuito e ti consiglieremo il percorso più adatto a te"
+            variant="gradient"
+            actions={
+              <Button
+                size="lg"
+                asChild
+                className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)]"
+              >
+                <Link href="/discover">
+                  Inizia Assessment Gratuito
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            }
+          />
         </motion.div>
       </div>
     </div>
