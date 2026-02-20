@@ -6,10 +6,26 @@ import { cn } from "@/lib/utils"
 import { HubBreadcrumb } from "./hub-breadcrumb"
 
 const areas = [
-  { label: "Business Plan", href: "/business-plan", color: "hsl(var(--indigo))" },
-  { label: "Presentazione", href: "/presentation", color: "hsl(var(--amber))" },
-  { label: "Piattaforma", href: "/home", color: "hsl(var(--sage))" },
+  { id: "business-plan", label: "Business Plan", href: "/business-plan" },
+  { id: "presentation", label: "Presentazione", href: "/presentation" },
+  { id: "piattaforma", label: "Piattaforma", href: "/home" },
 ] as const
+
+// Platform routes that should highlight "Piattaforma" pill
+const platformPrefixes = [
+  "/home", "/dashboard", "/my-courses", "/lessons", "/onboarding",
+  "/pre-assessment", "/ai-tutor", "/community", "/placement",
+  "/profile", "/certificates", "/settings",
+  "/courses", "/discover", "/apply", "/about", "/method",
+]
+
+function getActiveAreaId(pathname: string): string | null {
+  if (pathname === "/") return null
+  if (pathname.startsWith("/business-plan")) return "business-plan"
+  if (pathname.startsWith("/presentation")) return "presentation"
+  if (platformPrefixes.some((p) => pathname === p || pathname.startsWith(p + "/"))) return "piattaforma"
+  return null
+}
 
 export function HubNavbar() {
   const pathname = usePathname()
@@ -17,7 +33,7 @@ export function HubNavbar() {
   // Hide on presentation pages (full-screen immersive)
   if (pathname.startsWith("/presentation")) return null
 
-  const activeArea = areas.find((a) => pathname.startsWith(a.href))
+  const activeId = getActiveAreaId(pathname)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[60] h-8 glass-effect border-b border-border/30">
@@ -33,10 +49,10 @@ export function HubNavbar() {
         {/* Center: Pill indicators */}
         <div className="flex items-center gap-1">
           {areas.map((area) => {
-            const isActive = pathname.startsWith(area.href)
+            const isActive = activeId === area.id
             return (
               <Link
-                key={area.href}
+                key={area.id}
                 href={area.href}
                 className={cn(
                   "px-3 py-0.5 rounded-full text-[11px] font-medium transition-all",

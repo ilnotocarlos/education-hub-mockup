@@ -80,7 +80,7 @@ export function PlatformNav() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-white z-40">
+        <div className="md:hidden fixed inset-0 top-24 bg-white z-40">
           <div className="container mx-auto px-4 py-8">
             <nav className="flex flex-col gap-6">
               {NAV_ITEMS.map((item) => (

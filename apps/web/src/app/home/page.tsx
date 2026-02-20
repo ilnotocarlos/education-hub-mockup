@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
+import { Navigation } from "@/components/shared/navigation"
+import { Footer } from "@/components/shared/footer"
 import { CTASection } from "@/components/shared/cta-section"
 import { CourseShowcase } from "@/components/marketing/course-showcase"
 import { MethodSection } from "@/components/marketing/method-section"
@@ -34,6 +36,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen grain-texture">
+      <Navigation />
+
       {/* Hero Section - Editorial Style */}
       <section className="relative overflow-hidden">
         {/* Decorative Elements with Parallax */}
@@ -242,6 +246,8 @@ export default function HomePage() {
           }
         />
       </motion.div>
+
+      <Footer />
     </div>
   )
 }

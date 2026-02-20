@@ -207,7 +207,7 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-[45] md:hidden"
-            style={{ top: "96px" }}
+            style={{ top: "128px" }}
           >
             <div className="glass-effect h-full p-6">
               <div className="flex flex-col gap-2">
