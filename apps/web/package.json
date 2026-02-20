@@ -26,6 +26,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.33.0",
+    "idb-keyval": "^6.2.2",
     "lucide-react": "^0.563.0",
     "nanoid": "^5.1.6",
     "next": "16.1.6",
@@ -33,9 +34,12 @@
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "recharts": "^3.7.0",
     "superjson": "^2.2.2",
     "tailwind-merge": "^3.4.0",
-    "zod": "^4.3.6"
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@edu-hub/api": "workspace:*",

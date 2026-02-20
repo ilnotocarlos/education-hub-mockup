@@ -174,6 +174,21 @@
   }
 }
 
+/* Presentation dark theme (full-screen immersive) */
+.presentation-theme {
+  --background: 240 10% 4%;
+  --foreground: 30 6% 90%;
+  --indigo: 243 76% 55%;
+  --amber: 37 88% 55%;
+  --sage: 145 15% 55%;
+  --gold: 43 45% 54%;
+  --muted: 240 10% 12%;
+  --muted-foreground: 240 6% 60%;
+  --card: 240 10% 8%;
+  --card-foreground: 30 6% 90%;
+  --border: 240 10% 15%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

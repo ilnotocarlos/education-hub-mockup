@@ -27,7 +27,7 @@ export function MarketingNav() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "fixed top-8 w-full z-50 transition-all duration-300",
         isScrolled ? "bg-white shadow-sm" : "bg-transparent"
       )}
     >
