@@ -1,14 +1,19 @@
 {
-  "extends": "@edu-hub/config/tsconfig.nextjs.json",
+  "extends": "@edu-hub/config/tsconfig/nextjs",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": ".next",
     "declaration": false,
     "declarationMap": false,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next"]
 }

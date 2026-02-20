@@ -26,7 +26,7 @@ export function PlatformNav() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 border-b bg-white">
+    <nav className="sticky top-8 z-50 border-b bg-white">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -80,7 +80,7 @@ export function PlatformNav() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-white z-40">
+        <div className="md:hidden fixed inset-0 top-24 bg-white z-40">
           <div className="container mx-auto px-4 py-8">
             <nav className="flex flex-col gap-6">
               {NAV_ITEMS.map((item) => (

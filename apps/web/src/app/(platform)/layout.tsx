@@ -9,6 +9,8 @@ export default function PlatformLayout({
 }) {
   return (
     <>
+      {/* Spacer for HubNavbar (fixed h-8) */}
+      <div className="h-8" />
       <PlatformNav />
       <main className="min-h-screen bg-[hsl(var(--background))]">
         {children}

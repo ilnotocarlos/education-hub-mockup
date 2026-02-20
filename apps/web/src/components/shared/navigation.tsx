@@ -28,7 +28,7 @@ import {
 } from "lucide-react"
 
 const navLinks = [
-  { href: "/", label: "Home", icon: Sparkles },
+  { href: "/home", label: "Home", icon: Sparkles },
   { href: "/discover", label: "Scopri", icon: GraduationCap },
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard, protected: true },
   { href: "/lessons/1", label: "Lezioni", icon: BookOpen, protected: true },
@@ -61,7 +61,7 @@ export function Navigation() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-8 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "glass-effect shadow-lg"
             : "bg-transparent"
@@ -207,7 +207,7 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-[45] md:hidden"
-            style={{ top: "96px" }}
+            style={{ top: "128px" }}
           >
             <div className="glass-effect h-full p-6">
               <div className="flex flex-col gap-2">
