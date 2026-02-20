@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant, Inter } from "next/font/google";
 import { AuthProvider } from "@/components/providers/auth-provider";
 import { MotionProvider } from "@/components/providers/motion-provider";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { HubNavbar } from "@/components/hub/hub-navbar";
 import "./globals.css";
 
@@ -39,6 +41,8 @@ export default function RootLayout({
             {children}
           </MotionProvider>
         </AuthProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
