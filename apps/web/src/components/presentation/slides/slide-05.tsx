@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 const reveal = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.7 } } }
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } }
 
-export function Slide05() {
+export function Slide05({ skipReveal }: { skipReveal?: boolean }) {
   const tiers = [
     { name: "Masterclass", duration: "1-2 giorni", price: "€2.000" },
     { name: "Bootcamp", duration: "2-4 settimane", price: "€2.500" },
@@ -13,7 +13,7 @@ export function Slide05() {
   ]
   return (
     <div className="h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 overflow-y-auto">
-      <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-5xl mx-auto w-full">
+      <motion.div variants={stagger} initial={skipReveal ? "show" : "hidden"} animate="show" className="max-w-5xl mx-auto w-full">
         <motion.div variants={reveal} className="text-xs uppercase tracking-[0.3em] text-[hsl(37,88%,55%)] mb-6 flex items-center gap-3">
           <span className="w-8 h-px bg-[hsl(37,88%,55%)]" />L&apos;Accademia
         </motion.div>
@@ -47,7 +47,7 @@ export function Slide05() {
                   <span className="text-white font-semibold">{b.value}%</span>
                 </div>
                 <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                  <motion.div initial={{ width: 0 }} animate={{ width: `${b.value}%` }} transition={{ duration: 1.5, delay: 0.5 + i * 0.2 }} className={`h-full rounded-full ${b.color}`} />
+                  <motion.div initial={skipReveal ? { width: `${b.value}%` } : { width: 0 }} animate={{ width: `${b.value}%` }} transition={skipReveal ? { duration: 0 } : { duration: 1.5, delay: 0.5 + i * 0.2 }} className={`h-full rounded-full ${b.color}`} />
                 </div>
               </div>
             ))}
