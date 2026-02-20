@@ -72,6 +72,8 @@ export function PresentationDeck() {
   }, [next, prev])
 
   const CurrentSlide = slides[current]
+  // Skip content reveal animation when navigating backwards
+  const skipReveal = direction < 0
 
   const variants = {
     enter: (dir: number) => ({ y: dir > 0 ? "100%" : "-100%", opacity: 0 }),
@@ -102,7 +104,7 @@ export function PresentationDeck() {
           transition={{ duration: 0.6, ease: [0.45, 0.05, 0.15, 1] }}
           className="absolute inset-0"
         >
-          <CurrentSlide />
+          <CurrentSlide skipReveal={skipReveal} />
         </motion.div>
       </AnimatePresence>
 
