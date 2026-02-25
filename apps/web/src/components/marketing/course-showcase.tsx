@@ -19,8 +19,18 @@ const fadeInUp = {
 }
 
 export function CourseShowcase() {
-  // Show first 3 courses
-  const featuredCourses = MOCK_COURSES.slice(0, 3)
+  // Show 6 featured courses (mix of original + new AI/Robotics/IoT)
+  const featuredSlugs = [
+    "ux-ui-design-master",
+    "ai-engineering",
+    "ai-experience-design",
+    "iot-connected-systems",
+    "product-management",
+    "ai-strategy-governance"
+  ]
+  const featuredCourses = featuredSlugs
+    .map((slug) => MOCK_COURSES.find((c) => c.slug === slug))
+    .filter((c): c is (typeof MOCK_COURSES)[number] => c !== undefined)
 
   return (
     <section className="py-24 bg-muted/30">
@@ -40,7 +50,7 @@ export function CourseShowcase() {
             Trasforma la Tua Carriera
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Percorsi intensivi da 10-16 settimane con placement garantito e portfolio reale
+            Dai fondamentali del design all'AI Engineering, dalla Robotica all'IoT — con placement garantito
           </motion.p>
         </motion.div>
 

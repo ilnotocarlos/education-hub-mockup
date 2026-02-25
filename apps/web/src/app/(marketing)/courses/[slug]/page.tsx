@@ -95,6 +95,114 @@ const MOCK_CURRICULUM = {
       module: "Real-World Projects",
       lessons: ["Customer Segmentation", "Predictive Analytics", "NLP Applications", "Portfolio Capstone"]
     }
+  ],
+  "ai-experience-design": [
+    {
+      module: "AI Fundamentals per Designer",
+      lessons: ["Come funzionano gli LLM", "Computer Vision & Recommendation", "Limiti e opportunità dell'AI", "AI Landscape per Designer"]
+    },
+    {
+      module: "Prompt Design & Conversational UX",
+      lessons: ["Progettare dialoghi con AI", "Tone of Voice & Personalità del Bot", "Gestione errori conversazionali", "Prototipi in Voiceflow/Botpress"]
+    },
+    {
+      module: "AI Personalization & Agentic UX",
+      lessons: ["Recommendation Engine Design", "Contenuti dinamici & A/B Testing", "Interfacce per Agenti Autonomi", "Fiducia, Trasparenza & Controllo"]
+    },
+    {
+      module: "Responsible AI & Capstone",
+      lessons: ["Riconoscere Bias nei Dataset", "EU AI Act & Accessibility", "Inclusive Design per AI", "Capstone con Azienda Partner"]
+    }
+  ],
+  "ai-engineering": [
+    {
+      module: "LLM Architecture & Prompt Engineering",
+      lessons: ["Come funzionano i Transformer", "Prompt Engineering Avanzato", "API OpenAI & Anthropic", "Embedding & Similarity Search"]
+    },
+    {
+      module: "RAG Systems",
+      lessons: ["Pipeline RAG End-to-End", "LangChain & LlamaIndex", "Chunking & Retrieval Strategies", "Re-ranking & Evaluation"]
+    },
+    {
+      module: "Fine-Tuning & AI Agents",
+      lessons: ["Fine-Tuning con LoRA/QLoRA", "Dataset Preparation & RLHF", "Function Calling & Tool Use", "Multi-Agent Systems (CrewAI, LangGraph)"]
+    },
+    {
+      module: "MLOps & Production",
+      lessons: ["Containerizzazione Modelli", "CI/CD per Machine Learning", "Monitoring & Observability", "EU AI Act Compliance & Capstone"]
+    }
+  ],
+  "ai-strategy-governance": [
+    {
+      module: "AI Landscape & Business Case",
+      lessons: ["Cosa può fare l'AI oggi (e cosa no)", "Demo Live & Casi Italiani", "Come calcolare il ROI dell'AI", "Framework Build vs Buy"]
+    },
+    {
+      module: "EU AI Act & Risk Management",
+      lessons: ["Classificazione Rischio AI", "Obblighi per le Aziende", "Sanzioni & Timeline", "Governance Framework"]
+    },
+    {
+      module: "Change Management",
+      lessons: ["Guidare l'adozione AI in azienda", "Gestire le resistenze al cambiamento", "AI Ethics & Responsible AI", "Vendor Selection Deep-Dive"]
+    },
+    {
+      module: "Roadmap & Workshop Finale",
+      lessons: ["Costruzione Roadmap AI", "Piano a 90 Giorni", "Presentazione al Board Simulato", "Action Plan Personalizzato"]
+    }
+  ],
+  "robotics-hri": [
+    {
+      module: "Robotics Fundamentals",
+      lessons: ["Tipi di Robot: Industriali, Cobot, AMR", "Sensori, Attuatori & Percezione", "Visita a Stabilimento Robotizzato", "Modelli Cognitivi dell'Interazione"]
+    },
+    {
+      module: "Human-Robot Interaction Design",
+      lessons: ["Trust, Safety & Ergonomia", "Framework di Progettazione HRI", "Cobot Programming (Polyscope)", "Pick & Place, Assembly, Quality Check"]
+    },
+    {
+      module: "ROS2 & Digital Twin",
+      lessons: ["Introduzione a ROS2", "Simulazione in Gazebo", "Digital Twin di una Cella Robotizzata", "Prototipazione Rapida"]
+    },
+    {
+      module: "Safety, Standards & Capstone",
+      lessons: ["Normativa ISO 10218 & ISO/TS 15066", "Valutazione Rischio & Ergonomia", "Progettazione Spazi Collaborativi", "Capstone con Azienda Manifatturiera"]
+    }
+  ],
+  "iot-connected-systems": [
+    {
+      module: "IoT Architecture & Protocols",
+      lessons: ["MQTT, CoAP, LoRaWAN, Zigbee", "Architetture di Riferimento", "Hands-on con Sensori Reali", "Quando Usare Quale Protocollo"]
+    },
+    {
+      module: "Edge Computing & Embedded",
+      lessons: ["Raspberry Pi & ESP32", "Edge Processing & TinyML", "Real-time Data Filtering", "Inferenza AI On-Device"]
+    },
+    {
+      module: "Cloud IoT & Data Pipeline",
+      lessons: ["AWS IoT Core & Azure IoT Hub", "Time-Series Database (InfluxDB)", "Stream Processing & Alerting", "Dashboard Real-Time (Grafana)"]
+    },
+    {
+      module: "Digital Twin, Security & Capstone",
+      lessons: ["Creazione Digital Twin", "Sicurezza IoT & Device Auth", "GDPR per Dati IoT", "Progetto Finale con Azienda"]
+    }
+  ],
+  "smart-business": [
+    {
+      module: "IoT & Industry 4.0 per Manager",
+      lessons: ["Sensori, Edge, Cloud — Senza Gergo", "Demo Live & Visite Virtuali", "Fabbriche Smart: Casi Reali", "Costi & Benefici Reali"]
+    },
+    {
+      module: "Data-Driven Decision Making",
+      lessons: ["Dashboard di Produzione", "KPI Operativi: OEE, MTBF, MTTR", "Da 'Sento che' a 'I Dati Dicono'", "Strumenti di Business Intelligence"]
+    },
+    {
+      module: "Predictive Maintenance & Supply Chain",
+      lessons: ["Manutenzione Predittiva: Come Funziona", "Quanto Costa, Quanto Fa Risparmiare", "Supply Chain Connessa & Resiliente", "Digital Twin per Operations"]
+    },
+    {
+      module: "Transizione 5.0 & Roadmap",
+      lessons: ["Piano Implementativo per la Tua Azienda", "Business Case con ROI", "Accesso ai Fondi Pubblici", "Selezione Fornitori & Timeline"]
+    }
   ]
 }
 
