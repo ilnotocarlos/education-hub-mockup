@@ -22,31 +22,31 @@ const areas = [
     id: "design",
     title: "Design",
     icon: Palette,
-    description: "UX/UI Design, Product Design, Design Systems e Visual Design per creare esperienze digitali memorabili.",
-    courses: ["UX/UI Design", "Visual Design", "Product Design", "Design Systems"],
+    description: "UX/UI Design, AI Experience Design e Human-Robot Interaction per creare esperienze memorabili tra umani, schermi e macchine.",
+    courses: ["UX/UI Design", "AI Experience Design", "Robotics & HRI", "Product Design"],
     color: "from-purple-500 to-pink-600",
     bgColor: "bg-purple-50",
-    stats: "248 studenti attivi"
+    stats: "350 studenti attivi"
   },
   {
     id: "tech",
     title: "Tech",
     icon: Code,
-    description: "Full-Stack Development, DevOps, Data Science e AI per costruire il futuro digitale.",
-    courses: ["Full-Stack Dev", "DevOps", "Data Science", "AI/ML"],
+    description: "Full-Stack Development, AI Engineering, IoT e Data Science per costruire i sistemi intelligenti del futuro.",
+    courses: ["Full-Stack Dev", "AI Engineering", "IoT Systems", "Data Science"],
     color: "from-blue-500 to-cyan-600",
     bgColor: "bg-blue-50",
-    stats: "312 studenti attivi"
+    stats: "569 studenti attivi"
   },
   {
     id: "business",
     title: "Business",
     icon: TrendingUp,
-    description: "Product Management, Growth Marketing e Business Strategy per guidare prodotti di successo.",
-    courses: ["Product Mgmt", "Growth Marketing", "Business Strategy"],
+    description: "Product Management, AI Strategy e Smart Operations per guidare la trasformazione digitale nelle aziende.",
+    courses: ["Product Mgmt", "AI Strategy", "Smart Business", "Growth Marketing"],
     color: "from-amber-500 to-orange-600",
     bgColor: "bg-amber-50",
-    stats: "156 studenti attivi"
+    stats: "337 studenti attivi"
   }
 ]
 
