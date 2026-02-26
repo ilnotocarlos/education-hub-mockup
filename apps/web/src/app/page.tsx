@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { BarChart3, Presentation, GraduationCap, ArrowRight } from "lucide-react"
+import { BarChart3, Presentation, GraduationCap, BookOpen, ArrowRight } from "lucide-react"
 
 const areas = [
   {
@@ -13,7 +13,7 @@ const areas = [
     color: "indigo" as const,
     stats: [
       { label: "Target Serie A", value: "€15M" },
-      { label: "Proiezione Anno 5", value: "€48M" },
+      { label: "Revenue Anno 5", value: "€129.5M" },
     ],
   },
   {
@@ -23,8 +23,19 @@ const areas = [
     icon: Presentation,
     color: "amber" as const,
     stats: [
-      { label: "Slide", value: "10" },
+      { label: "Slide", value: "11" },
       { label: "Formato", value: "Full-Screen" },
+    ],
+  },
+  {
+    title: "Il Business Plan Spiegato",
+    description: "Guida visuale ai fondamentali finanziari: Revenue, EBITDA, Unit Economics, Cash Flow e scenari di exit.",
+    href: "/business-plan-presentation",
+    icon: BookOpen,
+    color: "gold" as const,
+    stats: [
+      { label: "Slide", value: "10" },
+      { label: "Focus", value: "CFO Ready" },
     ],
   },
   {
@@ -61,6 +72,13 @@ const colorConfig = {
     icon: "text-[hsl(var(--sage))]",
     stat: "text-[hsl(var(--sage))]",
     button: "bg-[hsl(var(--sage))] hover:bg-[hsl(var(--sage)_/_0.85)] text-white",
+  },
+  gold: {
+    card: "bg-[hsl(var(--gold)_/_0.04)] border-[hsl(var(--gold)_/_0.12)] hover:border-[hsl(var(--gold)_/_0.3)] hover:bg-[hsl(var(--gold)_/_0.06)]",
+    iconWrap: "bg-[hsl(var(--gold)_/_0.1)]",
+    icon: "text-[hsl(var(--gold))]",
+    stat: "text-[hsl(var(--gold))]",
+    button: "bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold)_/_0.85)] text-white",
   },
 }
 
@@ -100,7 +118,7 @@ export default function HubPortalPage() {
           </motion.div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {areas.map((area) => {
               const Icon = area.icon
               const colors = colorConfig[area.color]
