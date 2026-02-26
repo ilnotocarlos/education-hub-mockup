@@ -56,7 +56,6 @@ h1 strong{font-weight:600}
 h2{font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:300;line-height:1.2;letter-spacing:-.01em;margin-bottom:1rem}
 p,.body-text{font-size:1.05rem;line-height:1.7;color:var(--text-secondary);max-width:680px}
 .big-number{font-size:clamp(3.5rem,8vw,7rem);font-weight:700;line-height:1;letter-spacing:-.04em;background:linear-gradient(135deg,var(--amber-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.big-number-unit{font-size:clamp(1.1rem,2.2vw,1.8rem);font-weight:300;color:var(--text-muted);margin-left:.4rem}
 blockquote{font-size:1.15rem;font-style:italic;font-weight:300;line-height:1.6;color:var(--text-primary);border-left:2px solid var(--amber);padding-left:1.5rem;margin:1.5rem 0;max-width:700px}
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.5rem}
 .stat-card{background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:1.2rem;backdrop-filter:blur(10px);transition:border-color .3s,transform .3s}
@@ -90,6 +89,7 @@ blockquote{font-size:1.15rem;font-style:italic;font-weight:300;line-height:1.6;c
 .bar-fill--sage{background:linear-gradient(90deg,var(--sage),var(--sage-light))}
 .bar-fill--gold{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
 .bar-fill--green{background:linear-gradient(90deg,var(--green),var(--green-light))}
+.bar-value{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--text-muted);min-width:80px}
 .timeline{display:flex;gap:0;margin:1.5rem 0;position:relative}
 .timeline::before{content:'';position:absolute;top:1.2rem;left:0;right:0;height:2px;background:var(--border)}
 .tl-item{flex:1;text-align:center;position:relative;padding-top:2.5rem}
@@ -131,12 +131,12 @@ section:not(.active) .reveal{opacity:0;transform:translateY(30px);transition:opa
     <div class="divider reveal reveal-delay-2" style="margin:1.2rem auto"></div>
     <p class="body-text reveal reveal-delay-2" style="text-align:center;margin:0 auto 2rem;max-width:600px">Una guida chiara ai numeri di Education Innovation Hub. Ogni termine finanziario spiegato con i nostri dati reali.</p>
     <div class="stats-row reveal reveal-delay-3" style="max-width:800px;margin:0 auto">
-      <div class="stat-card" style="text-align:center"><div class="stat-value" id="counterRev">0</div><div class="stat-label">Revenue Anno 5</div></div>
-      <div class="stat-card" style="text-align:center"><div class="stat-value">30%</div><div class="stat-label">EBITDA Margin A5</div></div>
-      <div class="stat-card" style="text-align:center"><div class="stat-value">28</div><div class="stat-label">Mesi al break-even</div></div>
-      <div class="stat-card" style="text-align:center"><div class="stat-value">&euro;400-500M</div><div class="stat-label">Exit Valuation A5</div></div>
+      <div class="stat-card" style="text-align:center"><div class="stat-value" id="counterRev">&euro;0</div><div class="stat-label">Revenue Anno 5</div></div>
+      <div class="stat-card" style="text-align:center"><div class="stat-value">17%</div><div class="stat-label">EBITDA Margin A5</div></div>
+      <div class="stat-card" style="text-align:center"><div class="stat-value">36-42</div><div class="stat-label">Mesi al payback</div></div>
+      <div class="stat-card" style="text-align:center"><div class="stat-value">&euro;11,3M</div><div class="stat-label">Enterprise Value A5</div></div>
     </div>
-    <p class="reveal reveal-delay-4" style="margin-top:2rem;font-size:.85rem;color:var(--text-muted);font-style:italic">Serie A: &euro;15M &mdash; Pre-money &euro;45M &mdash; 5 revenue stream diversificati e scalabili</p>
+    <p class="reveal reveal-delay-4" style="margin-top:2rem;font-size:.85rem;color:var(--text-muted);font-style:italic">Investimento &euro;4,5M &mdash; 3 aree di business: B2C, B2B e Piattaforma</p>
   </div>
 </section>
 
@@ -147,39 +147,38 @@ section:not(.active) .reveal{opacity:0;transform:translateY(30px);transition:opa
     <div class="section-label reveal">Slide 02 &mdash; Revenue (Ricavi)</div>
     <h1 class="reveal reveal-delay-1">I soldi che <em>entrano</em></h1>
     <div class="divider reveal reveal-delay-2"></div>
-    <p class="body-text reveal reveal-delay-2">Il revenue e tutto quello che i clienti ti pagano, prima di togliere qualsiasi costo. Non significa che hai <em>guadagnato</em> quella cifra &mdash; significa che ti e <em>arrivata</em>.</p>
+    <p class="body-text reveal reveal-delay-2">Il revenue &egrave; tutto quello che i clienti ti pagano, prima di togliere qualsiasi costo. Non significa che hai <em>guadagnato</em> quella cifra &mdash; significa che ti &egrave; <em>arrivata</em>.</p>
     <div class="two-col" style="margin-top:1.5rem">
       <div>
-        <h2 class="reveal reveal-delay-2" style="font-size:1.1rem;margin-bottom:.8rem">5 Revenue Stream &mdash; Anno 5</h2>
+        <h2 class="reveal reveal-delay-2" style="font-size:1.1rem;margin-bottom:.8rem">Revenue Mix &mdash; Anno 5</h2>
         <div class="bar-chart reveal reveal-delay-2">
-          <div class="bar-row"><div class="bar-label" style="min-width:70px">B2B Acad.</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="2" style="--w:40%"></div></div><div class="bar-value">&euro;52M &middot; 40%</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:70px">B2C</div><div class="bar-track"><div class="bar-fill bar-fill--indigo bar-anim" data-slide="2" style="--w:35%"></div></div><div class="bar-value">&euro;45M &middot; 35%</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:70px">Innov. Lab</div><div class="bar-track"><div class="bar-fill bar-fill--sage bar-anim" data-slide="2" style="--w:15%"></div></div><div class="bar-value">&euro;19,5M &middot; 15%</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:70px">Placement</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="2" style="--w:8%"></div></div><div class="bar-value">&euro;10,4M &middot; 8%</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:70px">Licensing</div><div class="bar-track"><div class="bar-fill bar-fill--green bar-anim" data-slide="2" style="--w:2%"></div></div><div class="bar-value">&euro;2,6M &middot; 2%</div></div>
+          <div class="bar-row"><div class="bar-label" style="min-width:70px">B2B</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="2" style="--w:59%"></div></div><div class="bar-value">&euro;6,5M &middot; 59%</div></div>
+          <div class="bar-row"><div class="bar-label" style="min-width:70px">B2C</div><div class="bar-track"><div class="bar-fill bar-fill--indigo bar-anim" data-slide="2" style="--w:37%"></div></div><div class="bar-value">&euro;3,7M &middot; 34%</div></div>
+          <div class="bar-row"><div class="bar-label" style="min-width:70px">Platform</div><div class="bar-track"><div class="bar-fill bar-fill--sage bar-anim" data-slide="2" style="--w:4%"></div></div><div class="bar-value">&euro;450k &middot; 4%</div></div>
+          <div class="bar-row"><div class="bar-label" style="min-width:70px">Placement</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="2" style="--w:3%"></div></div><div class="bar-value">&euro;320k &middot; 3%</div></div>
         </div>
         <div class="formula reveal reveal-delay-3">
-          Revenue Totale A5 <span class="op">=</span> <span class="result">&euro;129,5M</span>
+          Revenue Totale A5 <span class="op">=</span> <span class="result">&euro;11,0M</span>
         </div>
-        <p class="reveal reveal-delay-3" style="font-size:.8rem;color:var(--text-muted);margin-top:.6rem;line-height:1.5">B2B predominante (40%) = stabilita e contratti ricorrenti. 5 stream = nessuna dipendenza da una sola fonte.</p>
+        <p class="reveal reveal-delay-3" style="font-size:.8rem;color:var(--text-muted);margin-top:.6rem;line-height:1.5">B2B predominante (59%) = stabilit&agrave; e contratti ricorrenti. CAGR revenue 5 anni: ~94%.</p>
       </div>
       <div>
         <div class="glass-panel reveal reveal-delay-2" style="margin-bottom:1rem">
-          <div class="pill pill--amber">B2B &mdash; Academy Aziendali</div>
-          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.5;margin-top:.5rem">Corporate Academy custom (&euro;150-500k), Upskilling Programs (&euro;50-200k), Executive Education (&euro;20-50k).</p>
+          <div class="pill pill--amber">B2B &mdash; Corporate Training</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.5;margin-top:.5rem">Corporate Academy (&euro;250k ACV), Upskilling Programs (&euro;100k ACV), Innovation Lab (&euro;50k ACV).</p>
           <div style="display:flex;justify-content:space-between;margin-top:.8rem">
-            <div><div class="stat-value" style="font-size:1.2rem">50</div><div class="stat-label">Aziende A1</div></div>
+            <div><div class="stat-value" style="font-size:1.2rem">3</div><div class="stat-label">Clienti A1</div></div>
             <div style="color:var(--text-muted);align-self:center">&rarr;</div>
-            <div><div class="stat-value" style="font-size:1.2rem">800</div><div class="stat-label">Aziende A5</div></div>
+            <div><div class="stat-value" style="font-size:1.2rem">50</div><div class="stat-label">Clienti A5</div></div>
           </div>
         </div>
         <div class="glass-panel reveal reveal-delay-3">
           <div class="pill pill--indigo">B2C &mdash; Formazione Diretta</div>
-          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.5;margin-top:.5rem">Master (&euro;4-15k), Bootcamp (&euro;3-8k), Microlearning subscription (&euro;50-300/mese).</p>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.5;margin-top:.5rem">Masterclass (&euro;2k), Bootcamp (&euro;2,5k), Master (&euro;8k), Full-time (&euro;12k).</p>
           <div style="display:flex;justify-content:space-between;margin-top:.8rem">
-            <div><div class="stat-value" style="font-size:1.2rem">2.000</div><div class="stat-label">Studenti A1</div></div>
+            <div><div class="stat-value" style="font-size:1.2rem">75</div><div class="stat-label">Studenti A1</div></div>
             <div style="color:var(--text-muted);align-self:center">&rarr;</div>
-            <div><div class="stat-value" style="font-size:1.2rem">18.000</div><div class="stat-label">Studenti A5</div></div>
+            <div><div class="stat-value" style="font-size:1.2rem">800</div><div class="stat-label">Studenti A5</div></div>
           </div>
         </div>
       </div>
@@ -196,37 +195,34 @@ section:not(.active) .reveal{opacity:0;transform:translateY(30px);transition:opa
     <div class="divider reveal reveal-delay-2"></div>
     <div class="two-col">
       <div>
-        <p class="body-text reveal reveal-delay-2">Il <strong>COGS</strong> (Cost of Goods Sold) e il costo diretto di produzione: docenti, materiali, piattaforma. Non include affitto o marketing.</p>
-        <p class="body-text reveal reveal-delay-2" style="margin-top:.8rem">Il <strong>Gross Margin</strong> e la percentuale che ti resta dopo i costi diretti. Piu e alto, piu respiro hai per pagare tutto il resto.</p>
-        <div class="glass-panel reveal reveal-delay-3" style="margin-top:1.2rem">
-          <div style="font-size:.8rem;color:var(--text-muted);margin-bottom:.6rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Esempio Anno 5</div>
-          <div class="formula" style="display:block;margin:.4rem 0">
-            Revenue <span class="val">&euro;129,5M</span> <span class="op">&times;</span> Gross Margin <span class="val">72%</span>
-          </div>
-          <div class="formula" style="display:block;margin:.4rem 0">
-            <span class="op">=</span> Gross Profit <span class="result">&euro;93,2M</span>
-          </div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-top:.5rem">Di ogni &euro;1 incassato, &euro;0,72 restano per pagare tutto il resto (stipendi, marketing, affitto...)</p>
+        <p class="body-text reveal reveal-delay-2">Il <strong>COGS</strong> (Cost of Goods Sold) &egrave; il costo diretto di produzione: docenti, materiali, piattaforma. Non include affitto o marketing.</p>
+        <p class="body-text reveal reveal-delay-2" style="margin-top:.8rem">Il <strong>Gross Margin</strong> &egrave; la percentuale che ti resta dopo i costi diretti. Pi&ugrave; &egrave; alto, pi&ugrave; respiro hai per pagare tutto il resto.</p>
+        <div class="formula reveal reveal-delay-3">
+          Gross Margin <span class="op">=</span> (<span class="val">Revenue</span> <span class="op">&minus;</span> <span class="val">COGS</span>) <span class="op">/</span> <span class="val">Revenue</span>
         </div>
+        <div class="glass-panel reveal reveal-delay-4" style="margin-top:1rem;padding:1rem">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="text-align:center"><div class="stat-value" style="font-size:1.8rem">47%</div><div class="stat-label">Gross Margin A1</div></div>
+            <div style="color:var(--text-muted);font-size:1.5rem">&rarr;</div>
+            <div style="text-align:center"><div class="stat-value green" style="font-size:1.8rem">56%</div><div class="stat-label">Gross Margin A5</div></div>
+          </div>
+        </div>
+        <blockquote class="reveal reveal-delay-4" style="margin-top:1rem;font-size:.9rem">Gross Margin sopra 40% indica che per ogni euro incassato, oltre la met&agrave; resta per coprire le spese operative.</blockquote>
       </div>
       <div>
-        <h2 class="reveal reveal-delay-2" style="font-size:1.1rem;margin-bottom:.8rem">Evoluzione Gross Margin</h2>
-        <div class="bar-chart reveal reveal-delay-3">
-          <div class="bar-row"><div class="bar-label">Anno 1</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="3" style="--w:45%"></div></div><div class="bar-value">45%</div></div>
-          <div class="bar-row"><div class="bar-label">Anno 3</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="3" style="--w:65%"></div></div><div class="bar-value">65%</div></div>
-          <div class="bar-row"><div class="bar-label">Anno 5</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="3" style="--w:72%"></div></div><div class="bar-value" style="color:var(--gold-light)">72%</div></div>
+        <div class="glass-panel reveal reveal-delay-2" style="margin-bottom:1rem">
+          <h2 style="font-size:1rem;margin-bottom:.8rem">COGS principali</h2>
+          <div class="bar-chart">
+            <div class="bar-row"><div class="bar-label" style="min-width:80px">Faculty</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="3" style="--w:45%"></div></div><div class="bar-value">~45%</div></div>
+            <div class="bar-row"><div class="bar-label" style="min-width:80px">Piattaforma</div><div class="bar-track"><div class="bar-fill bar-fill--indigo bar-anim" data-slide="3" style="--w:30%"></div></div><div class="bar-value">~30%</div></div>
+            <div class="bar-row"><div class="bar-label" style="min-width:80px">Contenuti</div><div class="bar-track"><div class="bar-fill bar-fill--sage bar-anim" data-slide="3" style="--w:15%"></div></div><div class="bar-value">~15%</div></div>
+            <div class="bar-row"><div class="bar-label" style="min-width:80px">Altro</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="3" style="--w:10%"></div></div><div class="bar-value">~10%</div></div>
+          </div>
         </div>
-        <div class="glass-panel reveal reveal-delay-4" style="margin-top:1rem">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Perche il margine cresce?</div>
-          <ul style="font-size:.85rem;color:var(--text-secondary);line-height:1.6;list-style:none;padding:0">
-            <li style="padding:.3rem 0;border-bottom:1px solid var(--border)">&rarr; <strong style="color:var(--text-primary)">Piattaforma AI</strong> riduce costi docenza</li>
-            <li style="padding:.3rem 0;border-bottom:1px solid var(--border)">&rarr; <strong style="color:var(--text-primary)">Economies of scale</strong> su infrastruttura</li>
-            <li style="padding:.3rem 0">&rarr; <strong style="color:var(--text-primary)">Content reuse</strong> da asset editoriali</li>
-          </ul>
+        <div class="glass-panel reveal reveal-delay-3">
+          <h2 style="font-size:1rem;margin-bottom:.5rem">Perch&eacute; migliora nel tempo?</h2>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.5">I costi di contenuto si ammortizzano su pi&ugrave; studenti. La piattaforma scala con costo marginale basso. Le sinergie con il catalogo editoriale riducono i costi di produzione del 60%.</p>
         </div>
-        <blockquote class="reveal reveal-delay-5" style="font-size:.9rem;margin-top:1rem">
-          <strong style="color:var(--amber-light)">Regola pratica:</strong> Sotto il 40% e difficile sopravvivere. Sopra il 60% hai respiro. Il SaaS sta all'80%+, i servizi al 40-60%.
-        </blockquote>
       </div>
     </div>
   </div>
@@ -234,111 +230,66 @@ section:not(.active) .reveal{opacity:0;transform:translateY(30px);transition:opa
 
 <!-- SLIDE 4: EBITDA -->
 <section id="s4" data-label="EBITDA">
-  <div class="glow-amber" style="top:-10%;right:-15%"></div>
+  <div class="glow-amber" style="top:-10%;right:10%"></div>
   <div class="slide-inner">
     <div class="section-label reveal">Slide 04 &mdash; EBITDA</div>
-    <h1 class="reveal reveal-delay-1">Il numero che gli investitori<br>guardano <em>per primo</em></h1>
+    <h1 class="reveal reveal-delay-1">Il profitto <em>operativo</em></h1>
     <div class="divider reveal reveal-delay-2"></div>
-    <p class="body-text reveal reveal-delay-2"><strong>EBITDA</strong> = utile prima di interessi, tasse, svalutazioni e ammortamenti. In pratica: quanto guadagna (o perde) il business dalle sue operazioni, senza il "rumore" contabile.</p>
-    <div class="reveal reveal-delay-3" style="margin-top:1.5rem">
-      <div class="formula" style="display:block">
-        Revenue <span class="val">&euro;129,5M</span> <span class="op">&minus;</span> COGS <span class="val">&euro;36,3M</span> <span class="op">&minus;</span> OpEx <span class="val">&euro;54,4M</span> <span class="op">=</span> EBITDA <span class="result">&euro;38,9M</span> &ensp; <span class="op">(</span><span class="result">30%</span><span class="op">)</span>
-      </div>
+    <p class="body-text reveal reveal-delay-2"><strong>EBITDA</strong> = Earnings Before Interest, Taxes, Depreciation, and Amortization. &Egrave; il profitto dell'attivit&agrave; prima di interessi, tasse e ammortamenti. Dice se il business <em>in s&eacute;</em> genera valore.</p>
+    <div class="formula reveal reveal-delay-3" style="margin-top:1rem">
+      EBITDA <span class="op">=</span> <span class="val">Revenue</span> <span class="op">&minus;</span> <span class="val">COGS</span> <span class="op">&minus;</span> <span class="val">OpEx</span>
     </div>
     <div class="timeline reveal reveal-delay-3" style="margin-top:2rem">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Anno 1</div>
-        <div class="tl-val" style="color:var(--red-light)">-&euro;0,8M</div>
-        <div class="tl-desc">-25% margin<br>Investimento</div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Anno 1</div><div class="tl-val" style="color:var(--red-light)">&minus;&euro;269k</div><div class="tl-desc">&minus;35%</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Anno 2</div><div class="tl-val" style="color:var(--red-light)">&minus;&euro;78k</div><div class="tl-desc">&minus;4%</div></div>
+      <div class="tl-item highlight"><div class="tl-dot"></div><div class="tl-year">Anno 3</div><div class="tl-val">&euro;250k</div><div class="tl-desc">+6% &check;</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Anno 4</div><div class="tl-val">&euro;739k</div><div class="tl-desc">+11%</div></div>
+      <div class="tl-item highlight"><div class="tl-dot"></div><div class="tl-year">Anno 5</div><div class="tl-val">&euro;1,88M</div><div class="tl-desc">+17%</div></div>
+    </div>
+    <div class="two-col reveal reveal-delay-4" style="margin-top:1.5rem">
+      <div class="glass-panel" style="text-align:center">
+        <div class="stat-value green" style="font-size:2rem">Anno 3</div>
+        <div class="stat-label" style="margin-top:.5rem">EBITDA positivo</div>
+        <p style="font-size:.8rem;color:var(--text-muted);margin-top:.5rem">Il business inizia a generare profitto operativo dal terzo anno.</p>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Anno 2</div>
-        <div class="tl-val" style="color:var(--red-light)">-&euro;0,6M</div>
-        <div class="tl-desc">-5% margin<br>Quasi break-even</div>
-      </div>
-      <div class="tl-item highlight">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Anno 3</div>
-        <div class="tl-val" style="color:var(--green-light)">+&euro;4,2M</div>
-        <div class="tl-desc">12% margin<br>Profitto!</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Anno 4</div>
-        <div class="tl-val">&euro;15,8M</div>
-        <div class="tl-desc">22% margin<br>Scaling</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Anno 5</div>
-        <div class="tl-val">&euro;38,9M</div>
-        <div class="tl-desc">30% margin<br>A regime</div>
+      <div class="glass-panel" style="text-align:center">
+        <div class="stat-value" style="font-size:2rem">17%</div>
+        <div class="stat-label" style="margin-top:.5rem">EBITDA Margin Anno 5</div>
+        <p style="font-size:.8rem;color:var(--text-muted);margin-top:.5rem">Margine sano per un'azienda EdTech in fase di scala. Benchmark SaaS: 15-25%.</p>
       </div>
     </div>
-    <div class="stats-row reveal reveal-delay-4" style="margin-top:1.5rem">
-      <div class="stat-card"><div class="stat-label">SaaS Mature</div><div class="stat-value" style="font-size:1.2rem">25-35%</div></div>
-      <div class="stat-card"><div class="stat-label">Servizi professionali</div><div class="stat-value" style="font-size:1.2rem">15-25%</div></div>
-      <div class="stat-card"><div class="stat-label">Education</div><div class="stat-value" style="font-size:1.2rem">10-20%</div></div>
-      <div class="stat-card" style="border-color:rgba(217,119,6,.2)"><div class="stat-label">Noi (Anno 5)</div><div class="stat-value" style="font-size:1.2rem;color:var(--green-light)">30%</div></div>
-    </div>
-    <p class="reveal reveal-delay-5" style="font-size:.85rem;color:var(--text-muted);margin-top:1rem">EBITDA negativo Anni 1-2 e normale per una startup &mdash; stai investendo per crescere. Il segnale chiave: <strong style="color:var(--text-primary)">break-even a mese 28</strong>, cash positive a mese 32.</p>
   </div>
 </section>
 
 <!-- SLIDE 5: CASH FLOW -->
 <section id="s5" data-label="Cash Flow">
-  <div class="glow-indigo" style="top:10%;left:-15%"></div>
+  <div class="glow-indigo" style="top:5%;left:-15%"></div>
   <div class="slide-inner">
     <div class="section-label reveal">Slide 05 &mdash; Cash Flow</div>
-    <h1 class="reveal reveal-delay-1">Il cash e <em>ossigeno</em></h1>
+    <h1 class="reveal reveal-delay-1">I soldi che <em>restano in cassa</em></h1>
     <div class="divider reveal reveal-delay-2"></div>
-    <p class="body-text reveal reveal-delay-2">Il <strong>Cash Flow</strong> sono i soldi che entrano e escono <em>davvero</em> dal conto. Puoi avere profitto ma niente cash (il cliente paga tra 90 giorni). Senza cash muori in settimane.</p>
-    <div class="two-col" style="margin-top:1.5rem">
-      <div>
-        <div class="glass-panel reveal reveal-delay-2">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.8rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Metriche Cash chiave</div>
-          <div style="display:flex;flex-direction:column;gap:.8rem">
-            <div>
-              <div class="stat-label">Break-even operativo</div>
-              <div class="stat-value" style="font-size:1.5rem">Mese 28</div>
-              <p style="font-size:.65rem;color:var(--text-muted)">Il punto in cui le operazioni generano piu cash di quanto ne consumano</p>
-            </div>
-            <div style="border-top:1px solid var(--border);padding-top:.8rem">
-              <div class="stat-label">Cash positive</div>
-              <div class="stat-value" style="font-size:1.5rem">Mese 32</div>
-              <p style="font-size:.65rem;color:var(--text-muted)">Il conto corrente smette di scendere e inizia a salire</p>
-            </div>
-            <div style="border-top:1px solid var(--border);padding-top:.8rem">
-              <div class="stat-label">ROI per ogni &euro;1 investito</div>
-              <div class="stat-value" style="font-size:1.5rem">&euro;3,50 in 24 mesi</div>
-              <p style="font-size:.65rem;color:var(--text-muted)">Revenue generated per euro invested</p>
-            </div>
-          </div>
-        </div>
-        <div class="glass-panel reveal reveal-delay-3" style="margin-top:1rem">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Burn Rate e Runway</div>
-          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.5"><strong>Burn Rate</strong>: quanto spendi al mese piu di quanto incassi.<br><strong>Runway</strong>: quanti mesi puoi sopravvivere con i soldi che hai. Sotto 6 mesi = emergenza.</p>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-top:.5rem">Con &euro;15M di funding e EBITDA positive anno 3, il runway e garantito fino alla profittabilita.</p>
-        </div>
-      </div>
-      <div>
-        <h2 class="reveal reveal-delay-3" style="font-size:1.1rem;margin-bottom:.8rem">Revenue Trajectory</h2>
-        <div class="bar-chart reveal reveal-delay-3">
-          <div class="bar-row"><div class="bar-label">Anno 1</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="5" style="--w:2.5%"></div></div><div class="bar-value">&euro;3,2M</div></div>
-          <div class="bar-row"><div class="bar-label">Anno 2</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="5" style="--w:10%"></div></div><div class="bar-value">&euro;12,5M</div></div>
-          <div class="bar-row"><div class="bar-label">Anno 3</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="5" style="--w:27%"></div></div><div class="bar-value">&euro;35M</div></div>
-          <div class="bar-row"><div class="bar-label">Anno 4</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="5" style="--w:56%"></div></div><div class="bar-value">&euro;72M</div></div>
-          <div class="bar-row"><div class="bar-label">Anno 5</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="5" style="--w:100%"></div></div><div class="bar-value" style="color:var(--gold-light)">&euro;129,5M</div></div>
-        </div>
-        <div class="glass-panel reveal reveal-delay-4" style="margin-top:1rem">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">FCF (Free Cash Flow) &mdash; cos'e?</div>
-          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.5">Il cash che resta dopo aver pagato <em>tutto</em>: operazioni + investimenti (CapEx) + variazioni del capitale circolante. E' quel che finisce davvero sul conto.</p>
-          <div class="formula" style="display:block;margin-top:.5rem;font-size:.75rem">
-            EBITDA <span class="op">&minus;</span> CapEx <span class="op">&minus;</span> &Delta;NWC <span class="op">&minus;</span> Tasse <span class="op">=</span> <span class="result">FCF</span>
-          </div>
-        </div>
+    <p class="body-text reveal reveal-delay-2">Il <strong>Free Cash Flow</strong> (FCF) &egrave; la cassa effettiva generata dopo investimenti e variazioni del capitale circolante. &Egrave; il dato pi&ugrave; onesto: non puoi manipolarlo.</p>
+    <div class="formula reveal reveal-delay-3">
+      FCF <span class="op">=</span> <span class="val">EBITDA</span> <span class="op">&minus;</span> <span class="val">CapEx</span> <span class="op">&minus;</span> <span class="val">&Delta;NWC</span>
+    </div>
+    <div class="glass-panel reveal reveal-delay-3" style="margin-top:1.5rem">
+      <table class="data-table">
+        <thead><tr><th>Anno</th><th>EBITDA</th><th>CapEx</th><th>&Delta;NWC</th><th>FCF</th><th>Cumulativo</th></tr></thead>
+        <tbody>
+          <tr><td class="metric">Anno 1</td><td class="bad">&minus;&euro;269k</td><td>&minus;&euro;150k</td><td>&minus;&euro;80k</td><td class="bad">&minus;&euro;499k</td><td class="bad">&minus;&euro;499k</td></tr>
+          <tr><td class="metric">Anno 2</td><td class="bad">&minus;&euro;78k</td><td>&minus;&euro;100k</td><td>&minus;&euro;120k</td><td class="bad">&minus;&euro;298k</td><td class="bad">&minus;&euro;797k</td></tr>
+          <tr><td class="metric">Anno 3</td><td class="good">&euro;250k</td><td>&minus;&euro;120k</td><td>&minus;&euro;180k</td><td class="bad">&minus;&euro;50k</td><td class="bad">&minus;&euro;847k</td></tr>
+          <tr><td class="metric">Anno 4</td><td class="good">&euro;739k</td><td>&minus;&euro;150k</td><td>&minus;&euro;250k</td><td class="good">&euro;243k</td><td class="bad">&minus;&euro;604k</td></tr>
+          <tr><td class="metric">Anno 5</td><td class="good">&euro;1,88M</td><td>&minus;&euro;170k</td><td>&minus;&euro;300k</td><td class="good">&euro;985k</td><td class="good">&euro;381k</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="two-col reveal reveal-delay-4" style="margin-top:1rem">
+      <blockquote style="font-size:.9rem">FCF positivo da Anno 4. Il cumulativo torna positivo ad Anno 5 (&euro;381k) &mdash; il business ha ripagato tutto l'investimento operativo.</blockquote>
+      <div class="glass-panel" style="text-align:center;padding:1rem">
+        <div class="stat-value green" style="font-size:1.8rem">&euro;985k</div>
+        <div class="stat-label">FCF Anno 5</div>
+        <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">Forte generazione di cassa, il business &egrave; self-sustaining.</p>
       </div>
     </div>
   </div>
@@ -346,233 +297,161 @@ section:not(.active) .reveal{opacity:0;transform:translateY(30px);transition:opa
 
 <!-- SLIDE 6: UNIT ECONOMICS -->
 <section id="s6" data-label="Unit Economics">
-  <div class="glow-amber" style="bottom:-20%;right:-10%"></div>
+  <div class="glow-amber" style="bottom:-15%;right:-5%"></div>
   <div class="slide-inner">
-    <div class="section-label reveal">Slide 06 &mdash; I Numeri del Cliente</div>
-    <h1 class="reveal reveal-delay-1">Quanto costa un cliente,<br>quanto <em>vale</em></h1>
+    <div class="section-label reveal">Slide 06 &mdash; Unit Economics</div>
+    <h1 class="reveal reveal-delay-1">Quanto costa e quanto vale <em>ogni cliente</em></h1>
     <div class="divider reveal reveal-delay-2"></div>
-    <div class="two-col">
-      <div>
-        <div class="glass-panel reveal reveal-delay-2" style="border-top:2px solid var(--indigo-light)">
-          <div class="pill pill--indigo">B2C &mdash; Studenti</div>
-          <table class="data-table" style="margin-top:.6rem">
-            <tr><td class="metric">CAC</td><td>Costo acquisizione</td><td class="warn">&euro;150 &rarr; &euro;100</td></tr>
-            <tr><td class="metric">LTV</td><td>Valore nel tempo</td><td class="good">&euro;2.100 &rarr; &euro;4.500</td></tr>
-            <tr><td class="metric">LTV/CAC</td><td>Ritorno per &euro;1 speso</td><td class="good">14x &rarr; 45x</td></tr>
-            <tr><td class="metric">Payback</td><td>Tempo recupero</td><td class="good">3 &rarr; 1 mese</td></tr>
-          </table>
+    <p class="body-text reveal reveal-delay-2"><strong>CAC</strong> = costo per acquisire un cliente. <strong>LTV</strong> = quanto quel cliente genera nel tempo. Se LTV/CAC &gt; 3x, il modello &egrave; sostenibile.</p>
+    <div class="two-col" style="margin-top:1.5rem">
+      <div class="glass-panel reveal reveal-delay-2">
+        <div class="pill pill--indigo">B2C &mdash; Studenti</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+          <div><div class="stat-label">CAC Anno 1</div><div class="stat-value" style="font-size:1.4rem">&euro;200</div></div>
+          <div><div class="stat-label">CAC Anno 5</div><div class="stat-value green" style="font-size:1.4rem">&euro;120</div></div>
+          <div><div class="stat-label">LTV Anno 1 (2 anni)</div><div class="stat-value" style="font-size:1.4rem">&euro;1.500</div></div>
+          <div><div class="stat-label">LTV Anno 5 (2 anni)</div><div class="stat-value green" style="font-size:1.4rem">&euro;2.800</div></div>
         </div>
-        <div class="glass-panel reveal reveal-delay-3" style="margin-top:1rem;border-top:2px solid var(--amber)">
-          <div class="pill pill--amber">B2B &mdash; Aziende</div>
-          <table class="data-table" style="margin-top:.6rem">
-            <tr><td class="metric">CAC</td><td>Costo acquisizione</td><td class="warn">&euro;5k &rarr; &euro;3k</td></tr>
-            <tr><td class="metric">ACV</td><td>Contratto annuo</td><td class="good">&euro;85k &rarr; &euro;150k</td></tr>
-            <tr><td class="metric">Churn</td><td>Tasso abbandono</td><td class="good">15% &rarr; 8%</td></tr>
-            <tr><td class="metric">LTV/CAC</td><td>Ritorno per &euro;1 speso</td><td class="good">12x &rarr; 38x</td></tr>
-          </table>
+        <div style="margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border);display:flex;justify-content:space-between">
+          <div><div class="stat-label">LTV/CAC A1</div><div class="stat-value" style="font-size:1.6rem">7,5x</div></div>
+          <div><div class="stat-label">LTV/CAC A5</div><div class="stat-value green" style="font-size:1.6rem">23,3x</div></div>
+          <div><div class="stat-label">Payback</div><div class="stat-value" style="font-size:1.6rem">5,1 mesi</div></div>
         </div>
       </div>
-      <div>
-        <h2 class="reveal reveal-delay-2" style="font-size:1.1rem;margin-bottom:.6rem">LTV/CAC &mdash; Il Rapporto Magico</h2>
-        <p class="body-text reveal reveal-delay-2" style="font-size:.9rem;margin-bottom:1rem">Quanto guadagni per ogni euro speso in acquisizione. Sotto 3x il business non e sostenibile. Sopra 5x e ottimo.</p>
-        <div class="bar-chart reveal reveal-delay-3">
-          <div class="bar-row"><div class="bar-label" style="min-width:90px">Non sostenibile</div><div class="bar-track"><div class="bar-fill bar-anim" data-slide="6" style="--w:7%;background:var(--red)"></div></div><div class="bar-value">&lt; 3x</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:90px">Sano</div><div class="bar-track"><div class="bar-fill bar-fill--sage bar-anim" data-slide="6" style="--w:11%"></div></div><div class="bar-value">3-5x</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:90px">Ottimo</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="6" style="--w:22%"></div></div><div class="bar-value">&gt; 5x</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:90px;color:var(--indigo-light)">Noi B2C A5</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="6" style="--w:100%"></div></div><div class="bar-value" style="color:var(--gold-light)">45x</div></div>
-          <div class="bar-row"><div class="bar-label" style="min-width:90px;color:var(--amber-light)">Noi B2B A5</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="6" style="--w:84%"></div></div><div class="bar-value" style="color:var(--gold-light)">38x</div></div>
+      <div class="glass-panel reveal reveal-delay-3">
+        <div class="pill pill--amber">B2B &mdash; Corporate</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+          <div><div class="stat-label">CAC Anno 1</div><div class="stat-value" style="font-size:1.4rem">&euro;8.000</div></div>
+          <div><div class="stat-label">CAC Anno 5</div><div class="stat-value green" style="font-size:1.4rem">&euro;4.000</div></div>
+          <div><div class="stat-label">LTV Anno 1 (3 anni)</div><div class="stat-value" style="font-size:1.4rem">&euro;175k</div></div>
+          <div><div class="stat-label">LTV Anno 5 (3 anni)</div><div class="stat-value green" style="font-size:1.4rem">&euro;260k</div></div>
         </div>
-        <div class="glass-panel reveal reveal-delay-4" style="margin-top:1rem">
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
-            <div><div class="stat-label">NRR (Revenue Retention)</div><div class="stat-value" style="font-size:1.3rem">110% &rarr; 135%</div></div>
-            <div><div class="stat-label">NPS Score</div><div class="stat-value" style="font-size:1.3rem">70 &rarr; 80</div></div>
-          </div>
-          <p style="font-size:.7rem;color:var(--text-muted);margin-top:.4rem">NRR &gt; 100% = i clienti esistenti comprano di piu ogni anno. NPS &gt; 70 = world-class (Apple, Netflix).</p>
+        <div style="margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border);display:flex;justify-content:space-between">
+          <div><div class="stat-label">LTV/CAC A1</div><div class="stat-value" style="font-size:1.6rem">21,9x</div></div>
+          <div><div class="stat-label">LTV/CAC A5</div><div class="stat-value green" style="font-size:1.6rem">65x</div></div>
+          <div><div class="stat-label">Payback</div><div class="stat-value" style="font-size:1.6rem">8,5 mesi</div></div>
         </div>
       </div>
     </div>
+    <blockquote class="reveal reveal-delay-4" style="margin-top:1rem;font-size:.9rem">Unit economics eccellenti in entrambi i segmenti. LTV/CAC &gt; 7x dal primo anno indica un modello altamente efficiente.</blockquote>
   </div>
 </section>
 
 <!-- SLIDE 7: CRESCITA -->
 <section id="s7" data-label="Crescita">
-  <div class="glow-indigo" style="top:-15%;left:20%"></div>
+  <div class="glow-indigo" style="top:-15%;left:10%"></div>
   <div class="slide-inner">
-    <div class="section-label reveal">Slide 07 &mdash; I Numeri della Crescita</div>
-    <h1 class="reveal reveal-delay-1">Da &euro;3,2M a &euro;129,5M<br>in <em>cinque anni</em></h1>
+    <div class="section-label reveal">Slide 07 &mdash; Traiettoria di Crescita</div>
+    <h1 class="reveal reveal-delay-1">Da startup a <em>scale-up</em></h1>
     <div class="divider reveal reveal-delay-2"></div>
-    <div class="two-col">
-      <div>
-        <p class="body-text reveal reveal-delay-2">Il <strong>CAGR</strong> (tasso di crescita annuo composto) e la crescita media annua "livellata". Non e la crescita reale di ogni anno, ma una media utile per confrontare.</p>
-        <div class="glass-panel reveal reveal-delay-3" style="margin-top:1rem;text-align:center">
-          <div class="stat-label">CAGR Revenue 5 anni</div>
-          <div class="stat-value" style="font-size:3rem">~152%</div>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-top:.4rem">Startup early stage: 100-300%. Scaleup: 40-80%. Azienda matura: 5-15%.</p>
-        </div>
-        <div class="glass-panel reveal reveal-delay-4" style="margin-top:1rem">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Crescita YoY (anno su anno) reale</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">A1&rarr;A2</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="7" style="--w:100%"></div></div><div class="bar-value">+291%</div></div>
-            <div class="bar-row"><div class="bar-label">A2&rarr;A3</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="7" style="--w:62%"></div></div><div class="bar-value">+180%</div></div>
-            <div class="bar-row"><div class="bar-label">A3&rarr;A4</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="7" style="--w:36%"></div></div><div class="bar-value">+106%</div></div>
-            <div class="bar-row"><div class="bar-label">A4&rarr;A5</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="7" style="--w:28%"></div></div><div class="bar-value">+80%</div></div>
-          </div>
-          <p style="font-size:.7rem;color:var(--text-muted)">Crescita che decelera e un segnale <em>sano</em>: da esplosione a scaling sostenibile.</p>
-        </div>
+    <div class="timeline reveal reveal-delay-2">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Anno 1</div><div class="tl-val">&euro;775k</div><div class="tl-desc">75 studenti<br>3 B2B &middot; 7 FTE</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Anno 2</div><div class="tl-val">&euro;2,1M</div><div class="tl-desc">150 studenti<br>10 B2B &middot; 12 FTE</div></div>
+      <div class="tl-item highlight"><div class="tl-dot"></div><div class="tl-year">Anno 3</div><div class="tl-val">&euro;4,0M</div><div class="tl-desc">250 studenti<br>20 B2B &middot; 18 FTE</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Anno 4</div><div class="tl-val">&euro;6,6M</div><div class="tl-desc">500 studenti<br>30 B2B &middot; 28 FTE</div></div>
+      <div class="tl-item highlight"><div class="tl-dot"></div><div class="tl-year">Anno 5</div><div class="tl-val">&euro;11,0M</div><div class="tl-desc">800 studenti<br>50 B2B &middot; 40 FTE</div></div>
+    </div>
+    <div class="three-col reveal reveal-delay-3" style="margin-top:2rem">
+      <div class="glass-panel" style="text-align:center">
+        <div class="stat-value" style="font-size:2rem">~94%</div>
+        <div class="stat-label">CAGR Revenue</div>
+        <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">Crescita media annua composta del fatturato su 5 anni.</p>
       </div>
-      <div>
-        <h2 class="reveal reveal-delay-2" style="font-size:1.1rem;margin-bottom:.8rem">Scaling &mdash; Metriche Operative</h2>
-        <div class="stats-row reveal reveal-delay-3" style="margin-top:0;grid-template-columns:1fr 1fr">
-          <div class="stat-card" style="text-align:center"><div class="stat-value" style="font-size:1.4rem">2.000</div><div class="stat-label">Studenti Anno 1</div></div>
-          <div class="stat-card" style="text-align:center"><div class="stat-value" style="font-size:1.4rem;color:var(--green-light)">18.000</div><div class="stat-label">Studenti Anno 5</div></div>
-          <div class="stat-card" style="text-align:center"><div class="stat-value" style="font-size:1.4rem">25</div><div class="stat-label">Aziende Anno 1</div></div>
-          <div class="stat-card" style="text-align:center"><div class="stat-value" style="font-size:1.4rem;color:var(--green-light)">800</div><div class="stat-label">Aziende Anno 5</div></div>
-          <div class="stat-card" style="text-align:center"><div class="stat-value" style="font-size:1.4rem">5</div><div class="stat-label">Corsi Anno 1</div></div>
-          <div class="stat-card" style="text-align:center"><div class="stat-value" style="font-size:1.4rem;color:var(--green-light)">150</div><div class="stat-label">Corsi Anno 5</div></div>
-        </div>
-        <div class="glass-panel reveal reveal-delay-4" style="margin-top:1rem">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Revenue per anno (&euro;M)</div>
-          <table class="data-table">
-            <thead><tr><th>A1</th><th>A2</th><th>A3</th><th>A4</th><th>A5</th></tr></thead>
-            <tbody>
-              <tr><td>&euro;3,2M</td><td>&euro;12,5M</td><td>&euro;35M</td><td>&euro;72M</td><td class="good">&euro;129,5M</td></tr>
-            </tbody>
-          </table>
-          <table class="data-table" style="margin-top:.5rem">
-            <thead><tr><th></th><th>A1</th><th>A3</th><th>A5</th></tr></thead>
-            <tbody>
-              <tr><td class="metric">EBITDA %</td><td class="bad">-25%</td><td class="good">12%</td><td class="good">30%</td></tr>
-              <tr><td class="metric">Gross Margin</td><td>45%</td><td>65%</td><td class="good">72%</td></tr>
-              <tr><td class="metric">Team FTE</td><td>25</td><td>150</td><td>500</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="glass-panel" style="text-align:center">
+        <div class="stat-value" style="font-size:2rem">75%</div>
+        <div class="stat-label">Retention Studenti A5</div>
+        <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">vs 30% media industry. Personalizzazione AI e community.</p>
+      </div>
+      <div class="glass-panel" style="text-align:center">
+        <div class="stat-value" style="font-size:2rem">125%</div>
+        <div class="stat-label">NRR B2B Anno 5</div>
+        <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">Net Revenue Retention: i clienti B2B espandono i contratti nel tempo.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SLIDE 8: INVESTIMENTO & RITORNO -->
+<!-- SLIDE 8: INVESTIMENTO -->
 <section id="s8" data-label="Investimento">
-  <div class="glow-amber" style="top:10%;right:-20%"></div>
-  <div class="glow-indigo" style="bottom:-10%;left:-10%"></div>
+  <div class="glow-amber" style="bottom:-20%;left:-10%"></div>
   <div class="slide-inner">
-    <div class="section-label reveal">Slide 08 &mdash; I Numeri dell'Investimento</div>
-    <h1 class="reveal reveal-delay-1">&euro;15M investiti,<br><em>&euro;400-500M</em> di valore</h1>
+    <div class="section-label reveal">Slide 08 &mdash; Use of Funds</div>
+    <h1 class="reveal reveal-delay-1">Dove vanno i <em>&euro;4,5 milioni</em></h1>
     <div class="divider reveal reveal-delay-2"></div>
-    <div class="two-col">
-      <div>
-        <div class="glass-panel reveal reveal-delay-2" style="margin-bottom:1rem">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.8rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Use of Funds &mdash; &euro;15M</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">Tech</div><div class="bar-track"><div class="bar-fill bar-fill--indigo bar-anim" data-slide="8" style="--w:40%"></div></div><div class="bar-value">&euro;6M &middot; 40%</div></div>
-            <div class="bar-row"><div class="bar-label">Sales</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="8" style="--w:30%"></div></div><div class="bar-value">&euro;4,5M &middot; 30%</div></div>
-            <div class="bar-row"><div class="bar-label">Ops</div><div class="bar-track"><div class="bar-fill bar-fill--sage bar-anim" data-slide="8" style="--w:20%"></div></div><div class="bar-value">&euro;3M &middot; 20%</div></div>
-            <div class="bar-row"><div class="bar-label">Buffer</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="8" style="--w:10%"></div></div><div class="bar-value">&euro;1,5M &middot; 10%</div></div>
-          </div>
-        </div>
-        <div class="glass-panel reveal reveal-delay-3">
-          <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Enterprise Value</div>
-          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.4;margin-bottom:.5rem">Quanto vale l'azienda se qualcuno volesse comprarla: EBITDA &times; multiplo di settore.</p>
-          <div class="formula" style="display:block">
-            EBITDA <span class="val">&euro;38,9M</span> <span class="op">&times;</span> <span class="val">8-10x</span> <span class="op">=</span> <span class="result">&euro;400-500M</span>
-          </div>
-          <p style="font-size:.7rem;color:var(--text-muted);margin-top:.4rem">Multipli: EdTech 8-10x, SaaS 10-15x, servizi 5-7x. Pre-money valuation: &euro;45M.</p>
+    <p class="body-text reveal reveal-delay-2">L'investimento &egrave; interno al gruppo editoriale. Ecco come viene allocato e perch&eacute;.</p>
+    <div class="bar-chart reveal reveal-delay-3" style="margin-top:1.5rem;max-width:700px">
+      <div class="bar-row"><div class="bar-label" style="min-width:100px">Tecnologia</div><div class="bar-track"><div class="bar-fill bar-fill--indigo bar-anim" data-slide="8" style="--w:40%"></div></div><div class="bar-value">&euro;1,8M &middot; 40%</div></div>
+      <div class="bar-row"><div class="bar-label" style="min-width:100px">Sales & Mktg</div><div class="bar-track"><div class="bar-fill bar-fill--amber bar-anim" data-slide="8" style="--w:30%"></div></div><div class="bar-value">&euro;1,35M &middot; 30%</div></div>
+      <div class="bar-row"><div class="bar-label" style="min-width:100px">Operations</div><div class="bar-track"><div class="bar-fill bar-fill--sage bar-anim" data-slide="8" style="--w:20%"></div></div><div class="bar-value">&euro;900k &middot; 20%</div></div>
+      <div class="bar-row"><div class="bar-label" style="min-width:100px">Working Cap.</div><div class="bar-track"><div class="bar-fill bar-fill--gold bar-anim" data-slide="8" style="--w:7%"></div></div><div class="bar-value">&euro;300k &middot; 7%</div></div>
+      <div class="bar-row"><div class="bar-label" style="min-width:100px">Contingency</div><div class="bar-track"><div class="bar-fill bar-fill--green bar-anim" data-slide="8" style="--w:3%"></div></div><div class="bar-value">&euro;150k &middot; 3%</div></div>
+    </div>
+    <div class="two-col reveal reveal-delay-4" style="margin-top:1.5rem">
+      <div class="glass-panel">
+        <h2 style="font-size:1rem;margin-bottom:.5rem">Return Metrics</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+          <div><div class="stat-value" style="font-size:1.3rem">2,5x</div><div class="stat-label">ROI (base case)</div></div>
+          <div><div class="stat-value" style="font-size:1.3rem">20%</div><div class="stat-label">IRR</div></div>
+          <div><div class="stat-value" style="font-size:1.3rem">36-42</div><div class="stat-label">Payback (mesi)</div></div>
+          <div><div class="stat-value" style="font-size:1.3rem">&euro;11,3M</div><div class="stat-label">Enterprise Value A5</div></div>
         </div>
       </div>
-      <div>
-        <h2 class="reveal reveal-delay-2" style="font-size:1.1rem;margin-bottom:.8rem">Metriche di Ritorno per Investitori</h2>
-        <div class="four-col reveal reveal-delay-3">
-          <div class="stat-card" style="text-align:center">
-            <div class="stat-value" style="font-size:1.6rem">8-12x</div>
-            <div class="stat-label">Exit Multiple</div>
-            <p style="font-size:.6rem;color:var(--text-muted);margin-top:.2rem">Base case return</p>
-          </div>
-          <div class="stat-card" style="text-align:center">
-            <div class="stat-value" style="font-size:1.6rem">55-75%</div>
-            <div class="stat-label">IRR</div>
-            <p style="font-size:.6rem;color:var(--text-muted);margin-top:.2rem">Rendimento annuo (vs 7% borsa)</p>
-          </div>
-          <div class="stat-card" style="text-align:center">
-            <div class="stat-value" style="font-size:1.6rem">28</div>
-            <div class="stat-label">Break-even (mesi)</div>
-            <p style="font-size:.6rem;color:var(--text-muted);margin-top:.2rem">Cash positive mese 32</p>
-          </div>
-          <div class="stat-card" style="text-align:center">
-            <div class="stat-value" style="font-size:1.6rem">&euro;45M</div>
-            <div class="stat-label">Pre-money</div>
-            <p style="font-size:.6rem;color:var(--text-muted);margin-top:.2rem">Valuation Serie A</p>
-          </div>
-        </div>
-        <blockquote class="reveal reveal-delay-4" style="margin-top:1rem;font-size:.95rem">
-          L'IRR del 55-75% significa che i &euro;15M investiti rendono come metterli in un conto che paga il 55-75% di interesse composto annuo. Il mercato azionario rende il 7%.
-        </blockquote>
-        <div class="glass-panel reveal reveal-delay-5" style="margin-top:1rem;text-align:center;border-color:rgba(217,119,6,.2)">
-          <div class="stat-label">Weighted Average Return</div>
-          <div class="stat-value" style="font-size:2rem">9,2x &middot; 56% IRR</div>
-          <p style="font-size:.7rem;color:var(--text-muted);margin-top:.3rem">Ponderato su tutti gli scenari di exit</p>
+      <div class="glass-panel">
+        <h2 style="font-size:1rem;margin-bottom:.5rem">Team Growth</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+          <div><div class="stat-value" style="font-size:1.3rem">7</div><div class="stat-label">FTE Anno 1</div></div>
+          <div><div class="stat-value" style="font-size:1.3rem">40</div><div class="stat-label">FTE Anno 5</div></div>
+          <div><div class="stat-value" style="font-size:1.3rem">&euro;58k</div><div class="stat-label">Costo medio FTE</div></div>
+          <div><div class="stat-value" style="font-size:1.3rem">&euro;2,3M</div><div class="stat-label">Costi team A5</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SLIDE 9: SCENARI & RISCHI -->
+<!-- SLIDE 9: SCENARI -->
 <section id="s9" data-label="Scenari">
-  <div class="glow-indigo" style="bottom:-15%;right:-15%"></div>
+  <div class="glow-indigo" style="top:10%;right:-15%"></div>
   <div class="slide-inner">
-    <div class="section-label reveal">Slide 09 &mdash; Exit Scenarios</div>
-    <h1 class="reveal reveal-delay-1">Cosa succede se <em>le cose<br>non vanno come previsto?</em></h1>
+    <div class="section-label reveal">Slide 09 &mdash; Sensitivity Analysis</div>
+    <h1 class="reveal reveal-delay-1">E se le cose vanno <em>diversamente?</em></h1>
     <div class="divider reveal reveal-delay-2"></div>
-    <div class="four-col" style="margin-top:1rem">
+    <p class="body-text reveal reveal-delay-2">Un buon piano prevede pi&ugrave; scenari. Nessuno ha la sfera di cristallo &mdash; ma possiamo prepararci.</p>
+    <div class="four-col" style="margin-top:1.5rem">
       <div class="scenario-card reveal reveal-delay-2">
-        <div class="pill pill--red">Conservative &middot; 20%</div>
-        <div class="stat-value" style="font-size:1.5rem;margin:.6rem 0 .2rem">5x</div>
-        <div class="stat-label">Exit Multiple</div>
-        <div style="margin-top:.6rem">
-          <div class="stat-value" style="font-size:1.2rem">&euro;75M</div>
-          <div class="stat-label">Investor Return</div>
-        </div>
-        <p style="font-size:.65rem;color:var(--text-muted);margin-top:.4rem;line-height:1.4">IRR 38%. Mercato rallenta, execution parziale.</p>
+        <div class="pill pill--red">Pessimistico &middot; 25%</div>
+        <div class="stat-value" style="font-size:1.5rem;margin-top:.8rem">&euro;8,0M</div>
+        <div class="stat-label">Revenue A5</div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">&euro;800k</div><div class="stat-label">EBITDA &middot; 10%</div></div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">1,8x</div><div class="stat-label">ROI</div></div>
       </div>
       <div class="scenario-card base reveal reveal-delay-3">
-        <div class="pill pill--amber">Base Case &middot; 50%</div>
-        <div class="stat-value" style="font-size:1.5rem;margin:.6rem 0 .2rem">8x</div>
-        <div class="stat-label">Exit Multiple</div>
-        <div style="margin-top:.6rem">
-          <div class="stat-value" style="font-size:1.2rem">&euro;120M</div>
-          <div class="stat-label">Investor Return</div>
-        </div>
-        <p style="font-size:.65rem;color:var(--text-muted);margin-top:.4rem;line-height:1.4">IRR 52%. Piano eseguito, PE exit o strategic sale.</p>
+        <div class="pill pill--amber">Base Case &middot; 55%</div>
+        <div class="stat-value" style="font-size:1.5rem;margin-top:.8rem">&euro;11,0M</div>
+        <div class="stat-label">Revenue A5</div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">&euro;1,88M</div><div class="stat-label">EBITDA &middot; 17%</div></div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">2,5x</div><div class="stat-label">ROI</div></div>
       </div>
       <div class="scenario-card reveal reveal-delay-4">
-        <div class="pill pill--green">Optimistic &middot; 25%</div>
-        <div class="stat-value" style="font-size:1.5rem;margin:.6rem 0 .2rem">12x</div>
-        <div class="stat-label">Exit Multiple</div>
-        <div style="margin-top:.6rem">
-          <div class="stat-value" style="font-size:1.2rem">&euro;180M</div>
-          <div class="stat-label">Investor Return</div>
-        </div>
-        <p style="font-size:.65rem;color:var(--text-muted);margin-top:.4rem;line-height:1.4">IRR 67%. Strategic acquisition da EdTech leader.</p>
+        <div class="pill pill--green">Ottimistico &middot; 15%</div>
+        <div class="stat-value" style="font-size:1.5rem;margin-top:.8rem">&euro;15,0M</div>
+        <div class="stat-label">Revenue A5</div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">&euro;3,5M</div><div class="stat-label">EBITDA &middot; 23%</div></div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">4,7x</div><div class="stat-label">ROI</div></div>
       </div>
       <div class="scenario-card reveal reveal-delay-5">
-        <div class="pill pill--gold">Best Case &middot; 5%</div>
-        <div class="stat-value" style="font-size:1.5rem;margin:.6rem 0 .2rem">20x</div>
-        <div class="stat-label">Exit Multiple</div>
-        <div style="margin-top:.6rem">
-          <div class="stat-value" style="font-size:1.2rem">&euro;300M</div>
-          <div class="stat-label">Investor Return</div>
-        </div>
-        <p style="font-size:.65rem;color:var(--text-muted);margin-top:.4rem;line-height:1.4">IRR 82%. IPO o acquisition da tech giant.</p>
+        <div class="pill pill--gold">Aggressivo &middot; 5%</div>
+        <div class="stat-value" style="font-size:1.5rem;margin-top:.8rem">&euro;22,0M</div>
+        <div class="stat-label">Revenue A5</div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">&euro;5,5M</div><div class="stat-label">EBITDA &middot; 25%</div></div>
+        <div style="margin-top:.6rem"><div class="stat-value" style="font-size:1.2rem">7,3x</div><div class="stat-label">ROI</div></div>
       </div>
     </div>
-    <div class="glass-panel reveal reveal-delay-5" style="margin-top:1.5rem">
-      <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase">Rischi chiave e mitigazioni</div>
-      <div class="stats-row" style="margin-top:.5rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
-        <div style="padding:.3rem 0"><p style="font-size:.85rem;color:var(--text-primary);line-height:1.4"><strong>Competizione big players</strong><br><span style="font-size:.7rem;color:var(--text-muted)">First mover + network effects + partnership esclusive</span></p></div>
-        <div style="padding:.3rem 0"><p style="font-size:.85rem;color:var(--text-primary);line-height:1.4"><strong>Rallentamento economico</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Counter-cyclical + &euro;730M fondi pubblici + revenue diversificati</span></p></div>
-        <div style="padding:.3rem 0"><p style="font-size:.85rem;color:var(--text-primary);line-height:1.4"><strong>Recruiting talenti</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Stock option + remote-first + brand appeal</span></p></div>
-        <div style="padding:.3rem 0"><p style="font-size:.85rem;color:var(--text-primary);line-height:1.4"><strong>Evoluzione tech rapida</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Curricula agili + partnership tech leaders + 15% R&D</span></p></div>
+    <div class="glass-panel reveal reveal-delay-5" style="margin-top:1.5rem;text-align:center;max-width:600px;margin-left:auto;margin-right:auto">
+      <h2 style="font-size:1rem;margin-bottom:.5rem">Media Ponderata Anno 5</h2>
+      <div style="display:flex;justify-content:center;gap:3rem">
+        <div><div class="stat-value" style="font-size:1.5rem">&euro;11,4M</div><div class="stat-label">Revenue</div></div>
+        <div><div class="stat-value" style="font-size:1.5rem">&euro;2,0M</div><div class="stat-label">EBITDA</div></div>
       </div>
     </div>
   </div>
@@ -590,27 +469,27 @@ section:not(.active) .reveal{opacity:0;transform:translateY(30px);transition:opa
       <table class="data-table" style="width:100%">
         <thead><tr><th style="width:110px">Metrica</th><th>Cosa misura</th><th style="width:80px">Anno 1</th><th style="width:80px">Anno 5</th><th style="width:80px">Buono se...</th></tr></thead>
         <tbody>
-          <tr><td class="metric">Revenue</td><td>Soldi che entrano</td><td>&euro;3,2M</td><td class="good">&euro;129,5M</td><td class="benchmark">Cresce</td></tr>
-          <tr><td class="metric">Gross Margin</td><td>% dopo costi diretti</td><td>45%</td><td class="good">72%</td><td class="benchmark">&gt; 40%</td></tr>
-          <tr><td class="metric">EBITDA</td><td>Profitto operativo</td><td class="bad">-&euro;0,8M</td><td class="good">&euro;38,9M</td><td class="benchmark">Positivo</td></tr>
-          <tr><td class="metric">EBITDA Margin</td><td>% profitto operativo</td><td class="bad">-25%</td><td class="good">30%</td><td class="benchmark">&gt; 15%</td></tr>
-          <tr><td class="metric">CAGR</td><td>Crescita media annua</td><td colspan="2" style="text-align:center">~152%</td><td class="benchmark">&gt; 30%</td></tr>
-          <tr><td class="metric">CAC B2C</td><td>Costo per studente</td><td>&euro;150</td><td class="good">&euro;100</td><td class="benchmark">Scende</td></tr>
-          <tr><td class="metric">LTV/CAC B2C</td><td>Ritorno marketing</td><td>14x</td><td class="good">45x</td><td class="benchmark">&gt; 3x</td></tr>
-          <tr><td class="metric">LTV/CAC B2B</td><td>Ritorno enterprise</td><td>12x</td><td class="good">38x</td><td class="benchmark">&gt; 3x</td></tr>
-          <tr><td class="metric">NRR</td><td>Espansione clienti</td><td>110%</td><td class="good">135%</td><td class="benchmark">&gt; 100%</td></tr>
-          <tr><td class="metric">Studenti</td><td>Base utenti B2C</td><td>2.000</td><td class="good">18.000</td><td class="benchmark">Cresce</td></tr>
-          <tr><td class="metric">Aziende</td><td>Clienti B2B</td><td>25</td><td class="good">800</td><td class="benchmark">Cresce</td></tr>
-          <tr><td class="metric">Exit Multiple</td><td>Ritorno investimento</td><td colspan="2" style="text-align:center" class="good">8-12x (base)</td><td class="benchmark">&gt; 5x</td></tr>
-          <tr><td class="metric">IRR</td><td>Rendimento equivalente</td><td colspan="2" style="text-align:center" class="good">55-75%</td><td class="benchmark">&gt; 15%</td></tr>
-          <tr><td class="metric">Break-even</td><td>Tempo recupero</td><td colspan="2" style="text-align:center" class="good">Mese 28</td><td class="benchmark">&lt; 36 mesi</td></tr>
+          <tr><td class="metric">Revenue</td><td>Soldi che entrano</td><td>&euro;775k</td><td class="good">&euro;11,0M</td><td class="benchmark">Cresce</td></tr>
+          <tr><td class="metric">Gross Margin</td><td>% dopo costi diretti</td><td>47%</td><td class="good">56%</td><td class="benchmark">&gt; 40%</td></tr>
+          <tr><td class="metric">EBITDA</td><td>Profitto operativo</td><td class="bad">&minus;&euro;269k</td><td class="good">&euro;1,88M</td><td class="benchmark">Positivo</td></tr>
+          <tr><td class="metric">EBITDA Margin</td><td>% profitto operativo</td><td class="bad">&minus;35%</td><td class="good">17%</td><td class="benchmark">&gt; 15%</td></tr>
+          <tr><td class="metric">FCF</td><td>Cassa generata</td><td class="bad">&minus;&euro;499k</td><td class="good">&euro;985k</td><td class="benchmark">Positivo</td></tr>
+          <tr><td class="metric">CAGR</td><td>Crescita media annua</td><td colspan="2" style="text-align:center">~94%</td><td class="benchmark">&gt; 30%</td></tr>
+          <tr><td class="metric">CAC B2C</td><td>Costo per studente</td><td>&euro;200</td><td class="good">&euro;120</td><td class="benchmark">Scende</td></tr>
+          <tr><td class="metric">LTV/CAC B2C</td><td>Ritorno marketing</td><td>7,5x</td><td class="good">23,3x</td><td class="benchmark">&gt; 3x</td></tr>
+          <tr><td class="metric">LTV/CAC B2B</td><td>Ritorno enterprise</td><td>21,9x</td><td class="good">65x</td><td class="benchmark">&gt; 3x</td></tr>
+          <tr><td class="metric">NRR</td><td>Espansione clienti</td><td>105%</td><td class="good">125%</td><td class="benchmark">&gt; 100%</td></tr>
+          <tr><td class="metric">Studenti</td><td>Base utenti B2C</td><td>75</td><td class="good">800</td><td class="benchmark">Cresce</td></tr>
+          <tr><td class="metric">Aziende</td><td>Clienti B2B</td><td>3</td><td class="good">50</td><td class="benchmark">Cresce</td></tr>
+          <tr><td class="metric">ROI</td><td>Ritorno investimento</td><td colspan="2" style="text-align:center" class="good">2,5x (base)</td><td class="benchmark">&gt; 2x</td></tr>
+          <tr><td class="metric">Payback</td><td>Tempo recupero</td><td colspan="2" style="text-align:center" class="good">36-42 mesi</td><td class="benchmark">&lt; 48 mesi</td></tr>
         </tbody>
       </table>
     </div>
     <div class="cta-box reveal reveal-delay-4" style="max-width:900px;margin:1.5rem auto 0">
-      <h2 style="font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:.6rem">Serie A &euro;15M &rarr; Exit &euro;400-500M in 5 anni</h2>
+      <h2 style="font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:.6rem">Investimento &euro;4,5M &rarr; Enterprise Value &euro;11,3M in 5 anni</h2>
       <div class="divider" style="margin:.8rem auto"></div>
-      <p style="font-size:1rem;color:var(--text-secondary);max-width:550px;margin:0 auto;line-height:1.6">"Not a school. A <strong style="color:var(--amber-light)">transformation engine</strong>."<br>"Not an investment. A <strong style="color:var(--amber-light)">revolution</strong>."</p>
+      <p style="font-size:1rem;color:var(--text-secondary);max-width:550px;margin:0 auto;line-height:1.6">"Not a school. A <strong style="color:var(--amber-light)">transformation engine</strong>."</p>
     </div>
   </div>
 </section>
@@ -624,49 +503,109 @@ section:not(.active) .reveal{opacity:0;transform:translateY(30px);transition:opa
 
 <script>
 (function(){
-  const sections=Array.from(document.querySelectorAll('section')),total=sections.length;
-  const progressTrack=document.getElementById('progressTrack'),progressFill=document.getElementById('progressFill');
-  const counterText=document.getElementById('counterText'),btnPrev=document.getElementById('btnPrev'),btnNext=document.getElementById('btnNext'),scrollHint=document.getElementById('scrollHint');
-  let current=0,isAnimating=false;const LOCK_MS=700;
-  sections.forEach((sec,i)=>{const dot=document.createElement('div');dot.className='progress-dot'+(i===0?' active':'');dot.dataset.label=sec.dataset.label||'';dot.addEventListener('click',()=>goTo(i));progressTrack.appendChild(dot)});
-  const dots=Array.from(document.querySelectorAll('.progress-dot'));
-  function triggerBars(idx){sections[idx].querySelectorAll('.bar-anim[data-slide="'+(idx+1)+'"]').forEach(b=>b.classList.add('visible'))}
-  function resetBars(idx){sections[idx].querySelectorAll('.bar-anim[data-slide="'+(idx+1)+'"]').forEach(b=>b.classList.remove('visible'))}
-  function goTo(idx){
-    if(idx===current||idx<0||idx>=total||isAnimating)return;isAnimating=true;
-    const dir=idx>current?'down':'up',prev=sections[current],next=sections[idx];
-    resetBars(current);prev.classList.remove('active');prev.classList.add(dir==='down'?'prev':'');
-    if(dir==='up'){prev.style.transform='translateY(60px)';prev.style.opacity='0'}
-    next.classList.add('active');next.classList.remove('prev');next.style.transform='';next.style.opacity='';
-    setTimeout(()=>triggerBars(idx),400);current=idx;updateUI();
-    setTimeout(()=>{isAnimating=false;prev.classList.remove('prev')},LOCK_MS);
+  var sections=Array.from(document.querySelectorAll('section')),total=sections.length;
+  var progressTrack=document.getElementById('progressTrack'),progressFill=document.getElementById('progressFill');
+  var counterText=document.getElementById('counterText'),btnPrev=document.getElementById('btnPrev'),btnNext=document.getElementById('btnNext'),scrollHint=document.getElementById('scrollHint');
+  var current=0,isAnimating=false,LOCK_MS=800;
+
+  sections.forEach(function(sec,i){
+    var dot=document.createElement('div');
+    dot.className='progress-dot'+(i===0?' active':'');
+    dot.dataset.label=sec.dataset.label||'';
+    dot.addEventListener('click',function(){goTo(i)});
+    progressTrack.appendChild(dot);
+  });
+  var dots=Array.from(document.querySelectorAll('.progress-dot'));
+
+  function triggerBars(idx){
+    sections[idx].querySelectorAll('.bar-anim[data-slide="'+(idx+1)+'"]').forEach(function(b){b.classList.add('visible')});
   }
+  function resetBars(idx){
+    sections[idx].querySelectorAll('.bar-anim[data-slide="'+(idx+1)+'"]').forEach(function(b){b.classList.remove('visible')});
+  }
+
+  function goTo(idx){
+    if(idx===current||idx<0||idx>=total||isAnimating)return;
+    isAnimating=true;
+    var dir=idx>current?'down':'up';
+    var prev=sections[current],next=sections[idx];
+    resetBars(current);
+    prev.classList.remove('active');
+    prev.classList.add(dir==='down'?'prev':'');
+    if(dir==='up'){prev.style.transform='translateY(60px)';prev.style.opacity='0'}
+    next.classList.add('active');next.classList.remove('prev');
+    next.style.transform='';next.style.opacity='';
+    next.scrollTop=0;
+    setTimeout(function(){triggerBars(idx)},400);
+    current=idx;updateUI();
+    setTimeout(function(){isAnimating=false;prev.classList.remove('prev')},LOCK_MS);
+  }
+
   function updateUI(){
-    dots.forEach((d,i)=>{d.classList.toggle('active',i===current);d.classList.toggle('visited',i<current)});
+    dots.forEach(function(d,i){d.classList.toggle('active',i===current);d.classList.toggle('visited',i<current)});
     counterText.textContent=String(current+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
     btnPrev.disabled=current===0;btnNext.disabled=current===total-1;
     progressFill.style.height=(total>1?(current/(total-1))*100:0)+'%';
     scrollHint.classList.toggle('hidden',current>0);
-    if(current===0&&!counterDone){counterDone=true;animateCounterText(document.getElementById('counterRev'),'€129,5M',1500)}
   }
-  document.addEventListener('keydown',e=>{
-    if(['ArrowDown','ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();goTo(current+1)}
-    if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();goTo(current-1)}
-    if(e.key==='Home'){e.preventDefault();goTo(0)}if(e.key==='End'){e.preventDefault();goTo(total-1)}
+
+  /* Keyboard */
+  document.addEventListener('keydown',function(e){
+    if(['ArrowDown','ArrowRight',' ','PageDown'].indexOf(e.key)!==-1){e.preventDefault();goTo(current+1)}
+    if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)!==-1){e.preventDefault();goTo(current-1)}
+    if(e.key==='Home'){e.preventDefault();goTo(0)}
+    if(e.key==='End'){e.preventDefault();goTo(total-1)}
   });
-  let wheelAccum=0,wheelTimer;
-  document.addEventListener('wheel',e=>{e.preventDefault();wheelAccum+=e.deltaY;clearTimeout(wheelTimer);wheelTimer=setTimeout(()=>{wheelAccum=0},200);if(Math.abs(wheelAccum)>=50){wheelAccum>0?goTo(current+1):goTo(current-1);wheelAccum=0}},{passive:false});
-  let touchStartY=0;
-  document.addEventListener('touchstart',e=>{touchStartY=e.touches[0].clientY},{passive:true});
-  document.addEventListener('touchend',e=>{const d=touchStartY-e.changedTouches[0].clientY;if(Math.abs(d)>50){d>0?goTo(current+1):goTo(current-1)}},{passive:true});
-  btnPrev.addEventListener('click',()=>goTo(current-1));btnNext.addEventListener('click',()=>goTo(current+1));
-  let counterDone=false;
-  function animateCounterText(el,finalText,duration){
-    const frames=['€0','€3,2M','€12,5M','€35M','€72M','€100M','€129,5M'];
-    const interval=duration/frames.length;
-    frames.forEach((f,i)=>{setTimeout(()=>{el.textContent=f},interval*i)});
+
+  /* Wheel — improved debounce for trackpads */
+  var wheelLocked=false;
+  document.addEventListener('wheel',function(e){
+    e.preventDefault();
+    if(wheelLocked||isAnimating)return;
+    var sec=sections[current];
+    var atTop=sec.scrollTop<=1;
+    var atBottom=sec.scrollTop+sec.clientHeight>=sec.scrollHeight-1;
+    /* If section has scrollable content, let it scroll first */
+    if(sec.scrollHeight>sec.clientHeight+5){
+      if(e.deltaY>0&&!atBottom)return;
+      if(e.deltaY<0&&!atTop)return;
+    }
+    if(Math.abs(e.deltaY)<10)return;
+    wheelLocked=true;
+    if(e.deltaY>0){goTo(current+1)}else{goTo(current-1)}
+    setTimeout(function(){wheelLocked=false},LOCK_MS+100);
+  },{passive:false});
+
+  /* Touch */
+  var touchStartY=0;
+  document.addEventListener('touchstart',function(e){touchStartY=e.touches[0].clientY},{passive:true});
+  document.addEventListener('touchend',function(e){
+    var d=touchStartY-e.changedTouches[0].clientY;
+    if(Math.abs(d)>50){d>0?goTo(current+1):goTo(current-1)}
+  },{passive:true});
+
+  btnPrev.addEventListener('click',function(){goTo(current-1)});
+  btnNext.addEventListener('click',function(){goTo(current+1)});
+
+  /* Counter animation */
+  var counterDone=false;
+  function animateCounter(el,target,duration){
+    var start=performance.now();
+    function frame(now){
+      var p=Math.min((now-start)/duration,1);
+      var eased=1-Math.pow(1-p,3);
+      var val=Math.round(eased*target);
+      if(val>=1000){el.textContent='\u20AC'+(val/1000).toFixed(1).replace('.',',')+'M'}
+      else{el.textContent='\u20AC'+val+'k'}
+      if(p<1)requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
   }
-  updateUI();setTimeout(()=>{counterDone=true;animateCounterText(document.getElementById('counterRev'),'€129,5M',1500)},600);
+
+  updateUI();
+  setTimeout(function(){
+    if(!counterDone){counterDone=true;animateCounter(document.getElementById('counterRev'),10978,1800)}
+  },600);
 })();
 </script>
 </body>

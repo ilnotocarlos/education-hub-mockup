@@ -7,14 +7,10 @@ import { BarChart3, Presentation, GraduationCap, BookOpen, ArrowRight } from "lu
 const areas = [
   {
     title: "Business Plan",
-    description: "Financial model, KPI, scenari e proiezioni per l'investimento Serie A da €15M.",
+    description: "Financial model, KPI, scenari e proiezioni per l'investimento da €4,5M.",
     href: "/business-plan",
     icon: BarChart3,
     color: "indigo" as const,
-    stats: [
-      { label: "Target Serie A", value: "€15M" },
-      { label: "Revenue Anno 5", value: "€129.5M" },
-    ],
   },
   {
     title: "Presentazione Investor",
@@ -22,10 +18,6 @@ const areas = [
     href: "/presentation",
     icon: Presentation,
     color: "amber" as const,
-    stats: [
-      { label: "Slide", value: "11" },
-      { label: "Formato", value: "Full-Screen" },
-    ],
   },
   {
     title: "Il Business Plan Spiegato",
@@ -33,10 +25,6 @@ const areas = [
     href: "/business-plan-presentation",
     icon: BookOpen,
     color: "gold" as const,
-    stats: [
-      { label: "Slide", value: "10" },
-      { label: "Focus", value: "CFO Ready" },
-    ],
   },
   {
     title: "Piattaforma Digitale",
@@ -44,10 +32,6 @@ const areas = [
     href: "/home",
     icon: GraduationCap,
     color: "sage" as const,
-    stats: [
-      { label: "Pagine", value: "12+" },
-      { label: "Stack", value: "Next.js 16" },
-    ],
   },
 ]
 
@@ -139,18 +123,6 @@ export default function HubPortalPage() {
                     <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                       {area.description}
                     </p>
-
-                    {/* Stats */}
-                    <div className="flex gap-6 mb-6">
-                      {area.stats.map((stat) => (
-                        <div key={stat.label}>
-                          <div className={`text-lg font-bold font-mono ${colors.stat}`}>
-                            {stat.value}
-                          </div>
-                          <div className="text-xs text-muted-foreground">{stat.label}</div>
-                        </div>
-                      ))}
-                    </div>
 
                     {/* CTA */}
                     <div className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium ${colors.button}`}>
