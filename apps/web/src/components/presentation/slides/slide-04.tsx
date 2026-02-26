@@ -16,7 +16,7 @@ export function Slide04({ skipReveal }: { skipReveal?: boolean }) {
         </motion.h1>
         <motion.div variants={reveal} className="space-y-4 mb-10">
           <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-3xl">
-            Un modello educativo che rompe i paradigmi tradizionali: non una fase della vita, ma un percorso permanente. Non lezioni frontali, ma ambienti dove le competenze emergono naturalmente.
+            Un modello educativo che rompe i paradigmi tradizionali: non una fase della vita, ma un percorso permanente.
           </p>
         </motion.div>
         <motion.div variants={reveal} className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -43,7 +43,7 @@ export function Slide04({ skipReveal }: { skipReveal?: boolean }) {
           </div>
         </motion.div>
         <motion.blockquote variants={reveal} className="mt-10 pl-4 border-l-2 border-[hsl(37,88%,55%)]/40 text-white/50 italic">
-          &ldquo;We don&apos;t teach soft skills, we create environments where they emerge naturally.&rdquo;
+          &ldquo;Non insegniamo soft skills: creiamo ambienti dove emergono naturalmente.&rdquo;
         </motion.blockquote>
       </motion.div>
     </div>

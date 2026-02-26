@@ -16,11 +16,11 @@ export function Slide08({ skipReveal }: { skipReveal?: boolean }) {
         </motion.h1>
         <motion.div variants={reveal} className="flex flex-col md:flex-row items-center justify-center gap-6 mb-10">
           <div className="w-40 h-40 rounded-full border-2 border-[hsl(243,76%,55%)]/50 flex items-center justify-center bg-[hsl(243,76%,55%)]/10">
-            <div className="text-center"><div className="text-lg font-semibold text-white">Humanities</div><div className="text-xs text-white/40 mt-1">storytelling, cultura</div></div>
+            <div className="text-center"><div className="text-lg font-semibold text-white">Umanistica</div><div className="text-xs text-white/40 mt-1">storytelling, cultura</div></div>
           </div>
           <div className="text-3xl font-bold text-[hsl(37,88%,55%)]">+</div>
           <div className="w-40 h-40 rounded-full border-2 border-[hsl(145,15%,55%)]/50 flex items-center justify-center bg-[hsl(145,15%,55%)]/10">
-            <div className="text-center"><div className="text-lg font-semibold text-white">Technology</div><div className="text-xs text-white/40 mt-1">AI, coding, data</div></div>
+            <div className="text-center"><div className="text-lg font-semibold text-white">Tecnologia</div><div className="text-xs text-white/40 mt-1">AI, coding, data</div></div>
           </div>
           <div className="text-3xl font-bold text-[hsl(37,88%,55%)]">=</div>
           <div className="w-40 h-40 rounded-full border-2 border-[hsl(37,88%,55%)]/50 flex items-center justify-center bg-[hsl(37,88%,55%)]/10">
@@ -28,7 +28,7 @@ export function Slide08({ skipReveal }: { skipReveal?: boolean }) {
           </div>
         </motion.div>
         <motion.p variants={reveal} className="text-sm text-white/60 max-w-2xl mx-auto text-center leading-relaxed">
-          McKinsey: 30% dei lavori saranno automatizzati. Il profilo ibrido humanities+tech e il piu scarso e il meglio pagato.
+          McKinsey: 30% dei lavori saranno automatizzati. Il profilo ibrido umanistica+tech e il piu scarso e il meglio pagato.
         </motion.p>
       </motion.div>
     </div>

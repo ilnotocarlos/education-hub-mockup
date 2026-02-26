@@ -6,11 +6,11 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.15 } } }
 
 export function Slide06({ skipReveal }: { skipReveal?: boolean }) {
   const features = [
-    { num: "01", text: "Tiene agganciato lo studente — 75% retention vs 30% industry" },
-    { num: "02", text: "Si adatta alle esigenze — personalizzazione real-time del percorso" },
-    { num: "03", text: "Monitora le competenze — skill dashboard + certificazioni NFT blockchain" },
-    { num: "04", text: "Coach 24/7 — Claude AI + RAG + Pinecone per risposte contestuali" },
-    { num: "05", text: "Community integrata — forum, peer mentorship, alumni network" },
+    { num: "01", text: "Tiene agganciato lo studente — 75% di completamento vs 30% della media di settore" },
+    { num: "02", text: "Si adatta alle esigenze — personalizzazione in tempo reale del percorso" },
+    { num: "03", text: "Monitora le competenze — dashboard competenze + certificazioni NFT blockchain" },
+    { num: "04", text: "Tutor 24/7 — AI conversazionale + base di conoscenza contestuale" },
+    { num: "05", text: "Community integrata — forum, mentorship tra pari, rete alumni" },
   ]
   return (
     <div className="h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 overflow-y-auto">
@@ -29,7 +29,7 @@ export function Slide06({ skipReveal }: { skipReveal?: boolean }) {
             </div>
           ))}
         </motion.div>
-        <motion.p variants={reveal} className="mt-8 text-xs text-white/40 italic">Piattaforma white-label — licenziabile a scuole e corporate</motion.p>
+        <motion.p variants={reveal} className="mt-8 text-xs text-white/40 italic">Piattaforma in licenza — disponibile per scuole e aziende</motion.p>
       </motion.div>
     </div>
   )

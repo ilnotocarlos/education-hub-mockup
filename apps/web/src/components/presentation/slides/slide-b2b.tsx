@@ -78,11 +78,6 @@ export function SlideB2B({ skipReveal }: { skipReveal?: boolean }) {
           </div>
         </motion.div>
 
-        <motion.div variants={reveal} className="p-4 rounded-xl border border-[hsl(37,88%,55%)]/20 bg-gradient-to-r from-[hsl(37,88%,55%)]/5 to-transparent text-center">
-          <p className="text-sm text-white/60">
-            Target Anno 1: <strong className="text-[hsl(37,88%,55%)]">5 aziende partner</strong> &mdash; Revenue B2B stimata: <strong className="text-[hsl(37,88%,55%)]">30%</strong> del fatturato totale
-          </p>
-        </motion.div>
       </motion.div>
     </div>
   )

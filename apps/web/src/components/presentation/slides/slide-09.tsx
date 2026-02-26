@@ -13,7 +13,7 @@ export function Slide09({ skipReveal }: { skipReveal?: boolean }) {
     "Ogni ciclo accelera il successivo",
   ]
   const roles = [
-    { title: "Studente", desc: "Student → Alumni → Mentor → Faculty. Education Insurance." },
+    { title: "Studente", desc: "Studente → Alumni → Mentor → Docente. Accesso a vita alla formazione." },
     { title: "Azienda", desc: "Assume → Commissiona challenge → Usa piattaforma → Co-crea curriculum" },
     { title: "Gruppo Editoriale", desc: "Catalogo → Formazione → Dati → Scelte editoriali" },
   ]
@@ -21,10 +21,10 @@ export function Slide09({ skipReveal }: { skipReveal?: boolean }) {
     <div className="h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 overflow-y-auto">
       <motion.div variants={stagger} initial={skipReveal ? "show" : "hidden"} animate="show" className="max-w-5xl mx-auto w-full">
         <motion.div variants={reveal} className="text-xs uppercase tracking-[0.3em] text-[hsl(37,88%,55%)] mb-6 flex items-center gap-3">
-          <span className="w-8 h-px bg-[hsl(37,88%,55%)]" />La Relazione
+          <span className="w-8 h-px bg-[hsl(37,88%,55%)]" />Ecosistema di Business
         </motion.div>
         <motion.h1 variants={reveal} className="font-display text-3xl md:text-5xl font-light mb-10 leading-[1.1]">
-          Non una transazione. Una <em className="text-[hsl(37,88%,55%)]">relazione</em> che genera valore nel tempo.
+          Circolarita tra <em className="text-[hsl(37,88%,55%)]">relazioni</em> ed <em className="text-[hsl(37,88%,55%)]">economia</em>.
         </motion.h1>
         <motion.div variants={reveal} className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>

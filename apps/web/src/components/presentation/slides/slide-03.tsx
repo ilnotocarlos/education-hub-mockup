@@ -15,7 +15,7 @@ export function Slide03({ skipReveal }: { skipReveal?: boolean }) {
           Ne universita, ne content factory.<br /><em className="text-[hsl(37,88%,55%)]">Un nuovo paradigma.</em>
         </motion.h1>
         <motion.p variants={reveal} className="text-xl text-white/60 italic max-w-3xl leading-relaxed mb-8">
-          &ldquo;Education for transformation, powered by technology. Not a school, a transformation engine.&rdquo;
+          &ldquo;Formazione per la trasformazione, potenziata dalla tecnologia. Non una scuola, un motore di trasformazione.&rdquo;
         </motion.p>
         <motion.div variants={reveal} className="flex flex-wrap gap-3 mb-10">
           {["Flywheel", "Trasformazione", "Creazione", "Competenze verificabili"].map((pill) => (
