@@ -6,7 +6,7 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.15 } } }
 
 export function Slide06({ skipReveal }: { skipReveal?: boolean }) {
   const features = [
-    { num: "01", text: "Tiene agganciato lo studente — 75% di completamento vs 30% della media di settore" },
+    { num: "01", text: "Tiene agganciato lo studente — target 75% di completamento vs 2% retention a 30gg del settore EdTech (Business of Apps)" },
     { num: "02", text: "Si adatta alle esigenze — personalizzazione in tempo reale del percorso" },
     { num: "03", text: "Monitora le competenze — dashboard competenze + certificazioni NFT blockchain" },
     { num: "04", text: "Tutor 24/7 — AI conversazionale + base di conoscenza contestuale" },

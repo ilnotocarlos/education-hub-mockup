@@ -28,7 +28,7 @@ export function Market() {
         {[
           { label: "Mercato Attuale", value: formatCurrency(marketData.currentSize, true), sub: "Formazione professionale IT 2025", icon: Globe },
           { label: "Mercato Proiettato", value: formatCurrency(marketData.projectedSize, true), sub: `CAGR ${marketData.cagr} annuo → 2030`, icon: TrendingUp },
-          { label: "Costo Skill Gap", value: formatCurrency(marketData.skillGapCost, true), sub: `${marketData.skillGapGdp} del PIL italiano`, icon: AlertTriangle },
+          { label: "Costo Skill Gap", value: formatCurrency(marketData.skillGapCost, true), sub: marketData.skillGapGdpNote, icon: AlertTriangle },
           { label: "Fondi Pubblici", value: formatCurrency(marketData.publicFunding, true), sub: "Fondo Nuove Competenze 2025", icon: CheckCircle2 },
         ].map((m) => {
           const Icon = m.icon
