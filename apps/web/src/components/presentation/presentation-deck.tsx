@@ -15,9 +15,10 @@ import { Slide07 } from "./slides/slide-07"
 import { SlideB2B } from "./slides/slide-b2b"
 import { Slide08 } from "./slides/slide-08"
 import { Slide09 } from "./slides/slide-09"
+import { SlideSources } from "./slides/slide-sources"
 
-const slides = [Slide01, Slide02, Slide03, Slide04, Slide05, SlideHardSoft, Slide06, Slide07, SlideB2B, Slide08, Slide09]
-const slideLabels = ["Scenario", "Problema", "Obiettivo", "Paradigma", "Accademia", "Metodo", "Piattaforma AI", "Casa Editrice", "B2B & Corporate", "Convergenza", "Ecosistema di Business"]
+const slides = [Slide01, Slide02, Slide03, Slide04, Slide05, SlideHardSoft, Slide06, Slide07, SlideB2B, Slide08, Slide09, SlideSources]
+const slideLabels = ["Scenario", "Problema", "Obiettivo", "Paradigma", "Accademia", "Metodo", "Piattaforma AI", "Casa Editrice", "B2B & Corporate", "Convergenza", "Ecosistema di Business", "Fonti"]
 
 export function PresentationDeck() {
   const [current, setCurrent] = useState(0)

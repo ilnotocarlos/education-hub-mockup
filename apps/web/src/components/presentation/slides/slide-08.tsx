@@ -28,7 +28,7 @@ export function Slide08({ skipReveal }: { skipReveal?: boolean }) {
           </div>
         </motion.div>
         <motion.p variants={reveal} className="text-sm text-white/60 max-w-2xl mx-auto text-center leading-relaxed">
-          McKinsey: 30% dei lavori saranno automatizzati. Il profilo ibrido umanistica+tech e il piu scarso e il meglio pagato.
+          WEF: il 39% delle competenze attuali sara obsoleto entro il 2030. Il profilo ibrido umanistica+tech e il piu scarso e il meglio pagato.
         </motion.p>
       </motion.div>
     </div>

@@ -17,12 +17,13 @@ export function Slide01({ skipReveal }: { skipReveal?: boolean }) {
         <motion.div variants={reveal} className="mb-12 text-center">
           <div className="text-7xl md:text-9xl font-display font-bold bg-gradient-to-r from-[hsl(37,88%,55%)] to-[hsl(37,88%,75%)] bg-clip-text text-transparent">€44</div>
           <div className="text-2xl text-white/60 mt-2">miliardi/anno — il costo del mismatch</div>
+          <div className="text-xs text-white/30 mt-1">Fonte: Unioncamere-Excelsior, Rapporto Formazione e Lavoro 2025</div>
         </motion.div>
         <motion.div variants={reveal} className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { value: "39%", label: "competenze obsolete entro 2030" },
-            { value: "3M", label: "assunzioni previste 2024-2028" },
-            { value: "€730M", label: "fondi pubblici (Fondo Nuove Competenze)" },
+            { value: "39%", label: "competenze obsolete entro 2030 (WEF 2025)" },
+            { value: "3,5M", label: "fabbisogno lavoratori 2025-2029 (Excelsior)" },
+            { value: "€730M", label: "Fondo Nuove Competenze 2025 (Min. Lavoro)" },
             { value: "+35%", label: "crescita domanda formazione tech" },
           ].map((s, i) => (
             <div key={i} className="p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-center">

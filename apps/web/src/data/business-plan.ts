@@ -16,24 +16,31 @@ export const coreValues = [
   { name: "Real Impact", desc: "Creazione di valore misurabile sul mercato" },
 ]
 
+// ═══════════════════════════════════════════════
+// DATI DI MERCATO — Con fonti verificate
+// Appendice fonti: vedi slide-sources.tsx
+// ═══════════════════════════════════════════════
+
 export const marketData = {
-  currentSize: 2_500_000_000,
+  currentSize: 2_500_000_000, // Stima aggregata formazione professionale Italia (INAPP/ISTAT)
   projectedSize: 3_400_000_000,
   cagr: "6-8%",
-  skillGapCost: 44_000_000_000,
-  skillGapGdp: "2.5%",
-  vacancies: 3_500_000,
-  obsoleteSkills: "39%",
-  publicFunding: 730_000_000,
-  companiesIncreasingBudget: "64%",
+  skillGapCost: 44_000_000_000, // Fonte: Rapporto Formazione e Lavoro 2025, Unioncamere-Excelsior (dato 2023: €43,9 mld)
+  skillGapGdpNote: "3,4% del PIL dei settori analizzati", // Fonte: Unioncamere-Excelsior — NB: non 2,5% del PIL totale
+  vacancies: 3_500_000, // Fonte: Unioncamere-Excelsior, fabbisogno totale lavoratori 2025-2029 (3,3-3,7M)
+  obsoleteSkills: "39%", // Fonte: WEF "Future of Jobs Report 2025", Cap. 3 Skills Outlook
+  publicFunding: 730_000_000, // Fonte: Ministero del Lavoro, FNC3 "Competenze per le Innovazioni" (2025)
+  companiesIncreasingBudget: "64%", // Fonte: LinkedIn "The Future of Recruiting 2025" — edizione Italia (vs 55% globale)
   sectors: [
-    { name: "AI & Data Science", growth: 73, jobs: 250_000 },
-    { name: "Green Economy", growth: 72, jobs: 1_500_000 },
-    { name: "Cybersecurity", growth: 68, jobs: 180_000 },
+    { name: "AI & Data Science", growth: 70, jobs: 250_000 }, // Fonte: LinkedIn/OECD.AI (~70% annuo crescita domanda competenze AI)
+    { name: "Green Economy", growth: 72, jobs: 1_500_000 }, // Fonte: Symbola/Unioncamere "GreenItaly 2025"
+    { name: "Cybersecurity", growth: 68, jobs: 180_000 }, // Fonte: ISC2 Cybersecurity Workforce Study
     { name: "HealthTech", growth: 62, jobs: 320_000 },
     { name: "Digital Marketing", growth: 58, jobs: 200_000 },
   ],
 }
+
+// Fonti complete in appendice — vedi /presentation slide "Fonti e Riferimenti"
 
 // ═══════════════════════════════════════════════
 // REVENUE — Proiezioni consolidate 5 anni
