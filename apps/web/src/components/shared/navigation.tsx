@@ -177,7 +177,7 @@ export function Navigation() {
                   </Button>
                   <Button
                     size="sm"
-                    className="bg-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo))]/90"
+                    className="bg-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo))]/90 text-white"
                     asChild
                   >
                     <Link href="/signup">Registrati</Link>
@@ -297,7 +297,7 @@ export function Navigation() {
                       </Link>
                     </Button>
                     <Button
-                      className="justify-center bg-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo))]/90"
+                      className="justify-center bg-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo))]/90 text-white"
                       asChild
                     >
                       <Link href="/signup" onClick={() => setIsMobileMenuOpen(false)}>

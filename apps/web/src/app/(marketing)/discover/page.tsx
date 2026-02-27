@@ -354,7 +354,7 @@ export default function DiscoverPage() {
                       onClick={handleNext}
                       disabled={!isAnswered()}
                       size="lg"
-                      className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--amber))] hover:shadow-xl transition-all gap-2"
+                      className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--amber))] hover:shadow-xl transition-all gap-2 text-white"
                     >
                       {currentQuestion === QUESTIONS.length - 1 ? "Scopri il Risultato" : "Continua"}
                       <ArrowRight className="w-4 h-4" />
@@ -527,7 +527,7 @@ function ResultsPage({ answers }: { answers: Record<number, Answer> }) {
                 <Button
                   size="lg"
                   asChild
-                  className="flex-1 bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--amber))] hover:shadow-2xl transition-all"
+                  className="flex-1 bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--amber))] hover:shadow-2xl transition-all text-white"
                 >
                   <Link href="/courses/ux-ui-design-master">
                     Scopri il Corso

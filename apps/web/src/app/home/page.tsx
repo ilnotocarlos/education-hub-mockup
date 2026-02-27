@@ -86,7 +86,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 asChild
-                className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] hover:shadow-2xl hover:scale-105 transition-all text-lg px-8 py-6 group"
+                className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] hover:shadow-2xl hover:scale-105 transition-all text-lg px-8 py-6 group text-white"
               >
                 <Link href="/discover">
                   Scopri i Percorsi

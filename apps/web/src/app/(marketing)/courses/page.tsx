@@ -87,7 +87,7 @@ export default function CoursesPage() {
                   variant={areaFilter === area ? "default" : "outline"}
                   size="sm"
                   onClick={() => setAreaFilter(area)}
-                  className={areaFilter === area ? "bg-[hsl(var(--indigo))]" : ""}
+                  className={areaFilter === area ? "bg-[hsl(var(--indigo))] text-white" : ""}
                 >
                   {area === "all" ? "Tutte le Aree" : area}
                 </Button>
@@ -102,7 +102,7 @@ export default function CoursesPage() {
                   variant={levelFilter === level ? "default" : "outline"}
                   size="sm"
                   onClick={() => setLevelFilter(level)}
-                  className={levelFilter === level ? "bg-[hsl(var(--amber))]" : ""}
+                  className={levelFilter === level ? "bg-[hsl(var(--amber))] text-white" : ""}
                 >
                   {level === "all" ? "Tutti i Livelli" : level}
                 </Button>
@@ -178,7 +178,7 @@ export default function CoursesPage() {
               <Button
                 size="lg"
                 asChild
-                className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)]"
+                className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] text-white"
               >
                 <Link href="/discover">
                   Inizia Assessment Gratuito

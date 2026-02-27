@@ -319,7 +319,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ slug: s
                   ))}
                 </div>
 
-                <Button size="lg" className="w-full bg-[hsl(var(--amber))]" asChild>
+                <Button size="lg" className="w-full bg-[hsl(var(--amber))] text-white" asChild>
                   <Link href="/apply">
                     Candidati Ora
                   </Link>

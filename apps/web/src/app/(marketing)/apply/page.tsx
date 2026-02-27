@@ -479,7 +479,7 @@ export default function ApplicationPage() {
 
                     <Button
                       type="submit"
-                      className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)]"
+                      className="bg-gradient-to-r from-[hsl(var(--indigo))] to-[hsl(var(--indigo)_/_0.8)] text-white"
                     >
                       {step === totalSteps ? "Invia Candidatura" : "Continua"}
                       <ArrowRight className="w-4 h-4 ml-2" />

@@ -139,7 +139,7 @@ export default function ForgotPasswordPage() {
 
         <Button
           type="submit"
-          className="w-full bg-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo))]/90"
+          className="w-full bg-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo))]/90 text-white"
           disabled={isLoading}
         >
           {isLoading ? "Invio in corso..." : "Invia istruzioni"}
