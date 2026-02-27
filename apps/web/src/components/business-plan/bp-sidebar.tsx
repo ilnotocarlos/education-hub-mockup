@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import {
   LayoutDashboard, CalendarDays, Briefcase, TrendingUp, Wallet,
   Monitor, Target, AlertTriangle, Handshake, Map, BarChart3,
-  Globe, Rocket
+  Globe, Rocket, ArrowLeft
 } from "lucide-react"
 
 const sections = [
@@ -31,6 +31,14 @@ export function BPSidebar() {
   return (
     <aside className="w-64 shrink-0 border-r border-border bg-card hidden lg:block">
       <div className="sticky top-8 h-[calc(100vh-2rem)] overflow-y-auto p-4">
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" />
+          Torna all&apos;Hub
+        </Link>
+
         <div className="mb-6">
           <h3 className="font-display text-lg font-semibold">Education Hub</h3>
           <p className="text-xs text-muted-foreground">Business Plan 2026-2030</p>

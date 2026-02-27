@@ -2,8 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import Link from "next/link"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Slide01 } from "./slides/slide-01"
 import { Slide02 } from "./slides/slide-02"
 import { Slide03 } from "./slides/slide-03"
@@ -84,16 +83,7 @@ export function PresentationDeck() {
   }
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Exit button */}
-      <Link
-        href="/"
-        className="fixed top-4 left-4 z-50 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-sm transition-all backdrop-blur-sm"
-      >
-        <X className="h-4 w-4" />
-        <span className="hidden sm:inline">Esci</span>
-      </Link>
-
+    <div className="relative w-full h-[calc(100vh-2rem)] overflow-hidden">
       {/* Slide content */}
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
@@ -111,7 +101,7 @@ export function PresentationDeck() {
       </AnimatePresence>
 
       {/* Progress track (right side) */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2">
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -128,7 +118,7 @@ export function PresentationDeck() {
       </div>
 
       {/* Bottom navigation */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex items-center gap-4">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-40 flex items-center gap-4">
         <button onClick={prev} disabled={current === 0} className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors">
           <ChevronLeft className="h-5 w-5" />
         </button>
