@@ -27,8 +27,8 @@ const areas = [
     color: "gold" as const,
   },
   {
-    title: "Piattaforma Digitale",
-    description: "Mockup completo della piattaforma educativa con dashboard, corsi, AI tutor e community.",
+    title: "Piattaforma",
+    description: "Esplora la piattaforma: corsi, dashboard studente, community e strumenti digitali.",
     href: "/home",
     icon: GraduationCap,
     color: "sage" as const,

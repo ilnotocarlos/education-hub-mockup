@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils"
 import { UserMenu } from "./user-menu"
 
 const NAV_ITEMS = [
-  { label: "Dashboard", href: "/(platform)/dashboard" },
-  { label: "I miei corsi", href: "/(platform)/courses" },
-  { label: "Community", href: "/(platform)/community" },
-  { label: "Placement", href: "/(platform)/placement" },
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "I miei corsi", href: "/my-courses" },
+  { label: "Community", href: "/community" },
+  { label: "Placement", href: "/placement" },
 ] as const
 
 export function PlatformNav() {
@@ -19,10 +19,7 @@ export function PlatformNav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
   const isActive = (href: string) => {
-    // Remove route group syntax for comparison
-    const cleanHref = href.replace(/\(platform\)\//, "")
-    const cleanPath = pathname.replace(/\(platform\)\//, "")
-    return cleanPath.startsWith(`/${cleanHref}`)
+    return pathname === href || pathname.startsWith(`${href}/`)
   }
 
   return (
@@ -31,7 +28,7 @@ export function PlatformNav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
-            href="/(platform)/dashboard"
+            href="/dashboard"
             className="font-display text-2xl font-semibold text-foreground"
           >
             Education Hub

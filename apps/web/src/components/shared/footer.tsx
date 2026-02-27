@@ -10,14 +10,7 @@ const footerLinks = {
   ],
   company: [
     { label: "Chi Siamo", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Carriere", href: "/careers" },
-    { label: "Contatti", href: "/contact" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-    { label: "Cookie Policy", href: "/cookies" },
+    { label: "Metodo", href: "/method" },
   ],
   social: [
     { label: "LinkedIn", href: "https://linkedin.com/company/education-hub", icon: Linkedin },
@@ -110,22 +103,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal Links */}
-          <div>
-            <h3 className="font-semibold text-sm mb-4">Legale</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Placeholder for future legal links */}
+          <div />
         </div>
 
         {/* Bottom Bar */}
