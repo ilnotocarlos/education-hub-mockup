@@ -21,7 +21,7 @@ const sources = [
 
 export function SlideSources({ skipReveal }: { skipReveal?: boolean }) {
   return (
-    <div className="h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24 overflow-y-auto">
+    <div className="h-full flex flex-col justify-center px-8 md:px-16 lg:px-24 overflow-y-auto">
       <motion.div variants={stagger} initial={skipReveal ? "show" : "hidden"} animate="show" className="max-w-5xl mx-auto w-full">
         <motion.div variants={reveal} className="text-xs uppercase tracking-[0.3em] text-[hsl(37,88%,55%)] mb-6 flex items-center gap-3">
           <span className="w-8 h-px bg-[hsl(37,88%,55%)]" />Appendice

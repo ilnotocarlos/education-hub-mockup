@@ -135,10 +135,10 @@ const upcomingLessons = [
 ]
 
 const skillsProgress = [
-  { name: "User Research", level: 45, color: "from-indigo-500 to-purple-600" },
-  { name: "Wireframing", level: 30, color: "from-amber-500 to-orange-600" },
-  { name: "Prototyping", level: 15, color: "from-emerald-500 to-teal-600" },
-  { name: "Visual Design", level: 10, color: "from-rose-500 to-pink-600" }
+  { name: "User Research", level: 45, color: "from-neutral-800 to-neutral-600" },
+  { name: "Wireframing", level: 30, color: "from-neutral-600 to-neutral-400" },
+  { name: "Prototyping", level: 15, color: "from-neutral-500 to-neutral-300" },
+  { name: "Visual Design", level: 10, color: "from-neutral-400 to-neutral-200" }
 ]
 
 const communityActivity = [

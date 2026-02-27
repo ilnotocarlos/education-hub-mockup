@@ -24,8 +24,8 @@ const areas = [
     icon: Palette,
     description: "UX/UI Design, AI Experience Design e Human-Robot Interaction per creare esperienze memorabili tra umani, schermi e macchine.",
     courses: ["UX/UI Design", "AI Experience Design", "Robotics & HRI", "Product Design"],
-    color: "from-purple-500 to-pink-600",
-    bgColor: "bg-purple-50",
+    color: "from-neutral-700 to-neutral-900",
+    bgColor: "bg-muted",
     stats: "350 studenti attivi"
   },
   {
@@ -34,8 +34,8 @@ const areas = [
     icon: Code,
     description: "Full-Stack Development, AI Engineering, IoT e Data Science per costruire i sistemi intelligenti del futuro.",
     courses: ["Full-Stack Dev", "AI Engineering", "IoT Systems", "Data Science"],
-    color: "from-blue-500 to-cyan-600",
-    bgColor: "bg-blue-50",
+    color: "from-neutral-500 to-neutral-700",
+    bgColor: "bg-muted",
     stats: "569 studenti attivi"
   },
   {
@@ -44,8 +44,8 @@ const areas = [
     icon: TrendingUp,
     description: "Product Management, AI Strategy e Smart Operations per guidare la trasformazione digitale nelle aziende.",
     courses: ["Product Mgmt", "AI Strategy", "Smart Business", "Growth Marketing"],
-    color: "from-amber-500 to-orange-600",
-    bgColor: "bg-amber-50",
+    color: "from-neutral-400 to-neutral-600",
+    bgColor: "bg-muted",
     stats: "337 studenti attivi"
   }
 ]

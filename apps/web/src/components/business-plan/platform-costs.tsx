@@ -293,10 +293,10 @@ export function PlatformCosts() {
                         <td className="py-2 px-2 font-medium">{c.service}</td>
                         <td className="py-2 px-2">
                           <span className={`text-xs px-1.5 py-0.5 rounded-full ${
-                            c.category === 'AI/ML' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300' :
-                            c.category === 'Infrastruttura' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300' :
-                            c.category === 'Blockchain' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300' :
-                            'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300'
+                            c.category === 'AI/ML' ? 'bg-muted text-foreground' :
+                            c.category === 'Infrastruttura' ? 'bg-muted text-foreground' :
+                            c.category === 'Blockchain' ? 'bg-muted text-foreground' :
+                            'bg-muted text-foreground'
                           }`}>
                             {c.category}
                           </span>
@@ -422,9 +422,9 @@ export function PlatformCosts() {
                         <td className="py-2 px-2 font-medium">{o.strategy}</td>
                         <td className="py-2 px-2">
                           <span className={`text-xs px-1.5 py-0.5 rounded-full ${
-                            o.area === 'AI/ML' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300' :
-                            o.area === 'Blockchain' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300' :
-                            'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300'
+                            o.area === 'AI/ML' ? 'bg-muted text-foreground' :
+                            o.area === 'Blockchain' ? 'bg-muted text-foreground' :
+                            'bg-muted text-foreground'
                           }`}>
                             {o.area}
                           </span>

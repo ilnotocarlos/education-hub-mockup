@@ -33,7 +33,7 @@ export default function LessonPage() {
   const [currentSection, setCurrentSection] = useState(1)
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {/* Top Navigation */}
       <div className="bg-white border-b sticky top-24 z-10 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between flex-wrap gap-4">
@@ -45,7 +45,7 @@ export default function LessonPage() {
           <div className="flex-1 mx-8 min-w-[200px]">
             <div className="flex items-center justify-between text-sm mb-2">
               <span className="font-medium">Lesson 1.2: Design Thinking Process</span>
-              <span className="text-gray-600">{progress}%</span>
+              <span className="text-muted-foreground">{progress}%</span>
             </div>
             <Progress value={progress} className="h-2" />
           </div>
@@ -72,7 +72,7 @@ export default function LessonPage() {
               <Badge variant="outline">60 min</Badge>
               <Badge variant="outline">UX/UI Master</Badge>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
               🎓 Lesson 1.2: Design Thinking Process
             </h1>
           </div>
@@ -81,7 +81,7 @@ export default function LessonPage() {
           <Card className="mb-6">
             <CardContent className="p-6">
               <h3 className="font-semibold mb-4">🎛️ Preferenze Contenuto</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Come vuoi fruire questa lezione? Scegli il formato che preferisci.
               </p>
 
@@ -144,12 +144,12 @@ export default function LessonPage() {
 
           {/* Accessibility Banner */}
           {accessibilityMode && (
-            <Card className="mb-6 border-blue-200 bg-blue-50">
+            <Card className="mb-6 border-border bg-muted">
               <CardContent className="p-4">
-                <h4 className="font-semibold text-blue-900 mb-2">
+                <h4 className="font-semibold text-foreground mb-2">
                   ♿ Modalità Accessibilità Attiva
                 </h4>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-blue-800">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-foreground">
                   <div>✓ Font leggibile</div>
                   <div>✓ Spaziatura 2x</div>
                   <div>✓ Alto contrasto</div>
@@ -165,30 +165,30 @@ export default function LessonPage() {
           <Card className="mb-6">
             <CardContent className={`p-8 ${accessibilityMode ? 'leading-relaxed' : ''}`}>
               <div className="mb-6 text-center">
-                <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+                <Badge className="bg-foreground text-background">
                   Sezione {currentSection} di 4
                 </Badge>
               </div>
 
-              <h2 className={`text-2xl font-bold text-gray-900 mb-6 text-center ${accessibilityMode ? 'text-3xl mb-8' : ''}`}>
+              <h2 className={`text-2xl font-bold text-foreground mb-6 text-center ${accessibilityMode ? 'text-3xl mb-8' : ''}`}>
                 Introduzione al Design Thinking
               </h2>
 
               {/* Video Player */}
               {(contentMode === "video-text" || contentMode === "video") && (
                 <div className="mb-8">
-                  <div className="aspect-video bg-gray-900 rounded-lg relative overflow-hidden shadow-lg">
+                  <div className="aspect-video bg-foreground rounded-lg relative overflow-hidden shadow-lg">
                     {/* Video placeholder */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-900 to-pink-900">
+                    <div className="absolute inset-0 flex items-center justify-center bg-foreground">
                       <Button
                         size="lg"
-                        className="rounded-full w-16 h-16 bg-white hover:bg-gray-100 shadow-xl"
+                        className="rounded-full w-16 h-16 bg-white hover:bg-muted shadow-xl"
                         onClick={() => setIsPlaying(!isPlaying)}
                       >
                         {isPlaying ? (
-                          <Pause className="w-8 h-8 text-gray-900" />
+                          <Pause className="w-8 h-8 text-foreground" />
                         ) : (
-                          <Play className="w-8 h-8 text-gray-900 ml-1" />
+                          <Play className="w-8 h-8 text-foreground ml-1" />
                         )}
                       </Button>
                     </div>
@@ -216,7 +216,7 @@ export default function LessonPage() {
                   <div className="flex gap-2 mt-2 flex-wrap">
                     <Badge variant="outline">📝 Transcript disponibile</Badge>
                     <Badge variant="outline">🎧 Audio disponibile</Badge>
-                    {accessibilityMode && <Badge variant="outline" className="bg-blue-100">♿ Sottotitoli attivi</Badge>}
+                    {accessibilityMode && <Badge variant="outline" className="bg-muted">♿ Sottotitoli attivi</Badge>}
                   </div>
                 </div>
               )}
@@ -224,7 +224,7 @@ export default function LessonPage() {
               {/* Audio Player */}
               {contentMode === "audio" && (
                 <div className="mb-8">
-                  <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg p-8 text-white text-center">
+                  <div className="bg-foreground rounded-lg p-8 text-background text-center">
                     <Headphones className="w-16 h-16 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold mb-2">Modalità Audio</h3>
                     <p className="text-sm opacity-90 mb-6">Ascolta la lezione mentre fai altro</p>
@@ -264,7 +264,7 @@ export default function LessonPage() {
                     ma una mentalità che mette le persone al centro dell'innovazione.
                   </p>
 
-                  <div className={`bg-purple-50 border-l-4 border-purple-500 p-4 my-6 ${accessibilityMode ? 'p-6 my-8 border-l-8' : ''}`}>
+                  <div className={`bg-muted border-l-4 border-foreground p-4 my-6 ${accessibilityMode ? 'p-6 my-8 border-l-8' : ''}`}>
                     <p className={`font-semibold mb-2 ${accessibilityMode ? 'text-lg mb-4' : ''}`}>💡 CONCETTO CHIAVE</p>
                     <p className={`mb-0 ${accessibilityMode ? 'text-base' : ''}`}>
                       Design Thinking = Processo NON lineare. Non segui steps 1→2→3,
@@ -272,31 +272,31 @@ export default function LessonPage() {
                     </p>
                   </div>
 
-                  <div className={`bg-white border-2 border-gray-200 rounded-lg p-6 my-6 ${accessibilityMode ? 'p-8 my-8 border-4' : ''}`}>
+                  <div className={`bg-background border-2 border-border rounded-lg p-6 my-6 ${accessibilityMode ? 'p-8 my-8 border-4' : ''}`}>
                     <h4 className={`text-center mb-4 ${accessibilityMode ? 'text-xl mb-6' : ''}`}>Le 5 Fasi del Design Thinking</h4>
                     <div className="flex flex-wrap justify-center items-center gap-4">
                       {["Empathize", "Define", "Ideate", "Prototype", "Test"].map((step, i) => (
                         <div key={step} className="flex items-center">
-                          <div className={`bg-purple-100 border-2 border-purple-500 rounded-full px-4 py-2 font-semibold ${accessibilityMode ? 'border-4 px-6 py-3 text-lg' : ''}`}>
+                          <div className={`bg-muted border-2 border-foreground rounded-full px-4 py-2 font-semibold ${accessibilityMode ? 'border-4 px-6 py-3 text-lg' : ''}`}>
                             {step}
                           </div>
-                          {i < 4 && <ChevronRight className={`text-gray-400 mx-2 ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />}
+                          {i < 4 && <ChevronRight className={`text-muted-foreground/60 mx-2 ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />}
                         </div>
                       ))}
                     </div>
-                    <p className={`text-center text-sm text-gray-600 mt-4 ${accessibilityMode ? 'text-base mt-6' : ''}`}>
+                    <p className={`text-center text-sm text-muted-foreground mt-4 ${accessibilityMode ? 'text-base mt-6' : ''}`}>
                       Processo iterativo - puoi tornare indietro in qualsiasi momento
                     </p>
                   </div>
 
                   {/* Audio Option */}
-                  <div className={`bg-blue-50 rounded-lg p-4 my-6 ${accessibilityMode ? 'p-6 my-8' : ''}`}>
+                  <div className={`bg-muted rounded-lg p-4 my-6 ${accessibilityMode ? 'p-6 my-8' : ''}`}>
                     <div className="flex items-center justify-between flex-wrap gap-4">
                       <div className="flex items-center gap-3">
-                        <Headphones className={`text-blue-600 ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />
+                        <Headphones className={`text-foreground ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />
                         <div>
                           <p className={`font-medium ${accessibilityMode ? 'text-lg' : ''}`}>Ascolta questa sezione</p>
-                          <p className="text-sm text-gray-600">Narrazione AI • 3 min</p>
+                          <p className="text-sm text-muted-foreground">Narrazione AI • 3 min</p>
                         </div>
                       </div>
                       <Button size="sm">
@@ -307,17 +307,17 @@ export default function LessonPage() {
                   </div>
 
                   {/* Book Extract - Content Mashup */}
-                  <div className={`bg-amber-50 border-2 border-amber-200 rounded-lg p-6 my-6 ${accessibilityMode ? 'p-8 my-8 border-4' : ''}`}>
+                  <div className={`bg-muted border-2 border-border rounded-lg p-6 my-6 ${accessibilityMode ? 'p-8 my-8 border-4' : ''}`}>
                     <div className="flex items-start gap-3">
-                      <BookOpen className={`text-amber-600 flex-shrink-0 mt-1 ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />
+                      <BookOpen className={`text-foreground flex-shrink-0 mt-1 ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />
                       <div>
                         <p className={`font-semibold mb-2 ${accessibilityMode ? 'text-lg mb-4' : ''}`}>
                           📚 Approfondimento (Contenuto Casa Editrice)
                         </p>
-                        <p className={`text-sm text-gray-600 mb-3 ${accessibilityMode ? 'text-base mb-4' : ''}`}>
+                        <p className={`text-sm text-muted-foreground mb-3 ${accessibilityMode ? 'text-base mb-4' : ''}`}>
                           Dal libro "Design Thinking for Beginners" di Tim Brown (IDEO)
                         </p>
-                        <blockquote className={`border-l-4 border-amber-500 pl-4 italic text-gray-700 ${accessibilityMode ? 'border-l-8 pl-6 text-base not-italic' : ''}`}>
+                        <blockquote className={`border-l-4 border-foreground pl-4 italic text-muted-foreground ${accessibilityMode ? 'border-l-8 pl-6 text-base not-italic' : ''}`}>
                           "Il Design Thinking è emerso negli anni '60 come metodologia
                           formale per l'innovazione. L'approccio si basa sulla convinzione
                           che i problemi complessi richiedano soluzioni creative che mettano
@@ -331,21 +331,21 @@ export default function LessonPage() {
                   </div>
 
                   {/* External Resources */}
-                  <div className={`border-2 border-gray-200 rounded-lg p-6 my-6 ${accessibilityMode ? 'p-8 my-8 border-4' : ''}`}>
+                  <div className={`border-2 border-border rounded-lg p-6 my-6 ${accessibilityMode ? 'p-8 my-8 border-4' : ''}`}>
                     <h4 className={`font-semibold mb-4 ${accessibilityMode ? 'text-xl mb-6' : ''}`}>🔗 Risorse Extra</h4>
                     <div className="space-y-3">
-                      <a href="#" className={`flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors ${accessibilityMode ? 'p-4 ring-2 ring-transparent hover:ring-purple-300' : ''}`}>
-                        <FileText className={`text-gray-600 ${accessibilityMode ? 'w-6 h-6' : 'w-5 h-5'}`} />
+                      <a href="#" className={`flex items-center gap-3 p-3 hover:bg-muted rounded-lg transition-colors ${accessibilityMode ? 'p-4 ring-2 ring-transparent hover:ring-foreground/30' : ''}`}>
+                        <FileText className={`text-muted-foreground ${accessibilityMode ? 'w-6 h-6' : 'w-5 h-5'}`} />
                         <div>
                           <p className={`font-medium ${accessibilityMode ? 'text-lg' : ''}`}>Design Thinking Toolkit (IDEO)</p>
-                          <p className="text-sm text-gray-600">PDF • 2 MB</p>
+                          <p className="text-sm text-muted-foreground">PDF • 2 MB</p>
                         </div>
                       </a>
-                      <a href="#" className={`flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors ${accessibilityMode ? 'p-4 ring-2 ring-transparent hover:ring-purple-300' : ''}`}>
-                        <Video className={`text-gray-600 ${accessibilityMode ? 'w-6 h-6' : 'w-5 h-5'}`} />
+                      <a href="#" className={`flex items-center gap-3 p-3 hover:bg-muted rounded-lg transition-colors ${accessibilityMode ? 'p-4 ring-2 ring-transparent hover:ring-foreground/30' : ''}`}>
+                        <Video className={`text-muted-foreground ${accessibilityMode ? 'w-6 h-6' : 'w-5 h-5'}`} />
                         <div>
                           <p className={`font-medium ${accessibilityMode ? 'text-lg' : ''}`}>TED Talk: Tim Brown on Design Thinking</p>
-                          <p className="text-sm text-gray-600">Video • 18 min</p>
+                          <p className="text-sm text-muted-foreground">Video • 18 min</p>
                         </div>
                       </a>
                     </div>
@@ -354,7 +354,7 @@ export default function LessonPage() {
               )}
 
               {/* Quick Quiz */}
-              <div className={`bg-green-50 border-2 border-green-200 rounded-lg p-6 mt-8 ${accessibilityMode ? 'p-8 mt-12 border-4' : ''}`}>
+              <div className={`bg-muted border-2 border-border rounded-lg p-6 mt-8 ${accessibilityMode ? 'p-8 mt-12 border-4' : ''}`}>
                 <h3 className={`font-semibold text-lg mb-4 ${accessibilityMode ? 'text-2xl mb-6' : ''}`}>❓ Verifica la Comprensione</h3>
                 <p className={`mb-4 ${accessibilityMode ? 'text-lg mb-6' : ''}`}>Il Design Thinking è un processo:</p>
 
@@ -364,7 +364,7 @@ export default function LessonPage() {
                       <RadioGroupItem value="linear" id="linear" className="peer sr-only" />
                       <Label
                         htmlFor="linear"
-                        className={`flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-white peer-data-[state=checked]:border-green-500 peer-data-[state=checked]:bg-white ${accessibilityMode ? 'p-6 border-4 text-lg ring-2 ring-transparent focus-within:ring-purple-500' : ''}`}
+                        className={`flex items-center gap-3 p-4 border-2 border-border rounded-lg cursor-pointer hover:bg-white peer-data-[state=checked]:border-foreground peer-data-[state=checked]:bg-white ${accessibilityMode ? 'p-6 border-4 text-lg ring-2 ring-transparent focus-within:ring-foreground' : ''}`}
                       >
                         A. Lineare - segui steps sequenziali
                       </Label>
@@ -373,7 +373,7 @@ export default function LessonPage() {
                       <RadioGroupItem value="iterative" id="iterative" className="peer sr-only" />
                       <Label
                         htmlFor="iterative"
-                        className={`flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-white peer-data-[state=checked]:border-green-500 peer-data-[state=checked]:bg-white ${accessibilityMode ? 'p-6 border-4 text-lg ring-2 ring-transparent focus-within:ring-purple-500' : ''}`}
+                        className={`flex items-center gap-3 p-4 border-2 border-border rounded-lg cursor-pointer hover:bg-white peer-data-[state=checked]:border-foreground peer-data-[state=checked]:bg-white ${accessibilityMode ? 'p-6 border-4 text-lg ring-2 ring-transparent focus-within:ring-foreground' : ''}`}
                       >
                         B. Iterativo - vai avanti/indietro tra fasi
                       </Label>
@@ -382,7 +382,7 @@ export default function LessonPage() {
                       <RadioGroupItem value="random" id="random" className="peer sr-only" />
                       <Label
                         htmlFor="random"
-                        className={`flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:bg-white peer-data-[state=checked]:border-green-500 peer-data-[state=checked]:bg-white ${accessibilityMode ? 'p-6 border-4 text-lg ring-2 ring-transparent focus-within:ring-purple-500' : ''}`}
+                        className={`flex items-center gap-3 p-4 border-2 border-border rounded-lg cursor-pointer hover:bg-white peer-data-[state=checked]:border-foreground peer-data-[state=checked]:bg-white ${accessibilityMode ? 'p-6 border-4 text-lg ring-2 ring-transparent focus-within:ring-foreground' : ''}`}
                       >
                         C. Randomico - fai quello che vuoi
                       </Label>
@@ -391,12 +391,12 @@ export default function LessonPage() {
                 </RadioGroup>
 
                 {quizAnswer === "iterative" && (
-                  <div className={`mt-4 p-4 bg-white rounded-lg border-2 border-green-500 ${accessibilityMode ? 'mt-6 p-6 border-4' : ''}`}>
+                  <div className={`mt-4 p-4 bg-white rounded-lg border-2 border-foreground ${accessibilityMode ? 'mt-6 p-6 border-4' : ''}`}>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className={`text-green-500 flex-shrink-0 ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />
+                      <CheckCircle2 className={`text-foreground flex-shrink-0 ${accessibilityMode ? 'w-8 h-8' : 'w-6 h-6'}`} />
                       <div>
-                        <p className={`font-semibold text-green-900 ${accessibilityMode ? 'text-xl mb-3' : ''}`}>✅ Corretto!</p>
-                        <p className={`text-sm text-gray-700 mt-1 ${accessibilityMode ? 'text-base mt-2' : ''}`}>
+                        <p className={`font-semibold text-foreground ${accessibilityMode ? 'text-xl mb-3' : ''}`}>✅ Corretto!</p>
+                        <p className={`text-sm text-muted-foreground mt-1 ${accessibilityMode ? 'text-base mt-2' : ''}`}>
                           Esattamente. Il Design Thinking è un processo iterativo dove
                           puoi tornare indietro e ripetere fasi basandoti sugli insights ottenuti.
                         </p>
@@ -406,12 +406,12 @@ export default function LessonPage() {
                 )}
 
                 {quizAnswer && quizAnswer !== "iterative" && (
-                  <div className={`mt-4 p-4 bg-white rounded-lg border-2 border-red-500 ${accessibilityMode ? 'mt-6 p-6 border-4' : ''}`}>
+                  <div className={`mt-4 p-4 bg-white rounded-lg border-2 border-destructive ${accessibilityMode ? 'mt-6 p-6 border-4' : ''}`}>
                     <div className="flex items-start gap-3">
                       <div className={`flex-shrink-0 ${accessibilityMode ? 'text-2xl' : 'text-xl'}`}>❌</div>
                       <div>
-                        <p className={`font-semibold text-red-900 ${accessibilityMode ? 'text-xl mb-3' : ''}`}>Non proprio...</p>
-                        <p className={`text-sm text-gray-700 mt-1 ${accessibilityMode ? 'text-base mt-2' : ''}`}>
+                        <p className={`font-semibold text-destructive ${accessibilityMode ? 'text-xl mb-3' : ''}`}>Non proprio...</p>
+                        <p className={`text-sm text-muted-foreground mt-1 ${accessibilityMode ? 'text-base mt-2' : ''}`}>
                           Riprova! Pensa alle parole chiave menzionate nella lezione.
                         </p>
                       </div>
@@ -425,7 +425,7 @@ export default function LessonPage() {
                 <Button variant="outline" disabled={currentSection === 1} onClick={() => setCurrentSection(prev => prev - 1)}>
                   ← Sezione Precedente
                 </Button>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-muted-foreground">
                   Sezione {currentSection} di 4
                 </div>
                 <Button onClick={() => setCurrentSection(prev => Math.min(prev + 1, 4))}>
@@ -437,12 +437,12 @@ export default function LessonPage() {
           </Card>
 
           {/* Progress Indicator */}
-          <Card className="bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+          <Card className="bg-muted border-border">
             <CardContent className="p-6">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <p className="font-semibold text-gray-900 mb-1">Ottimo lavoro! 👏</p>
-                  <p className="text-sm text-gray-600">
+                  <p className="font-semibold text-foreground mb-1">Ottimo lavoro! 👏</p>
+                  <p className="text-sm text-muted-foreground">
                     Hai completato {currentSection} di 4 sezioni di questa lezione
                   </p>
                 </div>

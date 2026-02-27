@@ -283,6 +283,6 @@ export const createCourseStats = {
     icon: Star,
     label: "Rating",
     value,
-    iconClassName: "fill-amber-400 text-amber-400"
+    iconClassName: "fill-muted-foreground text-muted-foreground"
   })
 }
