@@ -7,7 +7,7 @@ import { BarChart3, Presentation, GraduationCap, BookOpen, ArrowRight } from "lu
 const areas = [
   {
     title: "Business Plan",
-    description: "Financial model, KPI, scenari e proiezioni per l'investimento da €4,5M.",
+    description: "Financial model, KPI, scenari e proiezioni quinquennali.",
     href: "/business-plan",
     icon: BarChart3,
     color: "indigo" as const,

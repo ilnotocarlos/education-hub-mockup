@@ -38,7 +38,7 @@ export function Overview() {
       <div>
         <div className="flex items-center gap-3 mb-2">
           <h2 className="text-3xl font-bold tracking-tight">{companyInfo.name}</h2>
-          <Badge variant="secondary">{companyInfo.fundingType}</Badge>
+          <Badge variant="secondary">Business Plan 2026–2030</Badge>
         </div>
         <p className="text-muted-foreground max-w-2xl text-base italic">&ldquo;{companyInfo.tagline}&rdquo;</p>
         <p className="text-muted-foreground max-w-3xl mt-3 text-sm leading-relaxed">{companyInfo.purpose}</p>
@@ -240,7 +240,7 @@ export function Overview() {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle>Metriche di Ritorno</CardTitle>
-              <CardDescription>Investimento €4.5M — Return profile a 5 anni</CardDescription>
+              <CardDescription>Return profile a 5 anni</CardDescription>
             </div>
             <Link href="/business-plan/scenarios" className="text-xs text-primary hover:underline">Analisi scenari →</Link>
           </div>

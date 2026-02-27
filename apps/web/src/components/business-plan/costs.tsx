@@ -134,7 +134,7 @@ export function Costs() {
         <TabsList className="grid w-full max-w-2xl grid-cols-4">
           <TabsTrigger value="overview">Panoramica</TabsTrigger>
           <TabsTrigger value="team">Team</TabsTrigger>
-          <TabsTrigger value="funding">Use of Funds</TabsTrigger>
+          <TabsTrigger value="funding">Allocazione Budget</TabsTrigger>
           <TabsTrigger value="efficiency">Efficienza</TabsTrigger>
         </TabsList>
 
@@ -310,8 +310,8 @@ export function Costs() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Allocazione €4.5M</CardTitle>
-                <CardDescription>Distribuzione dell&apos;investimento iniziale</CardDescription>
+                <CardTitle>Allocazione Budget</CardTitle>
+                <CardDescription>Distribuzione del budget complessivo</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="h-72">

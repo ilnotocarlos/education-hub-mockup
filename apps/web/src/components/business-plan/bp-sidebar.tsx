@@ -60,9 +60,8 @@ export function BPSidebar() {
 
         <div className="mt-8 pt-4 border-t border-border">
           <div className="text-xs text-muted-foreground">
-            <div className="font-semibold text-foreground">Investment Ask</div>
-            <div className="text-lg font-bold text-primary mt-1">€4.5M</div>
-            <div className="mt-1">Serie A — Internal Group</div>
+            <div className="font-semibold text-foreground">Piano Quinquennale</div>
+            <div className="text-lg font-bold text-primary mt-1">2026–2030</div>
           </div>
         </div>
       </div>

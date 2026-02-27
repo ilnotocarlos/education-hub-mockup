@@ -4,8 +4,6 @@ export const companyInfo = {
   vision: "Essere il catalizzatore della rinascita educativa italiana, dove apprendimento e lavoro si fondono in un ecosistema continuo di crescita, innovazione e realizzazione umana.",
   mission: "Progettiamo esperienze trasformative che fondono tecnologia, umanità e business, creando professionisti che non solo risolvono problemi, ma immaginano futuri.",
   purpose: "Colmare il gap tra potenziale umano e opportunità professionali, trasformando l'educazione da trasferimento di nozioni a liberazione di talenti.",
-  fundingAsk: 4_500_000,
-  fundingType: "Internal Group Investment",
   timeline: "5 anni (2026-2030)",
   breakeven: "Mese 28-32",
 }

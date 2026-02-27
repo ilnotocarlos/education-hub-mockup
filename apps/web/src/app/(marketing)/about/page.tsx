@@ -88,8 +88,8 @@ const timeline = [
   },
   {
     year: "2026",
-    title: "Serie A",
-    description: "Target funding 15M per scalare a 10.000 studenti/anno.",
+    title: "Scala",
+    description: "Obiettivo: scalare a 10.000 studenti/anno entro il 2030.",
     icon: Award
   }
 ]
