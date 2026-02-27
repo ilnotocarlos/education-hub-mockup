@@ -49,9 +49,9 @@ const courses = [
     color: "from-purple-500 to-pink-600"
   },
   {
-    id: "frontend-dev",
-    slug: "frontend-development-bootcamp",
-    title: "Frontend Development Bootcamp",
+    id: "full-stack-development",
+    slug: "full-stack-development",
+    title: "Full-Stack Development",
     status: "upcoming" as const,
     progress: 0,
     lessonsCompleted: 0,
@@ -66,9 +66,9 @@ const courses = [
     color: "from-blue-500 to-cyan-600"
   },
   {
-    id: "user-research",
-    slug: "user-research-fundamentals",
-    title: "User Research Fundamentals",
+    id: "product-management",
+    slug: "product-management",
+    title: "Product Management",
     status: "completed" as const,
     progress: 100,
     lessonsCompleted: 8,
@@ -81,7 +81,7 @@ const courses = [
     grade: "Eccellente",
     certificateId: "cert-001",
     instructor: "Anna Bianchi",
-    skills: ["User Interviews", "Surveys", "Data Analysis"],
+    skills: ["Product Strategy", "Roadmap", "Analytics", "Stakeholder Management"],
     color: "from-green-500 to-emerald-600"
   }
 ]
