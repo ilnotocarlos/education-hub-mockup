@@ -4,8 +4,11 @@ export const companyInfo = {
   vision: "Essere il catalizzatore della rinascita educativa italiana, dove apprendimento e lavoro si fondono in un ecosistema continuo di crescita, innovazione e realizzazione umana.",
   mission: "Progettiamo esperienze trasformative che fondono tecnologia, umanità e business, creando professionisti che non solo risolvono problemi, ma immaginano futuri.",
   purpose: "Colmare il gap tra potenziale umano e opportunità professionali, trasformando l'educazione da trasferimento di nozioni a liberazione di talenti.",
-  timeline: "5 anni (2026-2030)",
-  breakeven: "Mese 28-32",
+  timeline: "5 anni (Apr 2026 - Mar 2031)",
+  operationalStart: "Aprile 2026",
+  firstMasterLive: "Settembre 2026",
+  funding: "Self-funded (bootstrap)",
+  breakeven: "Anno 3 (EBITDA)",
 }
 
 export const coreValues = [
@@ -44,20 +47,21 @@ export const marketData = {
 
 // ═══════════════════════════════════════════════
 // REVENUE — Proiezioni consolidate 5 anni
-// Studenti: 75 → 150 → 250 → 500 → 800
-// Clienti B2B: 3 → 10 → 20 → 30 → 50
+// Anno 1: Apr 2026 - Mar 2027 (live da Settembre, 7 mesi di revenue)
+// Studenti: 50 → 150 → 300 → 550 → 800
+// Clienti B2B: 2 → 10 → 20 → 35 → 50
 // ═══════════════════════════════════════════════
 
 export const revenueProjections = [
-  { year: "Anno 1", platform: 10, services: 765, total: 775, growth: null },
-  { year: "Anno 2", platform: 50, services: 2040, total: 2090, growth: 170 },
+  { year: "Anno 1", platform: 5, services: 540, total: 545, growth: null },
+  { year: "Anno 2", platform: 50, services: 2040, total: 2090, growth: 183 },
   { year: "Anno 3", platform: 120, services: 3834, total: 3954, growth: 89 },
   { year: "Anno 4", platform: 250, services: 6398, total: 6648, growth: 68 },
   { year: "Anno 5", platform: 450, services: 10528, total: 10978, growth: 65 },
 ]
 
 export const profitability = [
-  { year: "Anno 1", grossMargin: 47, ebitda: -269, ebitdaMargin: -35, netIncome: -299 },
+  { year: "Anno 1", grossMargin: 42, ebitda: -400, ebitdaMargin: -73, netIncome: -430 },
   { year: "Anno 2", grossMargin: 50, ebitda: -78, ebitdaMargin: -4, netIncome: -128 },
   { year: "Anno 3", grossMargin: 53, ebitda: 250, ebitdaMargin: 6, netIncome: 180 },
   { year: "Anno 4", grossMargin: 54, ebitda: 739, ebitdaMargin: 11, netIncome: 553 },
@@ -65,24 +69,24 @@ export const profitability = [
 ]
 
 export const cashFlow = [
-  { year: "Anno 1", ebitda: -269, capex: -150, nwc: -80, fcf: -499, cumulative: -499 },
-  { year: "Anno 2", ebitda: -78, capex: -100, nwc: -120, fcf: -298, cumulative: -797 },
-  { year: "Anno 3", ebitda: 250, capex: -120, nwc: -180, fcf: -50, cumulative: -847 },
-  { year: "Anno 4", ebitda: 739, capex: -150, nwc: -250, fcf: 243, cumulative: -604 },
-  { year: "Anno 5", ebitda: 1880, capex: -170, nwc: -300, fcf: 985, cumulative: 381 },
+  { year: "Anno 1", ebitda: -400, capex: -150, nwc: -60, fcf: -610, cumulative: -610 },
+  { year: "Anno 2", ebitda: -78, capex: -100, nwc: -120, fcf: -298, cumulative: -908 },
+  { year: "Anno 3", ebitda: 250, capex: -120, nwc: -180, fcf: -50, cumulative: -958 },
+  { year: "Anno 4", ebitda: 739, capex: -150, nwc: -250, fcf: 243, cumulative: -715 },
+  { year: "Anno 5", ebitda: 1880, capex: -170, nwc: -300, fcf: 985, cumulative: 270 },
 ]
 
 export const b2cProducts = [
-  { format: "Masterclass", duration: "1-2 giorni", price: 2000, y1Students: 30, y5Students: 320, y5Revenue: 640 },
-  { format: "Bootcamp", duration: "2-4 settimane", price: 2500, y1Students: 20, y5Students: 216, y5Revenue: 540 },
+  { format: "Masterclass", duration: "1-2 giorni", price: 2000, y1Students: 15, y5Students: 320, y5Revenue: 640 },
+  { format: "Bootcamp", duration: "2-4 settimane", price: 2500, y1Students: 15, y5Students: 216, y5Revenue: 540 },
   { format: "Master", duration: "12 settimane", price: 8000, y1Students: 15, y5Students: 160, y5Revenue: 1280 },
-  { format: "Full-time", duration: "12-18 mesi", price: 12000, y1Students: 10, y5Students: 104, y5Revenue: 1248 },
+  { format: "Full-time", duration: "12-18 mesi", price: 12000, y1Students: 5, y5Students: 104, y5Revenue: 1248 },
 ]
 
 export const b2bServices = [
   { service: "Corporate Academy", acv: 250000, y1Clients: 1, y5Clients: 15, y5Revenue: 3750 },
   { service: "Upskilling Programs", acv: 100000, y1Clients: 1, y5Clients: 20, y5Revenue: 2000 },
-  { service: "Innovation Lab", acv: 50000, y1Clients: 1, y5Clients: 15, y5Revenue: 750 },
+  { service: "Innovation Lab", acv: 50000, y1Clients: 0, y5Clients: 15, y5Revenue: 750 },
 ]
 
 export const platformRevenue = [
@@ -112,99 +116,100 @@ export const unitEconomics = {
 }
 
 export const useOfFunds = [
-  { category: "Tecnologia & Piattaforma", amount: 1800000, percent: 40, detail: "MVP + V2, AI/ML, infrastruttura" },
-  { category: "Sales & Marketing", amount: 1350000, percent: 30, detail: "Team sales, campagne digital" },
-  { category: "Operations & Delivery", amount: 900000, percent: 20, detail: "Faculty, contenuti, student success" },
-  { category: "Working Capital", amount: 300000, percent: 7, detail: "Buffer runway (6 mesi)" },
-  { category: "Contingency", amount: 150000, percent: 3, detail: "Spese impreviste" },
+  { category: "Tecnologia & Piattaforma", amount: 420000, percent: 40, detail: "MVP Apr-Ago, V1 launch Set, AI/ML, infrastruttura" },
+  { category: "Sales & Marketing", amount: 100000, percent: 10, detail: "Pipeline B2B, campagne digital pre-lancio" },
+  { category: "Operations & Delivery", amount: 250000, percent: 24, detail: "Faculty, contenuti, student success" },
+  { category: "Personnel", amount: 200000, percent: 19, detail: "Core team 7 FTE (Apr-Ago pre-revenue)" },
+  { category: "Working Capital", amount: 74000, percent: 7, detail: "Buffer operativo" },
 ]
 
 export const returnMetrics = {
-  enterpriseValue: 11_280_000,
-  roiMultiple: 2.5,
-  irr: 20,
-  paybackMonths: "36-42",
-  cumulativeCash: 381_000,
+  enterpriseValue: 11_000_000,
+  roiMultiple: "N/A (self-funded)",
+  irr: "N/A",
+  paybackMonths: "Anno 3 EBITDA, Anno 5 FCF cumulativo",
+  cumulativeCash: 270_000,
 }
 
 export const kpis = {
   students: [
-    { metric: "Studenti Totali", y1: "75", y5: "800" },
+    { metric: "Studenti Totali", y1: "50", y5: "800" },
     { metric: "Retention Annuale", y1: "68%", y5: "75%" },
     { metric: "Placement Rate", y1: "82%", y5: "86%" },
     { metric: "Completion Rate", y1: "85%", y5: "89%" },
     { metric: "NPS", y1: "65", y5: "72" },
   ],
   corporate: [
-    { metric: "Clienti B2B", y1: "3", y5: "50" },
-    { metric: "ACV Medio", y1: "€133k", y5: "€130k" },
+    { metric: "Clienti B2B", y1: "2", y5: "50" },
+    { metric: "ACV Medio", y1: "€175k", y5: "€130k" },
     { metric: "Retention Rate", y1: "65%", y5: "78%" },
     { metric: "NRR", y1: "105%", y5: "125%" },
   ],
   technology: [
-    { metric: "Utenti Piattaforma", y1: "200", y5: "4.000" },
+    { metric: "Utenti Piattaforma", y1: "150", y5: "4.000" },
     { metric: "Uptime", y1: ">99.5%", y5: ">99.9%" },
     { metric: "Costo/Studente/Mese", y1: "€23", y5: "<€18" },
   ],
 }
 
 export const scenarios = [
-  { name: "Pessimistico", probability: 25, revenueY5: 8000, ebitdaY5: 800, margin: 10, roi: 1.8 },
-  { name: "Base Case", probability: 55, revenueY5: 10978, ebitdaY5: 1880, margin: 17, roi: 2.5 },
-  { name: "Ottimistico", probability: 15, revenueY5: 15000, ebitdaY5: 3500, margin: 23, roi: 4.7 },
-  { name: "Aggressivo", probability: 5, revenueY5: 22000, ebitdaY5: 5500, margin: 25, roi: 7.3 },
+  { name: "Pessimistico", probability: 25, revenueY5: 8000, ebitdaY5: 800, margin: 10, roi: 0 },
+  { name: "Base Case", probability: 55, revenueY5: 10978, ebitdaY5: 1880, margin: 17, roi: 0 },
+  { name: "Ottimistico", probability: 15, revenueY5: 15000, ebitdaY5: 3500, margin: 23, roi: 0 },
+  { name: "Aggressivo", probability: 5, revenueY5: 22000, ebitdaY5: 5500, margin: 25, roi: 0 },
 ]
 
 export const roadmap = [
   {
-    phase: "Foundation & MVP",
-    period: "Q1-Q2 2026",
+    phase: "Pre-Launch",
+    period: "Apr - Ago 2026",
     items: [
       "Core team hiring (7 FTE)",
       "Platform MVP development",
-      "2 master curricula design",
-      "3 aziende partner pilot",
-      "75 studenti iscritti",
+      "2 curricula design (AI Engineering, AI Strategy)",
+      "Pipeline B2B: primi contatti aziende",
+      "Content creation e faculty onboarding",
     ],
   },
   {
-    phase: "Platform Launch",
-    period: "Q3-Q4 2026",
+    phase: "Launch & Anno 1",
+    period: "Set 2026 - Mar 2027",
     items: [
-      "Platform V1 launch",
-      "2 corsi attivi",
-      "Revenue run-rate avviato",
-      "Primi feedback studenti",
+      "Primo Master live: AI Engineering (Settembre)",
+      "Masterclass AI Strategy (Ottobre)",
+      "50 studenti B2C iscritti",
+      "2 clienti B2B chiusi",
+      "Platform V1 con AI tutor base",
     ],
   },
   {
-    phase: "Growth",
-    period: "2027",
+    phase: "Growth — Anno 2",
+    period: "Apr 2027 - Mar 2028",
     items: [
       "150 studenti B2C",
       "10 clienti B2B",
+      "3o corso: AI Experience Design",
       "€2.1M revenue",
       "Team scala a 12 FTE",
-      "Near break-even EBITDA",
     ],
   },
   {
-    phase: "AI Enhancement & Scale",
-    period: "2028",
+    phase: "Scale — Anno 3",
+    period: "Apr 2028 - Mar 2029",
     items: [
-      "250 studenti B2C",
+      "300 studenti B2C",
       "20 clienti B2B",
-      "AI tutoring avanzato",
+      "AI tutoring avanzato + blockchain",
       "€4M revenue",
-      "EBITDA positivo",
+      "EBITDA positivo (break-even)",
     ],
   },
   {
-    phase: "Consolidamento",
-    period: "2029-2030",
+    phase: "Consolidamento — Anni 4-5",
+    period: "Apr 2029 - Mar 2031",
     items: [
-      "500→800 studenti B2C",
-      "30→50 clienti B2B",
+      "550→800 studenti B2C",
+      "35→50 clienti B2B",
       "White-label primi deal",
       "€7-11M revenue",
       "17% EBITDA margin",
@@ -261,7 +266,7 @@ export const validationScore = {
 
 export const riskFlags = [
   { risk: "Retention >68%", benchmark: "EdTech benchmark 30%", severity: "high" as const, mitigation: "Community eccezionale + personalizzazione AI" },
-  { risk: "Consegna piattaforma Q4 2026", benchmark: "Deadline critica", severity: "high" as const, mitigation: "MVP approach, sprint iterativi" },
+  { risk: "Consegna piattaforma MVP Ago 2026", benchmark: "Deadline critica per lancio Set", severity: "high" as const, mitigation: "MVP approach, sprint iterativi, team dedicato da Apr" },
   { risk: "Sales cycle B2B 6-9 mesi", benchmark: "Può rallentare crescita", severity: "medium" as const, mitigation: "Pipeline building anticipata, pilot gratuiti" },
   { risk: "Qualità faculty", benchmark: "Dipende da network autori", severity: "medium" as const, mitigation: "Contratti esclusivi, formazione docenti" },
   { risk: "Scala limitata Y5 (800 studenti)", benchmark: "Servono economie di scala", severity: "medium" as const, mitigation: "Focus qualità, premium pricing, B2B revenue" },
@@ -343,9 +348,9 @@ export const teamComposition = [
 export const platformCosts = {
   monthly: [
     {
-      year: "Anno 1", students: 75,
-      aiMl: 850, blockchain: 60, infrastructure: 550, services: 280,
-      total: 1740, annual: 20880, costPerUser: 23.2,
+      year: "Anno 1", students: 50,
+      aiMl: 570, blockchain: 40, infrastructure: 450, services: 280,
+      total: 1340, annual: 16080, costPerUser: 26.8,
     },
     {
       year: "Anno 2", students: 150,
@@ -487,31 +492,31 @@ export const yearlySnapshots: YearlySnapshot[] = [
   {
     year: 1,
     label: "Anno 1",
-    period: "2026",
-    b2cStudents: { masterclass: 30, bootcamp: 20, master: 15, fulltime: 10, total: 75 },
-    b2bClients: { corporateAcademy: 1, upskilling: 1, innovationLab: 1, total: 3 },
+    period: "Apr 2026 - Mar 2027",
+    b2cStudents: { masterclass: 15, bootcamp: 15, master: 15, fulltime: 5, total: 50 },
+    b2bClients: { corporateAcademy: 1, upskilling: 1, innovationLab: 0, total: 2 },
     revenue: {
-      b2cMasterclass: 60, b2cBootcamp: 50, b2cMaster: 120, b2cFulltime: 120, totalB2C: 350,
-      b2bCorporateAcademy: 250, b2bUpskilling: 100, b2bInnovationLab: 50, totalB2B: 400,
-      platform: 10, placement: 15, licensing: 0, totalRevenue: 775,
+      b2cMasterclass: 30, b2cBootcamp: 38, b2cMaster: 120, b2cFulltime: 60, totalB2C: 248,
+      b2bCorporateAcademy: 200, b2bUpskilling: 80, b2bInnovationLab: 0, totalB2B: 280,
+      platform: 5, placement: 12, licensing: 0, totalRevenue: 545,
     },
-    financials: { grossMargin: 47, ebitda: -269, ebitdaMargin: -35, netIncome: -299 },
-    cashflow: { ebitda: -269, capex: -150, nwc: -80, fcf: -499, cumulative: -499 },
+    financials: { grossMargin: 42, ebitda: -400, ebitdaMargin: -73, netIncome: -430 },
+    cashflow: { ebitda: -400, capex: -150, nwc: -60, fcf: -610, cumulative: -610 },
     team: 7,
-    platformUsers: 200,
+    platformUsers: 150,
     kpis: { retention: 68, placement: 82, completion: 85, nps: 65, b2bRetention: 65, nrr: 105 },
     milestones: [
-      "Core team 7 FTE",
-      "Platform MVP",
-      "2 corsi attivi",
-      "75 studenti iscritti",
-      "3 aziende partner",
+      "Core team 7 FTE (Aprile)",
+      "Platform MVP (Agosto)",
+      "Primo Master live (Settembre)",
+      "50 studenti B2C (entro Marzo)",
+      "2 clienti B2B chiusi",
     ],
   },
   {
     year: 2,
     label: "Anno 2",
-    period: "2027",
+    period: "Apr 2027 - Mar 2028",
     b2cStudents: { masterclass: 60, bootcamp: 40, master: 30, fulltime: 20, total: 150 },
     b2bClients: { corporateAcademy: 3, upskilling: 4, innovationLab: 3, total: 10 },
     revenue: {
@@ -535,7 +540,7 @@ export const yearlySnapshots: YearlySnapshot[] = [
   {
     year: 3,
     label: "Anno 3",
-    period: "2028",
+    period: "Apr 2028 - Mar 2029",
     b2cStudents: { masterclass: 100, bootcamp: 68, master: 50, fulltime: 32, total: 250 },
     b2bClients: { corporateAcademy: 6, upskilling: 8, innovationLab: 6, total: 20 },
     revenue: {
@@ -559,7 +564,7 @@ export const yearlySnapshots: YearlySnapshot[] = [
   {
     year: 4,
     label: "Anno 4",
-    period: "2029",
+    period: "Apr 2029 - Mar 2030",
     b2cStudents: { masterclass: 200, bootcamp: 135, master: 100, fulltime: 65, total: 500 },
     b2bClients: { corporateAcademy: 9, upskilling: 12, innovationLab: 9, total: 30 },
     revenue: {
@@ -582,7 +587,7 @@ export const yearlySnapshots: YearlySnapshot[] = [
   {
     year: 5,
     label: "Anno 5",
-    period: "2030",
+    period: "Apr 2030 - Mar 2031",
     b2cStudents: { masterclass: 320, bootcamp: 216, master: 160, fulltime: 104, total: 800 },
     b2bClients: { corporateAcademy: 15, upskilling: 20, innovationLab: 15, total: 50 },
     revenue: {
