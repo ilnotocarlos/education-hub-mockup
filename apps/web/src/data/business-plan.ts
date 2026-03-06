@@ -349,28 +349,28 @@ export const platformCosts = {
   monthly: [
     {
       year: "Anno 1", students: 50,
-      aiMl: 570, blockchain: 40, infrastructure: 450, services: 280,
-      total: 1340, annual: 16080, costPerUser: 26.8,
+      aiMl: 570, blockchain: 40, infrastructure: 450, services: 111,
+      total: 1171, annual: 14052, costPerUser: 23.4,
     },
     {
       year: "Anno 2", students: 150,
-      aiMl: 1700, blockchain: 100, infrastructure: 850, services: 380,
-      total: 3030, annual: 36360, costPerUser: 20.2,
+      aiMl: 1700, blockchain: 100, infrastructure: 850, services: 180,
+      total: 2830, annual: 33960, costPerUser: 18.9,
     },
     {
       year: "Anno 3", students: 250,
-      aiMl: 2790, blockchain: 164, infrastructure: 1200, services: 500,
-      total: 4654, annual: 55848, costPerUser: 18.6,
+      aiMl: 2790, blockchain: 164, infrastructure: 1200, services: 280,
+      total: 4434, annual: 53208, costPerUser: 17.7,
     },
     {
       year: "Anno 4", students: 500,
-      aiMl: 5580, blockchain: 329, infrastructure: 2400, services: 900,
-      total: 9209, annual: 110508, costPerUser: 18.4,
+      aiMl: 5580, blockchain: 329, infrastructure: 2400, services: 430,
+      total: 8739, annual: 104868, costPerUser: 17.5,
     },
     {
       year: "Anno 5", students: 800,
-      aiMl: 8900, blockchain: 520, infrastructure: 3800, services: 1400,
-      total: 14620, annual: 175440, costPerUser: 18.3,
+      aiMl: 8900, blockchain: 520, infrastructure: 3800, services: 620,
+      total: 13840, annual: 166080, costPerUser: 17.3,
     },
   ],
   development: {
@@ -403,9 +403,12 @@ export const platformCosts = {
     { service: "Polygon Gas", desc: "410 mint/mese (€0.02/mint)", costMonth: 10 },
   ],
   servicesBreakdown: [
-    { service: "Auth0", desc: "Autenticazione & SSO", costMonth: 240 },
+    { service: "NextAuth.js v5", desc: "Autenticazione self-hosted (Credentials + OAuth)", costMonth: 0 },
+    { service: "Vercel Pro", desc: "Frontend hosting + CDN + Analytics", costMonth: 20 },
+    { service: "Railway", desc: "Backend Fastify hosting", costMonth: 50 },
     { service: "Sentry", desc: "Error tracking & monitoring", costMonth: 26 },
     { service: "SendGrid", desc: "Email transazionali", costMonth: 15 },
+    { service: "GitHub Actions", desc: "CI/CD pipeline", costMonth: 0 },
   ],
   optimizations: [
     { strategy: "Caching risposte AI", saving: "30-40%", area: "AI/ML", desc: "Cache intelligente per domande ripetute" },

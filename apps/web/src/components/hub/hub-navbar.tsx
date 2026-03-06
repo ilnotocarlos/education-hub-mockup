@@ -7,7 +7,6 @@ import { HubBreadcrumb } from "./hub-breadcrumb"
 
 const areas = [
   { id: "business-plan", label: "Business Plan", href: "/business-plan" },
-  { id: "presentation", label: "Presentazione", href: "/presentation" },
   { id: "piattaforma", label: "Piattaforma", href: "/home" },
 ] as const
 
@@ -22,16 +21,12 @@ const platformPrefixes = [
 function getActiveAreaId(pathname: string): string | null {
   if (pathname === "/") return null
   if (pathname.startsWith("/business-plan")) return "business-plan"
-  if (pathname.startsWith("/presentation")) return "presentation"
   if (platformPrefixes.some((p) => pathname === p || pathname.startsWith(p + "/"))) return "piattaforma"
   return null
 }
 
 export function HubNavbar() {
   const pathname = usePathname()
-
-  // Hide on presentation pages (full-screen immersive)
-  if (pathname.startsWith("/presentation")) return null
 
   const activeId = getActiveAreaId(pathname)
 
