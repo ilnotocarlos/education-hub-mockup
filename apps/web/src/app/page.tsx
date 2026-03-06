@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { BarChart3, Presentation, GraduationCap, BookOpen, ArrowRight } from "lucide-react"
+import { BarChart3, GraduationCap, ArrowRight } from "lucide-react"
 
 const areas = [
   {
@@ -11,20 +11,6 @@ const areas = [
     href: "/business-plan",
     icon: BarChart3,
     color: "indigo" as const,
-  },
-  {
-    title: "Presentazione Investor",
-    description: "Deck interattivo con la visione, il modello di business e la roadmap di crescita.",
-    href: "/presentation",
-    icon: Presentation,
-    color: "amber" as const,
-  },
-  {
-    title: "Il Business Plan Spiegato",
-    description: "Guida visuale ai fondamentali finanziari: Revenue, EBITDA, Unit Economics, Cash Flow e scenari di exit.",
-    href: "/business-plan-presentation",
-    icon: BookOpen,
-    color: "gold" as const,
   },
   {
     title: "Piattaforma",
@@ -43,26 +29,12 @@ const colorConfig = {
     stat: "text-[hsl(var(--indigo))]",
     button: "bg-[hsl(var(--indigo))] hover:bg-[hsl(var(--indigo)_/_0.85)] text-white",
   },
-  amber: {
-    card: "bg-[hsl(var(--amber)_/_0.04)] border-[hsl(var(--amber)_/_0.12)] hover:border-[hsl(var(--amber)_/_0.3)] hover:bg-[hsl(var(--amber)_/_0.06)]",
-    iconWrap: "bg-[hsl(var(--amber)_/_0.1)]",
-    icon: "text-[hsl(var(--amber))]",
-    stat: "text-[hsl(var(--amber))]",
-    button: "bg-[hsl(var(--amber))] hover:bg-[hsl(var(--amber)_/_0.85)] text-white",
-  },
   sage: {
     card: "bg-[hsl(var(--sage)_/_0.04)] border-[hsl(var(--sage)_/_0.12)] hover:border-[hsl(var(--sage)_/_0.3)] hover:bg-[hsl(var(--sage)_/_0.06)]",
     iconWrap: "bg-[hsl(var(--sage)_/_0.1)]",
     icon: "text-[hsl(var(--sage))]",
     stat: "text-[hsl(var(--sage))]",
     button: "bg-[hsl(var(--sage))] hover:bg-[hsl(var(--sage)_/_0.85)] text-white",
-  },
-  gold: {
-    card: "bg-[hsl(var(--gold)_/_0.04)] border-[hsl(var(--gold)_/_0.12)] hover:border-[hsl(var(--gold)_/_0.3)] hover:bg-[hsl(var(--gold)_/_0.06)]",
-    iconWrap: "bg-[hsl(var(--gold)_/_0.1)]",
-    icon: "text-[hsl(var(--gold))]",
-    stat: "text-[hsl(var(--gold))]",
-    button: "bg-[hsl(var(--gold))] hover:bg-[hsl(var(--gold)_/_0.85)] text-white",
   },
 }
 
